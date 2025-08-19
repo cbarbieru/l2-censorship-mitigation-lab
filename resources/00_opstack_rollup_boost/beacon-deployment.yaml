@@ -95,6 +95,9 @@ spec:
               name: beacon-testnet
             - mountPath: /artifacts
               name: beacon-artifacts
+            - mountPath: /data_beacon
+              name: beacon-volume
+
       restartPolicy: Always
       volumes:
         - hostPath:
@@ -107,4 +110,7 @@ spec:
         - hostPath:
             path: /mnt/sceal/storage
           name: beacon-artifacts
+        - hostPath:
+            path: /mnt/sceal/storage/volume-beacon-data
+          name: beacon-volume
           

@@ -56,6 +56,8 @@ spec:
               name: op-geth-jwtsecret
             - mountPath: /data/enode-key-1.txt
               name: op-geth-enode-key
+            - mountPath: /data_opgeth
+              name: op-geth-volume
       restartPolicy: Always
       volumes:
         - hostPath:
@@ -70,3 +72,6 @@ spec:
             path: /mnt/sceal/storage/enode-key-1.txt
             type: File
           name: op-geth-enode-key
+        - hostPath:
+            path: /mnt/sceal/storage/volume-op-geth-data
+          name: op-geth-volume

@@ -3,15 +3,14 @@ kind: ConfigMap
 metadata:
   name: contender-scenario
 data:
-  scenario-stress.toml: |
-    [runtime]
-    tx_count = 100
-    concurrent_sends = 10
-    gas_price = "1gwei"
-
-    [transaction]
-    to = "0x0000000000000000000000000000000000000000"
-    value = "1ether"
+  stress.toml: |
+    [[spam]]
+    [spam.tx]
+    to = "{_sender}"
+    from_pool = "spammers"
+    signature = "hey()"
+    args = []
+    value = "1"
 ---
 apiVersion: v1
 kind: ConfigMap
@@ -21,29 +20,24 @@ data:
   run.sh: |
     #!/bin/sh
 
-    PREFUNDED_PRIV_KEY=0x59c6995e998f97a5a0044966f0945389dc9e86dae88c7a8412f4603b6b78690d
-    PREFUNDED_ADDRESS=0xF39Fd6e51aad88F6F4ce6aB8827279cffFb92266
-
-    ROLLUP_RPC=http://rollup-boost.default.svc.cluster.local:8551
-    BUILDER_RPC=http://op-rbuilder.default.svc.cluster.local:8551
-
+    PREFUNDED_PRIV_KEY=0xac0974bec39a17e36ba4a6b4d238ff944bacb478cbed5efcae784d7bf4f2ff80
+    PREFUNDED_ADDRESS=0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266
     echo "Using prefunded address: $PREFUNDED_ADDRESS"
 
     echo "Running contender setup..."
     contender setup \
       -p $PREFUNDED_PRIV_KEY \
-      /scenario/scenario-stress.toml \
-      -r $ROLLUP_RPC \
-      --optimism
+      /data/scenario/stress.toml \
+      -r http://rollup-boost:8551 \
+      --op
 
     echo "Running fill-block spam workload..."
     contender spam \
-      --tpb 50 \
-      -d 10 \
+      --tps 50 -d 10 -l 1 \
       --min-balance 0.2eth \
       -p $PREFUNDED_PRIV_KEY \
-      -r $BUILDER_RPC \
-      --optimism fill-block
+      -r http://op-rbuilder:8545 \
+      --op fill-block
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -70,9 +64,11 @@ spec:
             - name: contender-data
               mountPath: /root/.contender
             - name: scenario-config
-              mountPath: /scenario
+              mountPath: /data/scenario
             - name: script-config
-              mountPath: /scripts
+              mountPath: /script
+            - name: jwt-secret
+              mountPath: /data/jwtsecret
       volumes:
         - name: contender-data
           emptyDir: {}
@@ -83,4 +79,6 @@ spec:
           configMap:
             name: contender-script
             defaultMode: 0755
-
+        - name: jwt-secret
+          hostPath:
+              path: /mnt/sceal/storage/jwtsecret

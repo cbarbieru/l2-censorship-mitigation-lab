@@ -79,6 +79,8 @@ spec:
                 name: el-genesis
               - mountPath: /data/jwtsecret
                 name: el-jwtsecret
+              - mountPath: /data_reth
+                name: el-volume
       restartPolicy: Always
       volumes:
         - hostPath:
@@ -89,3 +91,6 @@ spec:
             path: /mnt/sceal/storage/jwtsecret
             type: File
           name: el-jwtsecret
+        - hostPath:
+            path: /mnt/sceal/storage/volume-el-data
+          name: el-volume
