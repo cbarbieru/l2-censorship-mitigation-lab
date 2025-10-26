@@ -1,0 +1,8 @@
+sudo /usr/local/bin/k3s kubectl delete -f resources/00_opstack_rollup_boost.yaml -f resources/02_op-rbuilder_tdx.yaml -n test-2
+sudo /usr/local/bin/k3s kubectl delete -f resources/00_opstack_rollup_boost.yaml -f resources/03_tx-order-guarantor_tdx.yaml -n test-3
+sleep 3
+sudo rm -rf /mnt/sceal/storage/
+sudo cp -a storage/. /mnt/sceal/storage/
+sudo /usr/local/bin/k3s kubectl apply -f resources/00_opstack_rollup_boost.yaml -f resources/02_op-rbuilder_tdx.yaml -n test-2
+sleep 3
+echo "test-2 setup finished"

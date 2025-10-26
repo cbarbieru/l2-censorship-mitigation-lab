@@ -1,0 +1,9 @@
+2025-10-25T15:08:26.640624Z  INFO rollup_boost::debug_api: Debug server listening on addr 127.0.0.1:5555
+2025-10-25T15:08:26.653008Z  INFO rollup_boost::server: method registered method="engine_newPayloadV4"
+2025-10-25T15:08:26.654084Z  INFO rollup_boost::server: method registered method="engine_newPayloadV3"
+2025-10-25T15:08:26.654303Z  INFO rollup_boost::server: method registered method="engine_getPayloadV3"
+2025-10-25T15:08:26.654313Z  INFO rollup_boost::server: method registered method="engine_getPayloadV4"
+2025-10-25T15:08:26.654315Z  INFO rollup_boost::server: method registered method="engine_forkchoiceUpdatedV3"
+2025-10-25T15:08:26.654317Z  INFO rollup_boost::server: method registered method="eth_getBlockByNumber"
+2025-10-25T15:08:26.654321Z  INFO rollup_boost::cli: Starting server on :8551
+2025-10-25T15:08:26.689242Z  WARN rollup_boost::health: Failed to get unsafe block from builder client: client error (Connect) - updating health status

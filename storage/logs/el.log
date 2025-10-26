@@ -1,0 +1,42 @@
+2025-10-25T15:08:26.528248Z  INFO Initialized tracing, debug log directory: /root/.cache/reth/logs/dev
+2025-10-25T15:08:26.536948Z  INFO Starting reth version="1.4.8 (127595e)"
+2025-10-25T15:08:26.538879Z  INFO Opening database path="/data_reth/db"
+2025-10-25T15:08:26.681017Z  INFO Launching node
+2025-10-25T15:08:26.754912Z  INFO Saving prune config to toml file
+2025-10-25T15:08:26.761785Z  INFO Configuration loaded path="/data_reth/reth.toml"
+2025-10-25T15:08:26.779183Z  INFO Verifying storage consistency.
+2025-10-25T15:08:26.878011Z  INFO Database opened
+2025-10-25T15:08:26.878609Z  INFO Starting metrics endpoint at 0.0.0.0:9090
+2025-10-25T15:08:27.029844Z  INFO 
+Pre-merge hard forks (block based):
+- Frontier                         @0
+- Homestead                        @0
+- Dao                              @0
+- Tangerine                        @0
+- SpuriousDragon                   @0
+- Byzantium                        @0
+- Constantinople                   @0
+- Petersburg                       @0
+- Istanbul                         @0
+- MuirGlacier                      @0
+- Berlin                           @0
+- London                           @0
+- ArrowGlacier                     @0
+- GrayGlacier                      @0
+Merge hard forks:
+- Paris                            @0 (network is known to be merged)
+Post-merge hard forks (timestamp based):
+- Shanghai                         @1761404902
+- Cancun                           @1761404902
+2025-10-25T15:08:27.042345Z  INFO Transaction pool initialized
+2025-10-25T15:08:27.173757Z  INFO P2P networking initialized enode=enode://722e43658260c84e7dded1c21fca4b01a6dc507b516cf43c6424e8dbd28a23bc22e5cef91c0c1b851c4b9bb069cf026756915aec3b91e8718af01080bd9bfddd@0.0.0.0:30303
+2025-10-25T15:08:27.177065Z  INFO StaticFileProducer initialized
+2025-10-25T15:08:27.205868Z  INFO Pruner initialized prune_config=PruneConfig { block_interval: 5, segments: PruneModes { sender_recovery: None, transaction_lookup: None, receipts: None, account_history: None, storage_history: None, receipts_log_filter: ReceiptsLogPruneConfig({}) } }
+2025-10-25T15:08:27.218872Z  INFO Consensus engine initialized
+2025-10-25T15:08:27.242193Z  INFO Engine API handler initialized
+2025-10-25T15:08:27.266199Z  INFO RPC auth server started url=0.0.0.0:8551
+2025-10-25T15:08:27.269521Z  INFO RPC IPC server started path=/data_reth/reth.ipc
+2025-10-25T15:08:27.269580Z  INFO RPC HTTP server started url=0.0.0.0:8545
+2025-10-25T15:08:27.269590Z  INFO RPC WS server started url=0.0.0.0:8546
+2025-10-25T15:08:27.270715Z  INFO Starting consensus engine
+2025-10-25T15:08:30.221888Z  INFO Status connected_peers=0 latest_block=0

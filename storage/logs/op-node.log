@@ -1,0 +1,8 @@
+t=2025-10-25T15:08:27+0000 lvl=warn msg="Found a deprecated flag which will be removed in a future version" flag_name=p2p.scoring.peers
+t=2025-10-25T15:08:27+0000 lvl=info msg="Not opted in to ProtocolVersions signal loading, disabling ProtocolVersions contract now."
+t=2025-10-25T15:08:27+0000 lvl=info msg="Using default bootnodes, none provided."
+t=2025-10-25T15:08:27+0000 lvl=info msg="No persisted sequencer state loaded"
+t=2025-10-25T15:08:27+0000 lvl=info msg="Rollup Config" l2_chain_id=13 l2_network="unknown L2" l1_chain_id=1337 l1_network="unknown L1" l2_start_time=1761404904 l2_block_hash=0x4f9bcc6be7b683335e3e1e49feb4c6e4e7f531dd446eb36ee3d33bcce0608571 l2_block_number=0 l1_block_hash=0x26ab0f6cb2b60ed4b45a7f0b8092b59ad56e06be8fbbf413ff27216c014a9426 l1_block_number=0 regolith_time="@ genesis" canyon_time="@ genesis" delta_time="@ genesis" ecotone_time="@ genesis" fjord_time="@ genesis" granite_time="@ genesis" holocene_time="@ genesis" isthmus_time="(not configured)" jovian_time="(not configured)" interop_time="(not configured)"
+t=2025-10-25T15:08:27+0000 lvl=info msg="Initializing rollup node" version=v1.13.0-rc.1-5f003211-1743511639
+t=2025-10-25T15:08:34+0000 lvl=info msg="Connected to L1 Beacon API, ready for EIP-4844 blobs retrieval." version=Lighthouse/v7.0.0-beta.0-1888be5/x86_64-linux
+t=2025-10-25T15:08:34+0000 lvl=info msg="loaded new runtime config values!" p2p_seq_address=0xafF0CA253b97e54440965855cec0A8a2E2399896
