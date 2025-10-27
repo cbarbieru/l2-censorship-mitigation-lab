@@ -47,41 +47,22 @@ Restart k3s (containerd) with `sudo systemctl restart k3s`.
 ```bash
 cd ~/
 git clone https://github.com/cbarbieru/builder-playground-opstack-k8s.git
-cd builder-playground-opstack-k8s
-sudo mkdir -p /mnt/sceal/storage
-sudo cp -a storage/. /mnt/sceal/storage/
-cd resources
-k apply -f testing.yaml
-
-# scenario 2
-k create namespace test-2
-k apply -f 00_opstack_rollup_boost.yaml -f 02_op-rbuilder_tdx.yaml -n test-2
-k delete -f ...
-
-# scenario 3
-k create namespace test-3
-k apply -f 00_opstack_rollup_boost.yaml -f 03_tx-order-guarantor_tdx.yaml -n test-3
-k delete -f ...
+cd builder-playground-opstack-k8s/script
+./setup-contender.sh
+./setup-test-1.sh
 ```
 
 # Contender
 ```bash
 # on contender pod
 k exec -it contender-78775dcc8f-5bnqx -- /bin/sh
-cd /script
-# scenario 2
-./run.sh http://op-rbuilder.test-2.svc.cluster.local:8545 10 120 1 1
-# scenario 3
-./run.sh http://tx-order-guarantor.test-3.svc.cluster.local:1545 10 120 1 1
+./script/run-cus.sh
+./script/run-def.sh
 
-unset DEBUG_USEFILE
-contender report
-
-# extract to host
-k cp contender-78775dcc8f-5bnqx:/root/.contender .contender -c contender
+contender report -p 1
 
 # extract to local
-scp -r user@rosablanche-1.maas:~/.contender/ ~/Projects/SCEAL
+scp -r user@rosablanche-1.maas:~/contender/reports ~/Projects/SCEAL
 ```
 
 # Misc
