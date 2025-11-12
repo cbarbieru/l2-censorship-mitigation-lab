@@ -3,6 +3,7 @@
 ### template variables can be set here, but may be overridden by command line options
 [env]
 initialSupply = "0xffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff"
+max_fee_per_gas = "200000000"
 
 ### create contracts, refer to them by their names in latter steps using curly braces
 [[create]]
@@ -185,11 +186,11 @@ kind = "uniswap_v2_swap_weth-testToken"
 to = "{unicheat}"
 signature = "function swap(address tokenIn, address tokenOut, uint256 amountIn) public"
 args = ["{weth}", "{testToken}", "10000000000000000"]
-max_fee_per_gas = "200000000"
-max_priority_fee_per_gas = "20000000"
-fuzz = [
-    { param = "max_priority_fee_per_gas", min = "15000000", max = "20000000" }
-]
+# max_fee_per_gas = "200000000"
+# max_priority_fee_per_gas = "20000000"
+# fuzz = [
+#     { param = "max_priority_fee_per_gas", min = "15000000", max = "20000000" }
+# ]
 
 [[spam]]
 
@@ -198,11 +199,6 @@ kind = "uniswap_v2_swap_testToken-weth"
 to = "{unicheat}"
 signature = "function swap(address tokenIn, address tokenOut, uint256 amountIn) public"
 args = ["{testToken}", "{weth}", "1000000000000000000"]
-max_fee_per_gas = "200000000"
-max_priority_fee_per_gas = "20000000"
-fuzz = [
-    { param = "max_priority_fee_per_gas", min = "15000000", max = "20000000" }
-]
 
 [[spam]]
 
@@ -211,11 +207,6 @@ kind = "uniswap_v2_swap_weth-testToken2"
 to = "{unicheat}"
 signature = "function swap(address tokenIn, address tokenOut, uint256 amountIn) public"
 args = ["{weth}", "{testToken2}", "10000000000000000"]
-max_fee_per_gas = "200000000"
-max_priority_fee_per_gas = "30000000"
-fuzz = [
-    { param = "max_priority_fee_per_gas", min = "25000000", max = "30000000" }
-]
 
 [[spam]]
 
@@ -224,11 +215,6 @@ kind = "uniswap_v2_swap_testToken2-weth"
 to = "{unicheat}"
 signature = "function swap(address tokenIn, address tokenOut, uint256 amountIn) public"
 args = ["{testToken2}", "{weth}", "1000000000000000000"]
-max_fee_per_gas = "200000000"
-max_priority_fee_per_gas = "30000000"
-fuzz = [
-    { param = "max_priority_fee_per_gas", min = "25000000", max = "30000000" }
-]
 
 [[spam]]
 
@@ -237,11 +223,6 @@ kind = "uniswap_v2_swap_testToken-testToken2"
 to = "{unicheat}"
 signature = "function swap(address tokenIn, address tokenOut, uint256 amountIn) public"
 args = ["{testToken}", "{testToken2}", "1000000000000000000"]
-max_fee_per_gas = "200000000"
-max_priority_fee_per_gas = "40000000"
-fuzz = [
-    { param = "max_priority_fee_per_gas", min = "35000000", max = "40000000" }
-]
 
 [[spam]]
 
@@ -250,8 +231,3 @@ kind = "uniswap_v2_swap_testToken2-testToken"
 to = "{unicheat}"
 signature = "function swap(address tokenIn, address tokenOut, uint256 amountIn) public"
 args = ["{testToken2}", "{testToken}", "1000000000000000000"]
-max_fee_per_gas = "200000000"
-max_priority_fee_per_gas = "40000000"
-fuzz = [
-    { param = "max_priority_fee_per_gas", min = "35000000", max = "40000000" }
-]
