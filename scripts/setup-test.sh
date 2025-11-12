@@ -1,0 +1,35 @@
+#!/bin/bash
+
+# First argument is the mode you want to run
+MODE="$1"
+
+# Delete existing resources
+sudo /usr/local/bin/k3s kubectl delete --ignore-not-found=true -f ../resources/01_opstack.yaml -n test-1 
+sudo /usr/local/bin/k3s kubectl delete --ignore-not-found=true -f ../resources/01_opstack.yaml -f ../resources/rollup-boost.yaml -f ../resources/02_op-rbuilder_tdx.yaml -n test-2
+sudo /usr/local/bin/k3s kubectl delete --ignore-not-found=true -f ../resources/01_opstack.yaml -f ../resources/rollup-boost.yaml -f ../resources/03_tx-order-guarantor_tdx.yaml -n test-3
+
+sleep 3
+
+# Reset storage
+sudo rm -rf /mnt/sceal/storage/
+sudo cp -a ../storage/. /mnt/sceal/storage/
+
+# Apply resources depending on the parameter
+case "$MODE" in
+    "1")
+        sudo /usr/local/bin/k3s kubectl apply -f ../resources/01_opstack.yaml -n test-1
+        ;;
+    "2")
+        sudo /usr/local/bin/k3s kubectl apply -f ../resources/01_opstack.yaml -f ../resources/rollup-boost.yaml -f ../resources/02_op-rbuilder_tdx.yaml -n test-2
+        ;;
+    "3")
+        sudo /usr/local/bin/k3s kubectl apply -f ../resources/01_opstack.yaml -f ../resources/rollup-boost.yaml -f ../resources/03_tx-order-guarantor_tdx.yaml -n test-3
+        ;;
+    *)
+        echo "Unknown mode: $MODE. Please use 1, 2, or 3."
+        exit 1
+        ;;
+esac
+
+sleep 3
+echo "test-$MODE setup finished"

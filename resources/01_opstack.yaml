@@ -316,7 +316,7 @@ metadata:
   annotations:
     port.authrpc: "8551"
     port.http: "8545"
-    port.metrics: "6061"
+    port.metrics: "9090"
     port.rpc: "30303"
     port.ws: "8546"
     service: op-geth
@@ -335,17 +335,18 @@ spec:
       annotations:
         port.authrpc: "8551"
         port.http: "8545"
-        port.metrics: "6061"
+        port.metrics: "9090"
         port.rpc: "30303"
         port.ws: "8546"
         service: op-geth
       labels:
         l2.service: op-geth
     spec:
+      # runtimeClassName: kata-qemu-tdx
       containers:
         - args:
             - -c
-            - geth init --datadir /data_opgeth --state.scheme hash /data/l2-genesis.json && exec geth --datadir /data_opgeth --verbosity 3 --http --http.corsdomain "*" --http.vhosts "*" --http.addr 0.0.0.0 --http.port 8545 --http.api web3,debug,eth,txpool,net,engine,miner --ws --ws.addr 0.0.0.0 --ws.port 8546 --ws.origins "*" --ws.api debug,eth,txpool,net,engine,miner --syncmode full --nodiscover --maxpeers 5 --rpc.allow-unprotected-txs --authrpc.addr 0.0.0.0 --authrpc.port 8551 --authrpc.vhosts "*" --authrpc.jwtsecret /data/jwtsecret --gcmode archive --state.scheme hash --port 30303 --nodekey /data/enode-key-1.txt --metrics --metrics.addr 0.0.0.0 --metrics.port 6061
+            - geth init --datadir /data_opgeth --state.scheme hash /data/l2-genesis.json && exec geth --datadir /data_opgeth --verbosity 3 --http --http.corsdomain "*" --http.vhosts "*" --http.addr 0.0.0.0 --http.port 8545 --http.api web3,debug,eth,txpool,net,engine,miner --ws --ws.addr 0.0.0.0 --ws.port 8546 --ws.origins "*" --ws.api debug,eth,txpool,net,engine,miner --syncmode full --nodiscover --maxpeers 5 --rpc.allow-unprotected-txs --authrpc.addr 0.0.0.0 --authrpc.port 8551 --authrpc.vhosts "*" --authrpc.jwtsecret /data/jwtsecret --gcmode archive --state.scheme hash --port 30303 --nodekey /data/enode-key-1.txt --metrics --metrics.addr 0.0.0.0 --metrics.port 9090
           command:
             - /bin/sh
           image: us-docker.pkg.dev/oplabs-tools-artifacts/images/op-geth:v1.101503.2-rc.5
@@ -359,7 +360,7 @@ spec:
               protocol: TCP
             - containerPort: 30303
               protocol: TCP
-            - containerPort: 6061
+            - containerPort: 9090
               protocol: TCP
           volumeMounts:
             - mountPath: /data/l2-genesis.json
@@ -395,7 +396,7 @@ metadata:
   annotations:
     port.authrpc: "8551"
     port.http: "8545"
-    port.metrics: "6061"
+    port.metrics: "9090"
     port.rpc: "30303"
     port.ws: "8546"
     service: op-geth
@@ -416,9 +417,9 @@ spec:
     - name: "30303"
       port: 30303
       targetPort: 30303
-    - name: "6061"
-      port: 6061
-      targetPort: 6061
+    - name: "9090"
+      port: 9090
+      targetPort: 9090
   selector:
     l2.service: op-geth
 
