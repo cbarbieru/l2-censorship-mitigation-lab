@@ -2,7 +2,7 @@
 
 # Parameters
 SERVICE_NAME="$1"  # e.g., op-geth
-NAMESPACE="$3"     # e.g., test-1
+NAMESPACE="$2"     # e.g., test-1
 
 if [[ -z "$SERVICE_NAME" || -z "$NAMESPACE" ]]; then
     echo "Usage: $0 <service-name> <namespace>"
