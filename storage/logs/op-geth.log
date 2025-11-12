@@ -1,0 +1,361 @@
+INFO [11-12|09:00:29.036] Maximum peer count                       ETH=50 total=50
+INFO [11-12|09:00:29.040] Smartcard socket not found, disabling    err="stat /run/pcscd/pcscd.comm: no such file or directory"
+INFO [11-12|09:00:29.051] Set global gas cap                       cap=50,000,000
+INFO [11-12|09:00:29.053] Initializing the KZG library             backend=gokzg
+INFO [11-12|09:00:29.118] Defaulting to pebble as the backing database
+INFO [11-12|09:00:29.118] Allocated cache and file handles         database=/data_opgeth/geth/chaindata cache=16.00MiB handles=16
+INFO [11-12|09:00:29.417] Opened ancient database                  database=/data_opgeth/geth/chaindata/ancient/chain readonly=false
+INFO [11-12|09:00:29.418] State scheme set by user                 scheme=hash
+INFO [11-12|09:00:29.418] Writing custom genesis block
+ERROR[11-12|09:00:29.418] Head block is not reachable
+INFO [11-12|09:00:29.691] Persisted trie from memory database      nodes=3153 size=455.83KiB time=19.197544ms gcnodes=0 gcsize=0.00B gctime=0s livenodes=0 livesize=0.00B
+INFO [11-12|09:00:29.977] Successfully wrote genesis state         database=chaindata hash=1a43fd..68ae7f
+INFO [11-12|09:00:30.124] Starting Geth on Ethereum mainnet...
+INFO [11-12|09:00:30.125] Bumping default cache on mainnet         provided=1024 updated=4096
+INFO [11-12|09:00:30.130] Maximum peer count                       ETH=5 total=5
+INFO [11-12|09:00:30.132] Smartcard socket not found, disabling    err="stat /run/pcscd/pcscd.comm: no such file or directory"
+WARN [11-12|09:00:30.141] Sanitizing cache to Go's GC limits       provided=4096 updated=2613
+INFO [11-12|09:00:30.146] Enabling recording of key preimages since archive mode is used
+WARN [11-12|09:00:30.146] Disabled transaction unindexing for archive node
+WARN [11-12|09:00:30.146] Forcing hash state-scheme for archive mode
+INFO [11-12|09:00:30.146] Set global gas cap                       cap=50,000,000
+INFO [11-12|09:00:30.147] Initializing the KZG library             backend=gokzg
+INFO [11-12|09:00:30.405] Enabling metrics collection
+INFO [11-12|09:00:30.406] Enabling stand-alone metrics HTTP endpoint address=0.0.0.0:6061
+INFO [11-12|09:00:30.406] Starting metrics server                  addr=http://0.0.0.0:6061/debug/metrics
+INFO [11-12|09:00:30.406] Allocated trie memory caches             clean=782.00MiB dirty=0.00B
+INFO [11-12|09:00:30.412] Using pebble as the backing database
+INFO [11-12|09:00:30.412] Allocated cache and file handles         database=/data_opgeth/geth/chaindata cache=1.28GiB handles=524,288
+INFO [11-12|09:00:30.460] Opened ancient database                  database=/data_opgeth/geth/chaindata/ancient/chain readonly=false
+INFO [11-12|09:00:30.462] State scheme set by user                 scheme=hash
+INFO [11-12|09:00:30.484] Genesis hash                             hash=1a43fd..68ae7f
+WARN [11-12|09:00:30.484] failed to load chain config from superchain-registry, skipping override err="unknown chain ID: 13" chain_id=13
+INFO [11-12|09:00:30.484] Checking compatibility                   height=0 time=1,762,938,023 error=<nil>
+INFO [11-12|09:00:30.484] Configured chain config matches existing chain config in storage.
+INFO [11-12|09:00:30.484] 
+INFO [11-12|09:00:30.484] ---------------------------------------------------------------------------------------------------------------------------------------------------------
+INFO [11-12|09:00:30.484] Chain ID:  13 (unknown)
+INFO [11-12|09:00:30.484] Consensus: Optimism
+INFO [11-12|09:00:30.484] 
+INFO [11-12|09:00:30.484] Pre-Merge hard forks (block based):
+INFO [11-12|09:00:30.484]  - Homestead:                   #0        (https://github.com/ethereum/execution-specs/blob/master/network-upgrades/mainnet-upgrades/homestead.md)
+INFO [11-12|09:00:30.484]  - Tangerine Whistle (EIP 150): #0        (https://github.com/ethereum/execution-specs/blob/master/network-upgrades/mainnet-upgrades/tangerine-whistle.md)
+INFO [11-12|09:00:30.484]  - Spurious Dragon/1 (EIP 155): #0        (https://github.com/ethereum/execution-specs/blob/master/network-upgrades/mainnet-upgrades/spurious-dragon.md)
+INFO [11-12|09:00:30.484]  - Spurious Dragon/2 (EIP 158): #0        (https://github.com/ethereum/execution-specs/blob/master/network-upgrades/mainnet-upgrades/spurious-dragon.md)
+INFO [11-12|09:00:30.484]  - Byzantium:                   #0        (https://github.com/ethereum/execution-specs/blob/master/network-upgrades/mainnet-upgrades/byzantium.md)
+INFO [11-12|09:00:30.484]  - Constantinople:              #0        (https://github.com/ethereum/execution-specs/blob/master/network-upgrades/mainnet-upgrades/constantinople.md)
+INFO [11-12|09:00:30.484]  - Petersburg:                  #0        (https://github.com/ethereum/execution-specs/blob/master/network-upgrades/mainnet-upgrades/petersburg.md)
+INFO [11-12|09:00:30.484]  - Istanbul:                    #0        (https://github.com/ethereum/execution-specs/blob/master/network-upgrades/mainnet-upgrades/istanbul.md)
+INFO [11-12|09:00:30.484]  - Muir Glacier:                #0        (https://github.com/ethereum/execution-specs/blob/master/network-upgrades/mainnet-upgrades/muir-glacier.md)
+INFO [11-12|09:00:30.484]  - Berlin:                      #0        (https://github.com/ethereum/execution-specs/blob/master/network-upgrades/mainnet-upgrades/berlin.md)
+INFO [11-12|09:00:30.484]  - London:                      #0        (https://github.com/ethereum/execution-specs/blob/master/network-upgrades/mainnet-upgrades/london.md)
+INFO [11-12|09:00:30.484]  - Arrow Glacier:               #0        (https://github.com/ethereum/execution-specs/blob/master/network-upgrades/mainnet-upgrades/arrow-glacier.md)
+INFO [11-12|09:00:30.484]  - Gray Glacier:                #0        (https://github.com/ethereum/execution-specs/blob/master/network-upgrades/mainnet-upgrades/gray-glacier.md)
+INFO [11-12|09:00:30.485] 
+INFO [11-12|09:00:30.485] Merge configured:
+INFO [11-12|09:00:30.485]  - Hard-fork specification:    https://github.com/ethereum/execution-specs/blob/master/network-upgrades/mainnet-upgrades/paris.md
+INFO [11-12|09:00:30.485]  - Network known to be merged
+INFO [11-12|09:00:30.485]  - Total terminal difficulty:  0
+INFO [11-12|09:00:30.485]  - Merge netsplit block:       #0       
+INFO [11-12|09:00:30.485] 
+INFO [11-12|09:00:30.485] Post-Merge hard forks (timestamp based):
+INFO [11-12|09:00:30.485]  - Shanghai:                    @0          (https://github.com/ethereum/execution-specs/blob/master/network-upgrades/mainnet-upgrades/shanghai.md)
+INFO [11-12|09:00:30.485]  - Cancun:                      @0          (https://github.com/ethereum/execution-specs/blob/master/network-upgrades/mainnet-upgrades/cancun.md)
+INFO [11-12|09:00:30.485]  - Regolith:                    @0         
+INFO [11-12|09:00:30.485]  - Canyon:                      @0         
+INFO [11-12|09:00:30.485]  - Ecotone:                     @0         
+INFO [11-12|09:00:30.485]  - Fjord:                       @0         
+INFO [11-12|09:00:30.485]  - Granite:                     @0         
+INFO [11-12|09:00:30.485]  - Holocene:                    @0         
+INFO [11-12|09:00:30.485] 
+INFO [11-12|09:00:30.485] ---------------------------------------------------------------------------------------------------------------------------------------------------------
+INFO [11-12|09:00:30.485] 
+INFO [11-12|09:00:30.485] Loaded most recent local block           number=0 hash=1a43fd..68ae7f age=7s
+WARN [11-12|09:00:30.517] Failed to load snapshot                  err="missing or corrupted snapshot"
+INFO [11-12|09:00:30.517] Rebuilding state snapshot
+INFO [11-12|09:00:30.517] Initialized transaction indexer          range="entire chain"
+INFO [11-12|09:00:30.517] Initialising Ethereum protocol           network=13 dbversion=<nil>
+INFO [11-12|09:00:30.517] Resuming state snapshot generation       root=dca5f6..8d3717 accounts=0 slots=0 storage=0.00B dangling=0 elapsed="523.972µs"
+INFO [11-12|09:00:30.519] Unprotected transactions allowed
+INFO [11-12|09:00:30.519] Gasprice oracle is ignoring threshold set threshold=2
+WARN [11-12|09:00:30.521] Engine API enabled                       protocol=eth
+INFO [11-12|09:00:30.521] Starting peer-to-peer node               instance=Geth/v1.101503.2-rc.5-37be9e05-20250401/linux-amd64/go1.24.1
+INFO [11-12|09:00:30.563] New local node record                    seq=1,762,938,030,556 id=c0a6c424ac7157ae ip=127.0.0.1 udp=0 tcp=30303
+INFO [11-12|09:00:30.563] Started P2P networking                   self="enode://79be667ef9dcbbac55a06295ce870b07029bfcdb2dce28d959f2815b16f81798483ada7726a3c4655da4fbfc0e1108a8fd17b448a68554199c47d08ffb10d4b8@127.0.0.1:30303?discport=0"
+INFO [11-12|09:00:30.571] IPC endpoint opened                      url=/data_opgeth/geth.ipc
+INFO [11-12|09:00:30.575] Loaded JWT secret file                   path=/data/jwtsecret crc32=0x245ce2b6
+INFO [11-12|09:00:30.576] HTTP server started                      endpoint=[::]:8545 auth=false prefix= cors=* vhosts=*
+INFO [11-12|09:00:30.576] WebSocket enabled                        url=ws://[::]:8546
+INFO [11-12|09:00:30.576] WebSocket enabled                        url=ws://[::]:8551
+INFO [11-12|09:00:30.576] HTTP server started                      endpoint=[::]:8551 auth=true  prefix= cors=localhost vhosts=*
+INFO [11-12|09:00:30.709] Generated state snapshot                 accounts=2346 slots=2084 storage=393.10KiB dangling=0 elapsed=192.022ms
+WARN [11-12|09:00:36.051] Served eth_getBlockByNumber              conn=172.19.0.8:54264 reqid=3 duration="117.549µs" err="finalized block not found"
+WARN [11-12|09:00:36.053] Served eth_getBlockByNumber              conn=172.19.0.8:54264 reqid=4 duration="32.965µs" err="safe block not found"
+INFO [11-12|09:00:38.066] Starting work on payload                 id=0x036983cbe8b1c127
+INFO [11-12|09:00:38.069] Updated payload                          id=0x036983cbe8b1c127 number=1 hash=a46d1f..af1047 txs=1 withdrawals=0 gas=160,430 fees=0 root=933f08..77a83b elapsed=2.263ms
+INFO [11-12|09:00:38.075] Stopping work on payload                 id=0x036983cbe8b1c127 reason=delivery elapsed=8.319ms
+INFO [11-12|09:00:38.082] Imported new potential chain segment     number=1 hash=a46d1f..af1047 blocks=1 txs=1 mgas=0.160 elapsed=3.650ms     mgasps=43.953 snapdiffs=558.00B triedirty=0.00B
+INFO [11-12|09:00:38.086] Chain head was updated                   number=1 hash=a46d1f..af1047 root=933f08..77a83b elapsed="190.57µs"
+INFO [11-12|09:00:38.089] Indexed transactions                     blocks=2 txs=1 tail=0 elapsed="633.19µs"
+INFO [11-12|09:00:38.093] Starting work on payload                 id=0x0380f553285fe6ef
+INFO [11-12|09:00:38.094] Updated payload                          id=0x0380f553285fe6ef number=2 hash=679604..4cb324 txs=1 withdrawals=0 gas=43830   fees=0 root=d6f90a..4c0940 elapsed="630.549µs"
+INFO [11-12|09:00:38.100] Stopping work on payload                 id=0x0380f553285fe6ef reason=delivery elapsed=7.162ms
+INFO [11-12|09:00:38.107] Imported new potential chain segment     number=2 hash=679604..4cb324 blocks=1 txs=1 mgas=0.044 elapsed=3.885ms     mgasps=11.281 snapdiffs=883.00B triedirty=0.00B
+INFO [11-12|09:00:38.110] Chain head was updated                   number=2 hash=679604..4cb324 root=d6f90a..4c0940 elapsed="113.93µs"
+INFO [11-12|09:00:38.117] Starting work on payload                 id=0x030acb5782827fb1
+INFO [11-12|09:00:38.118] Updated payload                          id=0x030acb5782827fb1 number=3 hash=d32278..a9a913 txs=1 withdrawals=0 gas=43830   fees=0 root=fe9e61..2813d3 elapsed="990.308µs"
+INFO [11-12|09:00:38.127] Stopping work on payload                 id=0x030acb5782827fb1 reason=delivery elapsed=10.091ms
+INFO [11-12|09:00:38.131] Imported new potential chain segment     number=3 hash=d32278..a9a913 blocks=1 txs=1 mgas=0.044 elapsed="657.016µs" mgasps=66.711 snapdiffs=1.18KiB triedirty=0.00B
+INFO [11-12|09:00:38.134] Chain head was updated                   number=3 hash=d32278..a9a913 root=fe9e61..2813d3 elapsed="195.398µs"
+INFO [11-12|09:00:38.146] Starting work on payload                 id=0x0317beaf8244b6ae
+INFO [11-12|09:00:38.148] Updated payload                          id=0x0317beaf8244b6ae number=4 hash=a61685..5ae1ef txs=1 withdrawals=0 gas=43830   fees=0 root=80b7da..6a5c52 elapsed="726.617µs"
+INFO [11-12|09:00:38.154] Stopping work on payload                 id=0x0317beaf8244b6ae reason=delivery elapsed=6.868ms
+INFO [11-12|09:00:38.158] Imported new potential chain segment     number=4 hash=a61685..5ae1ef blocks=1 txs=1 mgas=0.044 elapsed=1.170ms     mgasps=37.443 snapdiffs=1.50KiB triedirty=0.00B
+INFO [11-12|09:00:38.161] Chain head was updated                   number=4 hash=a61685..5ae1ef root=80b7da..6a5c52 elapsed="125.748µs"
+INFO [11-12|09:00:38.169] Starting work on payload                 id=0x0327540c4109168b
+INFO [11-12|09:00:38.170] Updated payload                          id=0x0327540c4109168b number=5 hash=4f9cf6..52f26b txs=1 withdrawals=0 gas=43830   fees=0 root=becbfd..0b1fe2 elapsed="748.238µs"
+INFO [11-12|09:00:38.176] Stopping work on payload                 id=0x0327540c4109168b reason=delivery elapsed=6.326ms
+INFO [11-12|09:00:38.181] Imported new potential chain segment     number=5 hash=4f9cf6..52f26b blocks=1 txs=1 mgas=0.044 elapsed=1.869ms     mgasps=23.441 snapdiffs=1.81KiB triedirty=0.00B
+INFO [11-12|09:00:38.186] Chain head was updated                   number=5 hash=4f9cf6..52f26b root=becbfd..0b1fe2 elapsed="74.214µs"
+INFO [11-12|09:00:38.193] Starting work on payload                 id=0x03fadf2f0e2cfc0f
+INFO [11-12|09:00:38.194] Updated payload                          id=0x03fadf2f0e2cfc0f number=6 hash=f3c893..12243f txs=1 withdrawals=0 gas=43830   fees=0 root=33593d..afecd7 elapsed="891.611µs"
+INFO [11-12|09:00:38.200] Stopping work on payload                 id=0x03fadf2f0e2cfc0f reason=delivery elapsed=7.075ms
+INFO [11-12|09:00:38.203] Imported new potential chain segment     number=6 hash=f3c893..12243f blocks=1 txs=1 mgas=0.044 elapsed="895.484µs" mgasps=48.946 snapdiffs=2.13KiB triedirty=0.00B
+INFO [11-12|09:00:38.208] Chain head was updated                   number=6 hash=f3c893..12243f root=33593d..afecd7 elapsed="124.224µs"
+INFO [11-12|09:00:38.216] Starting work on payload                 id=0x03d3acfe37920ad7
+INFO [11-12|09:00:38.218] Updated payload                          id=0x03d3acfe37920ad7 number=7 hash=66899d..6767d4 txs=1 withdrawals=0 gas=43830   fees=0 root=4a9534..e07883 elapsed=1.011ms
+INFO [11-12|09:00:38.223] Stopping work on payload                 id=0x03d3acfe37920ad7 reason=delivery elapsed=6.100ms
+INFO [11-12|09:00:38.228] Imported new potential chain segment     number=7 hash=66899d..6767d4 blocks=1 txs=1 mgas=0.044 elapsed="865.567µs" mgasps=50.637 snapdiffs=2.45KiB triedirty=0.00B
+INFO [11-12|09:00:38.230] Chain head was updated                   number=7 hash=66899d..6767d4 root=4a9534..e07883 elapsed="102.129µs"
+INFO [11-12|09:00:38.238] Starting work on payload                 id=0x0383835a4846a993
+INFO [11-12|09:00:38.239] Updated payload                          id=0x0383835a4846a993 number=8 hash=f38259..781e37 txs=1 withdrawals=0 gas=43830   fees=0 root=088496..143228 elapsed="729.86µs"
+INFO [11-12|09:00:38.953] Stopping work on payload                 id=0x0383835a4846a993 reason=delivery elapsed=714.619ms
+INFO [11-12|09:00:38.960] Imported new potential chain segment     number=8 hash=f38259..781e37 blocks=1 txs=1 mgas=0.044 elapsed=1.213ms     mgasps=36.129 snapdiffs=2.77KiB triedirty=0.00B
+INFO [11-12|09:00:38.963] Chain head was updated                   number=8 hash=f38259..781e37 root=088496..143228 elapsed="123.721µs"
+INFO [11-12|09:00:39.010] Starting work on payload                 id=0x0371ea1835d1066c
+INFO [11-12|09:00:39.011] Updated payload                          id=0x0371ea1835d1066c number=9 hash=49cd49..d1c4d2 txs=1 withdrawals=0 gas=43830   fees=0 root=62d480..c4f8a8 elapsed="811.645µs"
+INFO [11-12|09:00:40.951] Stopping work on payload                 id=0x0371ea1835d1066c reason=delivery elapsed=1.940s
+INFO [11-12|09:00:40.953] Imported new potential chain segment     number=9 hash=49cd49..d1c4d2 blocks=1 txs=1 mgas=0.044 elapsed="700.359µs" mgasps=62.582 snapdiffs=3.08KiB triedirty=0.00B
+INFO [11-12|09:00:40.955] Chain head was updated                   number=9 hash=49cd49..d1c4d2 root=62d480..c4f8a8 elapsed="89.302µs"
+INFO [11-12|09:00:41.004] Starting work on payload                 id=0x034a77f80b4af7d7
+INFO [11-12|09:00:41.005] Updated payload                          id=0x034a77f80b4af7d7 number=10 hash=ba307b..a3b314 txs=1 withdrawals=0 gas=43830   fees=0 root=ac9aec..4f8e78 elapsed="570.983µs"
+INFO [11-12|09:00:42.951] Stopping work on payload                 id=0x034a77f80b4af7d7 reason=delivery elapsed=1.945s
+INFO [11-12|09:00:42.953] Imported new potential chain segment     number=10 hash=ba307b..a3b314 blocks=1 txs=1 mgas=0.044 elapsed="741.138µs" mgasps=59.139 snapdiffs=3.40KiB triedirty=0.00B
+INFO [11-12|09:00:42.956] Chain head was updated                   number=10 hash=ba307b..a3b314 root=ac9aec..4f8e78 elapsed="79.613µs"
+INFO [11-12|09:00:43.002] Starting work on payload                 id=0x03dd6bf34fe69f57
+INFO [11-12|09:00:43.003] Updated payload                          id=0x03dd6bf34fe69f57 number=11 hash=c178bf..35aa60 txs=1 withdrawals=0 gas=43830   fees=0 root=7392d8..fcfbd2 elapsed="537.605µs"
+INFO [11-12|09:00:44.953] Stopping work on payload                 id=0x03dd6bf34fe69f57 reason=delivery elapsed=1.950s
+INFO [11-12|09:00:44.954] Imported new potential chain segment     number=11 hash=c178bf..35aa60 blocks=1 txs=1 mgas=0.044 elapsed="598.85µs"  mgasps=73.190 snapdiffs=3.72KiB triedirty=0.00B
+INFO [11-12|09:00:44.960] Chain head was updated                   number=11 hash=c178bf..35aa60 root=7392d8..fcfbd2 elapsed="99.671µs"
+INFO [11-12|09:00:45.003] Starting work on payload                 id=0x035b3781c0c097bd
+INFO [11-12|09:00:45.004] Updated payload                          id=0x035b3781c0c097bd number=12 hash=f84746..07ed5f txs=1 withdrawals=0 gas=43830   fees=0 root=548339..4a8313 elapsed="495.349µs"
+INFO [11-12|09:00:46.953] Stopping work on payload                 id=0x035b3781c0c097bd reason=delivery elapsed=1.949s
+INFO [11-12|09:00:46.956] Imported new potential chain segment     number=12 hash=f84746..07ed5f blocks=1 txs=1 mgas=0.044 elapsed="861.252µs" mgasps=50.891 snapdiffs=4.04KiB triedirty=0.00B
+INFO [11-12|09:00:46.958] Chain head was updated                   number=12 hash=f84746..07ed5f root=548339..4a8313 elapsed="66.315µs"
+INFO [11-12|09:00:47.003] Starting work on payload                 id=0x0365b2a18c1ae993
+INFO [11-12|09:00:47.004] Updated payload                          id=0x0365b2a18c1ae993 number=13 hash=be51bc..42c232 txs=1 withdrawals=0 gas=43830   fees=0 root=b48885..b1a3ce elapsed="519.942µs"
+INFO [11-12|09:00:48.951] Stopping work on payload                 id=0x0365b2a18c1ae993 reason=delivery elapsed=1.946s
+INFO [11-12|09:00:48.954] Imported new potential chain segment     number=13 hash=be51bc..42c232 blocks=1 txs=1 mgas=0.044 elapsed="842.456µs" mgasps=52.026 snapdiffs=4.35KiB triedirty=0.00B
+INFO [11-12|09:00:48.956] Chain head was updated                   number=13 hash=be51bc..42c232 root=b48885..b1a3ce elapsed="116.846µs"
+INFO [11-12|09:00:49.004] Starting work on payload                 id=0x035b892f84487264
+INFO [11-12|09:00:49.005] Updated payload                          id=0x035b892f84487264 number=14 hash=290067..b57398 txs=1 withdrawals=0 gas=43830   fees=0 root=1e456c..b96dc9 elapsed="885.987µs"
+INFO [11-12|09:00:50.951] Stopping work on payload                 id=0x035b892f84487264 reason=delivery elapsed=1.947s
+INFO [11-12|09:00:50.954] Imported new potential chain segment     number=14 hash=290067..b57398 blocks=1 txs=1 mgas=0.044 elapsed="542.953µs" mgasps=80.725 snapdiffs=4.67KiB triedirty=0.00B
+INFO [11-12|09:00:50.956] Chain head was updated                   number=14 hash=290067..b57398 root=1e456c..b96dc9 elapsed="86.672µs"
+INFO [11-12|09:00:51.006] Starting work on payload                 id=0x03b0d8b354235262
+INFO [11-12|09:00:51.007] Updated payload                          id=0x03b0d8b354235262 number=15 hash=60c344..a0cdfd txs=1 withdrawals=0 gas=43830   fees=0 root=702566..372479 elapsed="833.125µs"
+INFO [11-12|09:00:52.952] Stopping work on payload                 id=0x03b0d8b354235262 reason=delivery elapsed=1.946s
+INFO [11-12|09:00:52.957] Imported new potential chain segment     number=15 hash=60c344..a0cdfd blocks=1 txs=1 mgas=0.044 elapsed=1.889ms     mgasps=23.191 snapdiffs=4.99KiB triedirty=0.00B
+INFO [11-12|09:00:52.960] Chain head was updated                   number=15 hash=60c344..a0cdfd root=702566..372479 elapsed="85.121µs"
+INFO [11-12|09:00:53.005] Starting work on payload                 id=0x03c6d06ad31d383b
+INFO [11-12|09:00:53.006] Updated payload                          id=0x03c6d06ad31d383b number=16 hash=ae976b..996c0c txs=1 withdrawals=0 gas=43830   fees=0 root=917831..134041 elapsed="547.897µs"
+INFO [11-12|09:00:54.953] Stopping work on payload                 id=0x03c6d06ad31d383b reason=delivery elapsed=1.947s
+INFO [11-12|09:00:54.956] Imported new potential chain segment     number=16 hash=ae976b..996c0c blocks=1 txs=1 mgas=0.044 elapsed=1.052ms     mgasps=41.643 snapdiffs=5.31KiB triedirty=0.00B
+INFO [11-12|09:00:54.958] Chain head was updated                   number=16 hash=ae976b..996c0c root=917831..134041 elapsed="100.69µs"
+INFO [11-12|09:00:55.009] Starting work on payload                 id=0x03fc6f9c0c1491d0
+INFO [11-12|09:00:55.010] Updated payload                          id=0x03fc6f9c0c1491d0 number=17 hash=9ddb47..c7ed85 txs=1 withdrawals=0 gas=43830   fees=0 root=ee2992..093053 elapsed="992.039µs"
+INFO [11-12|09:00:56.952] Stopping work on payload                 id=0x03fc6f9c0c1491d0 reason=delivery elapsed=1.942s
+INFO [11-12|09:00:56.957] Imported new potential chain segment     number=17 hash=9ddb47..c7ed85 blocks=1 txs=1 mgas=0.044 elapsed=1.953ms     mgasps=22.438 snapdiffs=5.62KiB triedirty=0.00B
+INFO [11-12|09:00:56.960] Chain head was updated                   number=17 hash=9ddb47..c7ed85 root=ee2992..093053 elapsed="101.322µs"
+INFO [11-12|09:00:57.005] Starting work on payload                 id=0x03bfc89afb1cbec0
+INFO [11-12|09:00:57.006] Updated payload                          id=0x03bfc89afb1cbec0 number=18 hash=b3a694..30c4bc txs=1 withdrawals=0 gas=43830   fees=0 root=cf4ae3..2fe17a elapsed="912.765µs"
+INFO [11-12|09:00:58.953] Stopping work on payload                 id=0x03bfc89afb1cbec0 reason=delivery elapsed=1.947s
+INFO [11-12|09:00:58.957] Imported new potential chain segment     number=18 hash=b3a694..30c4bc blocks=1 txs=1 mgas=0.044 elapsed="841.547µs" mgasps=52.083 snapdiffs=5.94KiB triedirty=0.00B
+INFO [11-12|09:00:58.961] Chain head was updated                   number=18 hash=b3a694..30c4bc root=cf4ae3..2fe17a elapsed="63.844µs"
+INFO [11-12|09:00:59.004] Starting work on payload                 id=0x03009d2e25cad8ad
+INFO [11-12|09:00:59.006] Updated payload                          id=0x03009d2e25cad8ad number=19 hash=4ed16d..e7747f txs=1 withdrawals=0 gas=52242   fees=0 root=b539bd..bf645e elapsed=1.040ms
+INFO [11-12|09:01:00.951] Stopping work on payload                 id=0x03009d2e25cad8ad reason=delivery elapsed=1.946s
+INFO [11-12|09:01:00.954] Imported new potential chain segment     number=19 hash=4ed16d..e7747f blocks=1 txs=1 mgas=0.052 elapsed="798.807µs" mgasps=65.400 snapdiffs=6.46KiB triedirty=0.00B
+INFO [11-12|09:01:00.957] Chain head was updated                   number=19 hash=4ed16d..e7747f root=b539bd..bf645e elapsed="325.77µs"
+INFO [11-12|09:01:01.006] Starting work on payload                 id=0x03de26fadb8d726b
+INFO [11-12|09:01:01.008] Updated payload                          id=0x03de26fadb8d726b number=20 hash=f5b7c4..942e98 txs=1 withdrawals=0 gas=43854   fees=0 root=9a1392..009cba elapsed=1.292ms
+INFO [11-12|09:01:02.953] Stopping work on payload                 id=0x03de26fadb8d726b reason=delivery elapsed=1.945s
+INFO [11-12|09:01:02.957] Imported new potential chain segment     number=20 hash=f5b7c4..942e98 blocks=1 txs=1 mgas=0.044 elapsed=1.589ms     mgasps=27.591 snapdiffs=6.85KiB triedirty=0.00B
+INFO [11-12|09:01:02.960] Chain head was updated                   number=20 hash=f5b7c4..942e98 root=9a1392..009cba elapsed="105.159µs"
+INFO [11-12|09:01:03.004] Starting work on payload                 id=0x03b0e99078b7eea8
+INFO [11-12|09:01:03.005] Updated payload                          id=0x03b0e99078b7eea8 number=21 hash=2cf524..ed6a3e txs=1 withdrawals=0 gas=43854   fees=0 root=b883d1..7cf3c2 elapsed="562.194µs"
+INFO [11-12|09:01:04.952] Stopping work on payload                 id=0x03b0e99078b7eea8 reason=delivery elapsed=1.948s
+INFO [11-12|09:01:04.956] Imported new potential chain segment     number=21 hash=2cf524..ed6a3e blocks=1 txs=1 mgas=0.044 elapsed="710.771µs" mgasps=61.699 snapdiffs=7.23KiB triedirty=0.00B
+INFO [11-12|09:01:04.958] Chain head was updated                   number=21 hash=2cf524..ed6a3e root=b883d1..7cf3c2 elapsed="141.147µs"
+INFO [11-12|09:01:05.008] Starting work on payload                 id=0x032426a675190caa
+INFO [11-12|09:01:05.010] Updated payload                          id=0x032426a675190caa number=22 hash=bd69dc..a1bccd txs=1 withdrawals=0 gas=43854   fees=0 root=0c2d28..3c29ca elapsed="916.952µs"
+INFO [11-12|09:01:06.952] Stopping work on payload                 id=0x032426a675190caa reason=delivery elapsed=1.943s
+INFO [11-12|09:01:06.955] Imported new potential chain segment     number=22 hash=bd69dc..a1bccd blocks=1 txs=1 mgas=0.044 elapsed="841.415µs" mgasps=52.119 snapdiffs=7.61KiB triedirty=0.00B
+INFO [11-12|09:01:06.957] Chain head was updated                   number=22 hash=bd69dc..a1bccd root=0c2d28..3c29ca elapsed="89.917µs"
+INFO [11-12|09:01:07.006] Starting work on payload                 id=0x03f782f948ccc821
+INFO [11-12|09:01:07.007] Updated payload                          id=0x03f782f948ccc821 number=23 hash=a7f6d8..f182cd txs=1 withdrawals=0 gas=43854   fees=0 root=b312b8..00d70b elapsed="604.717µs"
+INFO [11-12|09:01:08.953] Stopping work on payload                 id=0x03f782f948ccc821 reason=delivery elapsed=1.946s
+INFO [11-12|09:01:08.956] Imported new potential chain segment     number=23 hash=a7f6d8..f182cd blocks=1 txs=1 mgas=0.044 elapsed="965.947µs" mgasps=45.400 snapdiffs=7.99KiB triedirty=0.00B
+INFO [11-12|09:01:08.959] Chain head was updated                   number=23 hash=a7f6d8..f182cd root=b312b8..00d70b elapsed="76.888µs"
+INFO [11-12|09:01:09.005] Starting work on payload                 id=0x033d544fdd5d0e8a
+INFO [11-12|09:01:09.006] Updated payload                          id=0x033d544fdd5d0e8a number=24 hash=7f5937..f89bfc txs=1 withdrawals=0 gas=43854   fees=0 root=2de8db..d35fea elapsed="979.64µs"
+INFO [11-12|09:01:10.953] Stopping work on payload                 id=0x033d544fdd5d0e8a reason=delivery elapsed=1.947s
+INFO [11-12|09:01:10.957] Imported new potential chain segment     number=24 hash=7f5937..f89bfc blocks=1 txs=1 mgas=0.044 elapsed=1.353ms     mgasps=32.404 snapdiffs=8.37KiB triedirty=0.00B
+INFO [11-12|09:01:10.960] Chain head was updated                   number=24 hash=7f5937..f89bfc root=2de8db..d35fea elapsed="154.126µs"
+INFO [11-12|09:01:11.006] Starting work on payload                 id=0x03f293a4f69f9e37
+INFO [11-12|09:01:11.007] Updated payload                          id=0x03f293a4f69f9e37 number=25 hash=74d52e..3c4b8b txs=1 withdrawals=0 gas=52242   fees=0 root=0de072..a6783e elapsed="722.556µs"
+INFO [11-12|09:01:12.951] Stopping work on payload                 id=0x03f293a4f69f9e37 reason=delivery elapsed=1.944s
+INFO [11-12|09:01:12.956] Imported new potential chain segment     number=25 hash=74d52e..3c4b8b blocks=1 txs=1 mgas=0.052 elapsed=1.631ms     mgasps=32.030 snapdiffs=8.89KiB triedirty=0.00B
+INFO [11-12|09:01:12.960] Chain head was updated                   number=25 hash=74d52e..3c4b8b root=0de072..a6783e elapsed="159.568µs"
+INFO [11-12|09:01:13.006] Starting work on payload                 id=0x0393e73d13975fb2
+INFO [11-12|09:01:13.008] Updated payload                          id=0x0393e73d13975fb2 number=26 hash=e5c9a5..3b6628 txs=1 withdrawals=0 gas=43854   fees=0 root=b21e0a..b310e3 elapsed=2.004ms
+INFO [11-12|09:01:14.955] Stopping work on payload                 id=0x0393e73d13975fb2 reason=delivery elapsed=1.948s
+INFO [11-12|09:01:14.959] Imported new potential chain segment     number=26 hash=e5c9a5..3b6628 blocks=1 txs=1 mgas=0.044 elapsed=1.365ms     mgasps=32.110 snapdiffs=9.27KiB triedirty=0.00B
+INFO [11-12|09:01:14.962] Chain head was updated                   number=26 hash=e5c9a5..3b6628 root=b21e0a..b310e3 elapsed="77.759µs"
+INFO [11-12|09:01:15.008] Starting work on payload                 id=0x036fa7f89289a7b5
+INFO [11-12|09:01:15.009] Updated payload                          id=0x036fa7f89289a7b5 number=27 hash=1b4bde..8df7bc txs=1 withdrawals=0 gas=43854   fees=0 root=179ccf..cfd9b2 elapsed="576.83µs"
+INFO [11-12|09:01:16.952] Stopping work on payload                 id=0x036fa7f89289a7b5 reason=delivery elapsed=1.943s
+INFO [11-12|09:01:16.955] Imported new potential chain segment     number=27 hash=1b4bde..8df7bc blocks=1 txs=1 mgas=0.044 elapsed="991.811µs" mgasps=44.216 snapdiffs=9.66KiB triedirty=0.00B
+INFO [11-12|09:01:16.958] Chain head was updated                   number=27 hash=1b4bde..8df7bc root=179ccf..cfd9b2 elapsed="111.152µs"
+INFO [11-12|09:01:17.004] Starting work on payload                 id=0x03f16431369c8764
+INFO [11-12|09:01:17.004] Updated payload                          id=0x03f16431369c8764 number=28 hash=1a2c63..819c76 txs=1 withdrawals=0 gas=43854   fees=0 root=bf4eb5..383ba4 elapsed="580.405µs"
+INFO [11-12|09:01:18.953] Stopping work on payload                 id=0x03f16431369c8764 reason=delivery elapsed=1.948s
+INFO [11-12|09:01:18.957] Imported new potential chain segment     number=28 hash=1a2c63..819c76 blocks=1 txs=1 mgas=0.044 elapsed=3.174ms     mgasps=13.814 snapdiffs=10.04KiB triedirty=0.00B
+INFO [11-12|09:01:18.959] Chain head was updated                   number=28 hash=1a2c63..819c76 root=bf4eb5..383ba4 elapsed="56.724µs"
+INFO [11-12|09:01:19.004] Starting work on payload                 id=0x039d445d0118b5a7
+INFO [11-12|09:01:19.005] Updated payload                          id=0x039d445d0118b5a7 number=29 hash=b90cfa..ea2079 txs=1 withdrawals=0 gas=43854   fees=0 root=d7297b..0d7013 elapsed="504.474µs"
+INFO [11-12|09:01:20.952] Stopping work on payload                 id=0x039d445d0118b5a7 reason=delivery elapsed=1.947s
+INFO [11-12|09:01:20.956] Imported new potential chain segment     number=29 hash=b90cfa..ea2079 blocks=1 txs=1 mgas=0.044 elapsed=1.698ms     mgasps=25.812 snapdiffs=10.42KiB triedirty=0.00B
+INFO [11-12|09:01:20.958] Chain head was updated                   number=29 hash=b90cfa..ea2079 root=d7297b..0d7013 elapsed="106.264µs"
+INFO [11-12|09:01:21.008] Starting work on payload                 id=0x031e8aa7bbe9bf72
+INFO [11-12|09:01:21.012] Updated payload                          id=0x031e8aa7bbe9bf72 number=30 hash=c3fc58..4e5e14 txs=1 withdrawals=0 gas=43854   fees=0 root=df8b99..f48cdf elapsed=1.225ms
+INFO [11-12|09:01:22.952] Stopping work on payload                 id=0x031e8aa7bbe9bf72 reason=delivery elapsed=1.942s
+INFO [11-12|09:01:22.956] Imported new potential chain segment     number=30 hash=c3fc58..4e5e14 blocks=1 txs=1 mgas=0.044 elapsed=1.073ms     mgasps=40.855 snapdiffs=10.80KiB triedirty=0.00B
+INFO [11-12|09:01:22.959] Chain head was updated                   number=30 hash=c3fc58..4e5e14 root=df8b99..f48cdf elapsed="127.637µs"
+INFO [11-12|09:01:23.005] Starting work on payload                 id=0x03062f4777f570e1
+INFO [11-12|09:01:23.007] Updated payload                          id=0x03062f4777f570e1 number=31 hash=d23e1d..750b97 txs=1 withdrawals=0 gas=52242   fees=0 root=df054a..51c3a2 elapsed=1.094ms
+INFO [11-12|09:01:24.952] Stopping work on payload                 id=0x03062f4777f570e1 reason=delivery elapsed=1.946s
+INFO [11-12|09:01:24.955] Imported new potential chain segment     number=31 hash=d23e1d..750b97 blocks=1 txs=1 mgas=0.052 elapsed=1.316ms     mgasps=39.677 snapdiffs=11.32KiB triedirty=0.00B
+INFO [11-12|09:01:24.957] Chain head was updated                   number=31 hash=d23e1d..750b97 root=df054a..51c3a2 elapsed="56.105µs"
+INFO [11-12|09:01:25.005] Starting work on payload                 id=0x0344a8166f385d86
+INFO [11-12|09:01:25.007] Updated payload                          id=0x0344a8166f385d86 number=32 hash=a615b8..f1760a txs=1 withdrawals=0 gas=43854   fees=0 root=715ba2..bdd03e elapsed=2.685ms
+INFO [11-12|09:01:26.952] Stopping work on payload                 id=0x0344a8166f385d86 reason=delivery elapsed=1.946s
+INFO [11-12|09:01:26.956] Imported new potential chain segment     number=32 hash=a615b8..f1760a blocks=1 txs=1 mgas=0.044 elapsed=1.061ms     mgasps=41.318 snapdiffs=11.70KiB triedirty=0.00B
+INFO [11-12|09:01:26.959] Chain head was updated                   number=32 hash=a615b8..f1760a root=715ba2..bdd03e elapsed="195.332µs"
+INFO [11-12|09:01:27.005] Starting work on payload                 id=0x03bc53ca547af615
+INFO [11-12|09:01:27.006] Updated payload                          id=0x03bc53ca547af615 number=33 hash=7da5b3..10457b txs=1 withdrawals=0 gas=43854   fees=0 root=4620e0..35c12a elapsed="981.777µs"
+INFO [11-12|09:01:28.951] Stopping work on payload                 id=0x03bc53ca547af615 reason=delivery elapsed=1.946s
+INFO [11-12|09:01:28.956] Imported new potential chain segment     number=33 hash=7da5b3..10457b blocks=1 txs=1 mgas=0.044 elapsed=1.475ms     mgasps=29.728 snapdiffs=12.08KiB triedirty=0.00B
+INFO [11-12|09:01:28.959] Chain head was updated                   number=33 hash=7da5b3..10457b root=4620e0..35c12a elapsed="78.599µs"
+INFO [11-12|09:01:29.009] Starting work on payload                 id=0x03027d7c5ac63f6d
+INFO [11-12|09:01:29.013] Updated payload                          id=0x03027d7c5ac63f6d number=34 hash=82a0b7..6b9fb4 txs=1 withdrawals=0 gas=43854   fees=0 root=4b786a..539a0d elapsed=3.215ms
+INFO [11-12|09:01:30.952] Stopping work on payload                 id=0x03027d7c5ac63f6d reason=delivery elapsed=1.942s
+INFO [11-12|09:01:30.955] Imported new potential chain segment     number=34 hash=82a0b7..6b9fb4 blocks=1 txs=1 mgas=0.044 elapsed="909.188µs" mgasps=48.234 snapdiffs=12.46KiB triedirty=0.00B
+INFO [11-12|09:01:30.957] Chain head was updated                   number=34 hash=82a0b7..6b9fb4 root=4b786a..539a0d elapsed="50.668µs"
+INFO [11-12|09:01:31.004] Starting work on payload                 id=0x035f74077ed31bf9
+INFO [11-12|09:01:31.005] Updated payload                          id=0x035f74077ed31bf9 number=35 hash=6ef89d..8f8e36 txs=1 withdrawals=0 gas=43854   fees=0 root=329725..359b07 elapsed="760.575µs"
+INFO [11-12|09:01:32.951] Stopping work on payload                 id=0x035f74077ed31bf9 reason=delivery elapsed=1.946s
+INFO [11-12|09:01:32.955] Imported new potential chain segment     number=35 hash=6ef89d..8f8e36 blocks=1 txs=1 mgas=0.044 elapsed="892.212µs" mgasps=49.152 snapdiffs=12.85KiB triedirty=0.00B
+INFO [11-12|09:01:32.958] Chain head was updated                   number=35 hash=6ef89d..8f8e36 root=329725..359b07 elapsed="267.153µs"
+INFO [11-12|09:01:33.006] Starting work on payload                 id=0x0351135016f7269d
+INFO [11-12|09:01:33.009] Updated payload                          id=0x0351135016f7269d number=36 hash=27e5bc..849e09 txs=1 withdrawals=0 gas=43854   fees=0 root=db634d..f67e4b elapsed=1.704ms
+INFO [11-12|09:01:34.951] Stopping work on payload                 id=0x0351135016f7269d reason=delivery elapsed=1.944s
+INFO [11-12|09:01:34.955] Imported new potential chain segment     number=36 hash=27e5bc..849e09 blocks=1 txs=1 mgas=0.044 elapsed=1.038ms     mgasps=42.231 snapdiffs=13.23KiB triedirty=0.00B
+INFO [11-12|09:01:34.958] Chain head was updated                   number=36 hash=27e5bc..849e09 root=db634d..f67e4b elapsed="176.509µs"
+INFO [11-12|09:01:35.004] Starting work on payload                 id=0x03792be60286e727
+INFO [11-12|09:01:35.007] Updated payload                          id=0x03792be60286e727 number=37 hash=4e3dc9..0f4b65 txs=1 withdrawals=0 gas=52230   fees=0 root=df72cf..9f0b2a elapsed=1.754ms
+INFO [11-12|09:01:36.953] Stopping work on payload                 id=0x03792be60286e727 reason=delivery elapsed=1.948s
+INFO [11-12|09:01:36.957] Imported new potential chain segment     number=37 hash=4e3dc9..0f4b65 blocks=1 txs=1 mgas=0.052 elapsed=1.030ms     mgasps=50.709 snapdiffs=13.75KiB triedirty=0.00B
+INFO [11-12|09:01:36.960] Chain head was updated                   number=37 hash=4e3dc9..0f4b65 root=df72cf..9f0b2a elapsed="109.632µs"
+INFO [11-12|09:01:37.005] Starting work on payload                 id=0x03c6abca495f554d
+INFO [11-12|09:01:37.006] Updated payload                          id=0x03c6abca495f554d number=38 hash=68c06e..29445c txs=1 withdrawals=0 gas=43842   fees=0 root=5c1dfb..3042f9 elapsed="680.879µs"
+INFO [11-12|09:01:38.951] Stopping work on payload                 id=0x03c6abca495f554d reason=delivery elapsed=1.945s
+INFO [11-12|09:01:38.956] Imported new potential chain segment     number=38 hash=68c06e..29445c blocks=1 txs=1 mgas=0.044 elapsed=1.627ms     mgasps=26.946 snapdiffs=14.13KiB triedirty=0.00B
+INFO [11-12|09:01:38.959] Chain head was updated                   number=38 hash=68c06e..29445c root=5c1dfb..3042f9 elapsed="88.404µs"
+INFO [11-12|09:01:39.005] Starting work on payload                 id=0x03b1b1e7e79173f8
+INFO [11-12|09:01:39.006] Updated payload                          id=0x03b1b1e7e79173f8 number=39 hash=c88f6d..b230fd txs=1 withdrawals=0 gas=43842   fees=0 root=1a6064..545081 elapsed="767.487µs"
+INFO [11-12|09:01:40.952] Stopping work on payload                 id=0x03b1b1e7e79173f8 reason=delivery elapsed=1.946s
+INFO [11-12|09:01:40.956] Imported new potential chain segment     number=39 hash=c88f6d..b230fd blocks=1 txs=1 mgas=0.044 elapsed=1.202ms     mgasps=36.455 snapdiffs=14.51KiB triedirty=0.00B
+INFO [11-12|09:01:40.958] Chain head was updated                   number=39 hash=c88f6d..b230fd root=1a6064..545081 elapsed="90.012µs"
+INFO [11-12|09:01:41.008] Starting work on payload                 id=0x036e39c5639cfec6
+INFO [11-12|09:01:41.009] Updated payload                          id=0x036e39c5639cfec6 number=40 hash=eb9b57..7f0994 txs=1 withdrawals=0 gas=43842   fees=0 root=cb58a7..5c6fd1 elapsed="670.84µs"
+INFO [11-12|09:01:42.951] Stopping work on payload                 id=0x036e39c5639cfec6 reason=delivery elapsed=1.943s
+INFO [11-12|09:01:42.955] Imported new potential chain segment     number=40 hash=eb9b57..7f0994 blocks=1 txs=1 mgas=0.044 elapsed=1.326ms     mgasps=33.051 snapdiffs=14.89KiB triedirty=0.00B
+INFO [11-12|09:01:42.958] Chain head was updated                   number=40 hash=eb9b57..7f0994 root=cb58a7..5c6fd1 elapsed="93.58µs"
+INFO [11-12|09:01:43.005] Starting work on payload                 id=0x03585a4262d60419
+INFO [11-12|09:01:43.005] Updated payload                          id=0x03585a4262d60419 number=41 hash=56431d..2eefc1 txs=1 withdrawals=0 gas=43842   fees=0 root=5836ef..22fc00 elapsed="745.629µs"
+INFO [11-12|09:01:44.951] Stopping work on payload                 id=0x03585a4262d60419 reason=delivery elapsed=1.946s
+INFO [11-12|09:01:44.955] Imported new potential chain segment     number=41 hash=56431d..2eefc1 blocks=1 txs=1 mgas=0.044 elapsed="936.525µs" mgasps=46.813 snapdiffs=15.27KiB triedirty=0.00B
+INFO [11-12|09:01:44.957] Chain head was updated                   number=41 hash=56431d..2eefc1 root=5836ef..22fc00 elapsed="160.752µs"
+INFO [11-12|09:01:45.005] Starting work on payload                 id=0x0323d7bee70fb52f
+INFO [11-12|09:01:45.005] Updated payload                          id=0x0323d7bee70fb52f number=42 hash=12bae5..6e3407 txs=1 withdrawals=0 gas=43842   fees=0 root=a65a5f..732f1c elapsed="666.238µs"
+INFO [11-12|09:01:46.952] Stopping work on payload                 id=0x0323d7bee70fb52f reason=delivery elapsed=1.947s
+INFO [11-12|09:01:46.955] Imported new potential chain segment     number=42 hash=12bae5..6e3407 blocks=1 txs=1 mgas=0.044 elapsed=1.013ms     mgasps=43.259 snapdiffs=15.66KiB triedirty=0.00B
+INFO [11-12|09:01:46.958] Chain head was updated                   number=42 hash=12bae5..6e3407 root=a65a5f..732f1c elapsed="197.403µs"
+INFO [11-12|09:01:47.004] Starting work on payload                 id=0x03d9d29bc9ca31d4
+INFO [11-12|09:01:47.006] Updated payload                          id=0x03d9d29bc9ca31d4 number=43 hash=17a043..8b5d2d txs=1 withdrawals=0 gas=52230   fees=0 root=ae14ca..1e697e elapsed=1.117ms
+INFO [11-12|09:01:48.951] Stopping work on payload                 id=0x03d9d29bc9ca31d4 reason=delivery elapsed=1.946s
+INFO [11-12|09:01:48.956] Imported new potential chain segment     number=43 hash=17a043..8b5d2d blocks=1 txs=1 mgas=0.052 elapsed="997.857µs" mgasps=52.342 snapdiffs=16.18KiB triedirty=0.00B
+INFO [11-12|09:01:48.958] Chain head was updated                   number=43 hash=17a043..8b5d2d root=ae14ca..1e697e elapsed="79.249µs"
+INFO [11-12|09:01:49.009] Starting work on payload                 id=0x033ca3405ac6a36d
+INFO [11-12|09:01:49.010] Updated payload                          id=0x033ca3405ac6a36d number=44 hash=5de8e1..b0b040 txs=1 withdrawals=0 gas=43842   fees=0 root=f747fe..28c7fb elapsed="429.822µs"
+INFO [11-12|09:01:50.951] Stopping work on payload                 id=0x033ca3405ac6a36d reason=delivery elapsed=1.941s
+INFO [11-12|09:01:50.954] Imported new potential chain segment     number=44 hash=5de8e1..b0b040 blocks=1 txs=1 mgas=0.044 elapsed="710.515µs" mgasps=61.705 snapdiffs=16.56KiB triedirty=0.00B
+INFO [11-12|09:01:50.956] Chain head was updated                   number=44 hash=5de8e1..b0b040 root=f747fe..28c7fb elapsed="77.993µs"
+INFO [11-12|09:01:51.005] Starting work on payload                 id=0x03a2f34be51034ae
+INFO [11-12|09:01:51.006] Updated payload                          id=0x03a2f34be51034ae number=45 hash=769eb2..28b6c7 txs=1 withdrawals=0 gas=43842   fees=0 root=6b1664..186c7a elapsed="788.222µs"
+INFO [11-12|09:01:52.953] Stopping work on payload                 id=0x03a2f34be51034ae reason=delivery elapsed=1.947s
+INFO [11-12|09:01:52.955] Imported new potential chain segment     number=45 hash=769eb2..28b6c7 blocks=1 txs=1 mgas=0.044 elapsed="779.879µs" mgasps=56.216 snapdiffs=16.94KiB triedirty=0.00B
+INFO [11-12|09:01:52.957] Chain head was updated                   number=45 hash=769eb2..28b6c7 root=6b1664..186c7a elapsed="67.019µs"
+INFO [11-12|09:01:53.007] Starting work on payload                 id=0x03559bdbf31d385c
+INFO [11-12|09:01:53.008] Updated payload                          id=0x03559bdbf31d385c number=46 hash=e643d9..3faf15 txs=1 withdrawals=0 gas=43842   fees=0 root=c8a0f8..aa95cc elapsed="780.357µs"
+INFO [11-12|09:01:54.952] Stopping work on payload                 id=0x03559bdbf31d385c reason=delivery elapsed=1.944s
+INFO [11-12|09:01:54.956] Imported new potential chain segment     number=46 hash=e643d9..3faf15 blocks=1 txs=1 mgas=0.044 elapsed=1.075ms     mgasps=40.778 snapdiffs=17.32KiB triedirty=0.00B
+INFO [11-12|09:01:54.958] Chain head was updated                   number=46 hash=e643d9..3faf15 root=c8a0f8..aa95cc elapsed="58.753µs"
+INFO [11-12|09:01:55.004] Starting work on payload                 id=0x03e6d7ebfd36d9af
+INFO [11-12|09:01:55.005] Updated payload                          id=0x03e6d7ebfd36d9af number=47 hash=958d7b..474e50 txs=1 withdrawals=0 gas=43842   fees=0 root=c7465c..369df8 elapsed="791.489µs"
+INFO [11-12|09:01:56.952] Stopping work on payload                 id=0x03e6d7ebfd36d9af reason=delivery elapsed=1.948s
+INFO [11-12|09:01:56.956] Imported new potential chain segment     number=47 hash=958d7b..474e50 blocks=1 txs=1 mgas=0.044 elapsed=1.194ms     mgasps=36.706 snapdiffs=17.70KiB triedirty=0.00B
+INFO [11-12|09:01:56.958] Chain head was updated                   number=47 hash=958d7b..474e50 root=c7465c..369df8 elapsed="289.854µs"
+INFO [11-12|09:01:57.003] Starting work on payload                 id=0x03bbe47046aa4412
+INFO [11-12|09:01:57.004] Updated payload                          id=0x03bbe47046aa4412 number=48 hash=129624..fb7ef9 txs=1 withdrawals=0 gas=43842   fees=0 root=118caf..1877fb elapsed="552.529µs"
+INFO [11-12|09:01:58.952] Stopping work on payload                 id=0x03bbe47046aa4412 reason=delivery elapsed=1.948s
+INFO [11-12|09:01:58.955] Imported new potential chain segment     number=48 hash=129624..fb7ef9 blocks=1 txs=1 mgas=0.044 elapsed="818.921µs" mgasps=53.536 snapdiffs=18.08KiB triedirty=0.00B
+INFO [11-12|09:01:58.957] Chain head was updated                   number=48 hash=129624..fb7ef9 root=118caf..1877fb elapsed="155.682µs"
+INFO [11-12|09:01:59.004] Starting work on payload                 id=0x0323ae83a4c397d2
+INFO [11-12|09:01:59.005] Updated payload                          id=0x0323ae83a4c397d2 number=49 hash=97bd90..e94c3f txs=1 withdrawals=0 gas=52242   fees=0 root=b1a7c9..fec569 elapsed="642.229µs"
+INFO [11-12|09:02:00.952] Stopping work on payload                 id=0x0323ae83a4c397d2 reason=delivery elapsed=1.947s
+INFO [11-12|09:02:00.957] Imported new potential chain segment     number=49 hash=97bd90..e94c3f blocks=1 txs=1 mgas=0.052 elapsed=2.508ms     mgasps=20.827 snapdiffs=18.61KiB triedirty=0.00B
+INFO [11-12|09:02:00.961] Chain head was updated                   number=49 hash=97bd90..e94c3f root=b1a7c9..fec569 elapsed="159.897µs"
+INFO [11-12|09:02:01.010] Starting work on payload                 id=0x03038fd028e25b73
+INFO [11-12|09:02:01.011] Updated payload                          id=0x03038fd028e25b73 number=50 hash=28c0be..985de3 txs=1 withdrawals=0 gas=43854   fees=0 root=d3e42e..f33438 elapsed="858.834µs"
+INFO [11-12|09:02:02.951] Stopping work on payload                 id=0x03038fd028e25b73 reason=delivery elapsed=1.940s
+INFO [11-12|09:02:02.954] Imported new potential chain segment     number=50 hash=28c0be..985de3 blocks=1 txs=1 mgas=0.044 elapsed=1.423ms     mgasps=30.805 snapdiffs=18.99KiB triedirty=0.00B
+INFO [11-12|09:02:02.957] Chain head was updated                   number=50 hash=28c0be..985de3 root=d3e42e..f33438 elapsed="307.402µs"
+INFO [11-12|09:02:03.005] Starting work on payload                 id=0x03fa9d87cda61abd
+INFO [11-12|09:02:03.007] Updated payload                          id=0x03fa9d87cda61abd number=51 hash=0691ad..386d8d txs=1 withdrawals=0 gas=43854   fees=0 root=a9bf13..acadf4 elapsed=2.262ms
+INFO [11-12|09:02:04.951] Stopping work on payload                 id=0x03fa9d87cda61abd reason=delivery elapsed=1.946s
+INFO [11-12|09:02:04.954] Imported new potential chain segment     number=51 hash=0691ad..386d8d blocks=1 txs=1 mgas=0.044 elapsed="977.441µs" mgasps=44.866 snapdiffs=19.37KiB triedirty=0.00B
+INFO [11-12|09:02:04.957] Chain head was updated                   number=51 hash=0691ad..386d8d root=a9bf13..acadf4 elapsed="136.759µs"
+INFO [11-12|09:02:05.008] Starting work on payload                 id=0x036f20b56fdfff3b
+INFO [11-12|09:02:05.009] Updated payload                          id=0x036f20b56fdfff3b number=52 hash=529c48..da6de1 txs=1 withdrawals=0 gas=43854   fees=0 root=abcb3e..1e8354 elapsed="931.223µs"
+INFO [11-12|09:02:06.951] Stopping work on payload                 id=0x036f20b56fdfff3b reason=delivery elapsed=1.943s
+INFO [11-12|09:02:06.954] Imported new potential chain segment     number=52 hash=529c48..da6de1 blocks=1 txs=1 mgas=0.044 elapsed=1.133ms     mgasps=38.690 snapdiffs=19.75KiB triedirty=0.00B
+INFO [11-12|09:02:06.957] Chain head was updated                   number=52 hash=529c48..da6de1 root=abcb3e..1e8354 elapsed="92.619µs"
+INFO [11-12|09:02:07.003] Starting work on payload                 id=0x03a52d920fe66ac0
+INFO [11-12|09:02:07.004] Updated payload                          id=0x03a52d920fe66ac0 number=53 hash=998911..d09da9 txs=1 withdrawals=0 gas=43854   fees=0 root=a1dda7..2e6fe6 elapsed="654.396µs"
+INFO [11-12|09:02:08.951] Stopping work on payload                 id=0x03a52d920fe66ac0 reason=delivery elapsed=1.947s
+INFO [11-12|09:02:08.954] Imported new potential chain segment     number=53 hash=998911..d09da9 blocks=1 txs=1 mgas=0.044 elapsed=1.167ms     mgasps=37.569 snapdiffs=20.13KiB triedirty=0.00B
+INFO [11-12|09:02:08.956] Chain head was updated                   number=53 hash=998911..d09da9 root=a1dda7..2e6fe6 elapsed="63.593µs"
+INFO [11-12|09:02:09.004] Starting work on payload                 id=0x039be56bc46fbe44
+INFO [11-12|09:02:09.005] Updated payload                          id=0x039be56bc46fbe44 number=54 hash=a228b7..8b6795 txs=1 withdrawals=0 gas=43854   fees=0 root=4f7c82..506ccd elapsed="519.546µs"

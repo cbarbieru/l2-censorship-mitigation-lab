@@ -1,0 +1,88 @@
+2025-11-12T09:00:27.079550Z  INFO Initialized tracing, debug log directory: /root/.cache/reth/logs/dev
+2025-11-12T09:00:27.084400Z  INFO Starting reth version="1.4.8 (127595e)"
+2025-11-12T09:00:27.086645Z  INFO Opening database path="/data_reth/db"
+2025-11-12T09:00:27.216652Z  INFO Launching node
+2025-11-12T09:00:27.491605Z  INFO Saving prune config to toml file
+2025-11-12T09:00:27.493378Z  INFO Configuration loaded path="/data_reth/reth.toml"
+2025-11-12T09:00:27.510504Z  INFO Verifying storage consistency.
+2025-11-12T09:00:27.676061Z  INFO Database opened
+2025-11-12T09:00:27.678228Z  INFO Starting metrics endpoint at 0.0.0.0:9090
+2025-11-12T09:00:27.927696Z  INFO 
+Pre-merge hard forks (block based):
+- Frontier                         @0
+- Homestead                        @0
+- Dao                              @0
+- Tangerine                        @0
+- SpuriousDragon                   @0
+- Byzantium                        @0
+- Constantinople                   @0
+- Petersburg                       @0
+- Istanbul                         @0
+- MuirGlacier                      @0
+- Berlin                           @0
+- London                           @0
+- ArrowGlacier                     @0
+- GrayGlacier                      @0
+Merge hard forks:
+- Paris                            @0 (network is known to be merged)
+Post-merge hard forks (timestamp based):
+- Shanghai                         @1762938021
+- Cancun                           @1762938021
+2025-11-12T09:00:27.946956Z  INFO Transaction pool initialized
+2025-11-12T09:00:28.097182Z  INFO P2P networking initialized enode=enode://8c9deebff2aad26f0a2b096d6cb32df42c944016ede952432e074ae3262be5b7094be685145d1b674fbd0ea0154beb8ca9001650d577aad79c5d58fff75e15a1@0.0.0.0:30303
+2025-11-12T09:00:28.099199Z  INFO StaticFileProducer initialized
+2025-11-12T09:00:28.103623Z  INFO Pruner initialized prune_config=PruneConfig { block_interval: 5, segments: PruneModes { sender_recovery: None, transaction_lookup: None, receipts: None, account_history: None, storage_history: None, receipts_log_filter: ReceiptsLogPruneConfig({}) } }
+2025-11-12T09:00:28.122355Z  INFO Consensus engine initialized
+2025-11-12T09:00:28.124391Z  INFO Engine API handler initialized
+2025-11-12T09:00:28.181969Z  INFO RPC auth server started url=0.0.0.0:8551
+2025-11-12T09:00:28.234041Z  INFO RPC IPC server started path=/data_reth/reth.ipc
+2025-11-12T09:00:28.234129Z  INFO RPC HTTP server started url=0.0.0.0:8545
+2025-11-12T09:00:28.234419Z  INFO RPC WS server started url=0.0.0.0:8546
+2025-11-12T09:00:28.239861Z  INFO Starting consensus engine
+2025-11-12T09:00:31.124062Z  INFO Status connected_peers=0 latest_block=0
+2025-11-12T09:00:56.124251Z  INFO Status connected_peers=0 latest_block=0
+2025-11-12T09:00:57.022475Z  INFO Forkchoice updated head_block_hash=0xb8cb7290d1fe948472295bae69e75c14b70568d5ba1b51c016e692b309fba8ad safe_block_hash=0x0000000000000000000000000000000000000000000000000000000000000000 finalized_block_hash=0x0000000000000000000000000000000000000000000000000000000000000000
+2025-11-12T09:00:57.023520Z  INFO New payload job created id=0xa0ea84ec2df7ff59 parent=0xb8cb7290d1fe948472295bae69e75c14b70568d5ba1b51c016e692b309fba8ad
+2025-11-12T09:00:57.071465Z  INFO State root task finished state_root=0xfd79e9a674dfc399e0a5079560e068b3cb1f7e772fac7013b8111f52f50f68bb elapsed=3.06853ms
+2025-11-12T09:00:57.071606Z  INFO Block added to canonical chain number=1 hash=0x2cb1b358f59078a53a1391e9494072bd7bec7a737bdb0abdef6adda8fe8bbc0e peers=0 txs=0 gas=0.00 Kgas gas_throughput=0.00 Kgas/second full=0.0% base_fee=0.88gwei blobs=0 excess_blobs=0 elapsed=5.798588ms
+2025-11-12T09:00:57.079900Z  INFO Canonical chain committed number=1 hash=0x2cb1b358f59078a53a1391e9494072bd7bec7a737bdb0abdef6adda8fe8bbc0e elapsed=116.856µs
+2025-11-12T09:00:57.080575Z  INFO New payload job created id=0xfe1c940371cf25d3 parent=0x2cb1b358f59078a53a1391e9494072bd7bec7a737bdb0abdef6adda8fe8bbc0e
+2025-11-12T09:01:09.004171Z  INFO New payload job created id=0xf3f3779c089fc7c2 parent=0x2cb1b358f59078a53a1391e9494072bd7bec7a737bdb0abdef6adda8fe8bbc0e
+2025-11-12T09:01:09.034926Z  INFO State root task finished state_root=0xfd79e9a674dfc399e0a5079560e068b3cb1f7e772fac7013b8111f52f50f68bb elapsed=1.521323ms
+2025-11-12T09:01:09.035263Z  INFO Block added to canonical chain number=2 hash=0x43a7a3fc43e0e8a50265658d06c378f3e0b01246417b9a388c8f97368fc64467 peers=0 txs=0 gas=0.00 Kgas gas_throughput=0.00 Kgas/second full=0.0% base_fee=0.77gwei blobs=0 excess_blobs=0 elapsed=2.060634ms
+2025-11-12T09:01:09.041572Z  INFO Canonical chain committed number=2 hash=0x43a7a3fc43e0e8a50265658d06c378f3e0b01246417b9a388c8f97368fc64467 elapsed=41.43µs
+2025-11-12T09:01:09.044020Z  INFO New payload job created id=0x712bfc2cdedf8f79 parent=0x43a7a3fc43e0e8a50265658d06c378f3e0b01246417b9a388c8f97368fc64467
+2025-11-12T09:01:21.012545Z  INFO New payload job created id=0x575d0b5446901641 parent=0x43a7a3fc43e0e8a50265658d06c378f3e0b01246417b9a388c8f97368fc64467
+2025-11-12T09:01:21.043628Z  INFO State root task finished state_root=0x628ed03f4db833544c223240b11dc772c50e837520532f5cf1c7c56a986f45c6 elapsed=3.398885ms
+2025-11-12T09:01:21.044232Z  INFO Block added to canonical chain number=3 hash=0x433dbfe5ea48c10847851bfcd34d11e6b9af543a71c419e71f447ef3a71f122d peers=0 txs=1 gas=37.17 Kgas gas_throughput=9.40 Mgas/second full=0.1% base_fee=0.67gwei blobs=0 excess_blobs=0 elapsed=3.952879ms
+2025-11-12T09:01:21.050801Z  INFO Canonical chain committed number=3 hash=0x433dbfe5ea48c10847851bfcd34d11e6b9af543a71c419e71f447ef3a71f122d elapsed=14.983µs
+2025-11-12T09:01:21.051941Z  INFO New payload job created id=0xddd212f2abd36ce0 parent=0x433dbfe5ea48c10847851bfcd34d11e6b9af543a71c419e71f447ef3a71f122d
+2025-11-12T09:01:33.004549Z  INFO New payload job created id=0x91610d0e1e528bfd parent=0x433dbfe5ea48c10847851bfcd34d11e6b9af543a71c419e71f447ef3a71f122d
+2025-11-12T09:01:33.039224Z  INFO State root task finished state_root=0x9fb35d3962e8bb4ad0a3dfe0a91ceacc869017dc4f1c8ca7e683d4980ddaacdb elapsed=5.586747ms
+2025-11-12T09:01:33.039454Z  INFO Block added to canonical chain number=4 hash=0xffbf049da2aafd84e1829f926c1a47357cd97a812cd9002dcf847b89ac8e8669 peers=0 txs=1 gas=26.54 Kgas gas_throughput=4.19 Mgas/second full=0.1% base_fee=0.59gwei blobs=0 excess_blobs=0 elapsed=6.333695ms
+2025-11-12T09:01:33.046588Z  INFO Canonical chain committed number=4 hash=0xffbf049da2aafd84e1829f926c1a47357cd97a812cd9002dcf847b89ac8e8669 elapsed=23.267µs
+2025-11-12T09:01:33.048248Z  INFO New payload job created id=0x547f720eaf1669ca parent=0xffbf049da2aafd84e1829f926c1a47357cd97a812cd9002dcf847b89ac8e8669
+2025-11-12T09:01:45.004443Z  INFO New payload job created id=0xafcdf745a67b3316 parent=0xffbf049da2aafd84e1829f926c1a47357cd97a812cd9002dcf847b89ac8e8669
+2025-11-12T09:01:45.038327Z  INFO State root task finished state_root=0x06759163c0ff98db7757dba7599cb3f21937cfca9460e3823ae47cf5cf7901fe elapsed=5.468364ms
+2025-11-12T09:01:45.039058Z  INFO Block added to canonical chain number=5 hash=0xe3da0a22268a63ccfce29e991800360cefb26896bebb83af1c271f18a274c117 peers=0 txs=1 gas=26.52 Kgas gas_throughput=4.26 Mgas/second full=0.1% base_fee=0.51gwei blobs=0 excess_blobs=0 elapsed=6.233234ms
+2025-11-12T09:01:45.046724Z  INFO Canonical chain committed number=5 hash=0xe3da0a22268a63ccfce29e991800360cefb26896bebb83af1c271f18a274c117 elapsed=30.828µs
+2025-11-12T09:01:45.048652Z  INFO New payload job created id=0xbbcd59ef43a87a00 parent=0xe3da0a22268a63ccfce29e991800360cefb26896bebb83af1c271f18a274c117
+2025-11-12T09:01:57.004161Z  INFO New payload job created id=0xcd464321f0164a3f parent=0xe3da0a22268a63ccfce29e991800360cefb26896bebb83af1c271f18a274c117
+2025-11-12T09:01:57.033702Z  INFO State root task finished state_root=0x70e4c8a090eb4f38ecad2718fae71e11971872605005d30babb0170bb0a4e42a elapsed=5.135966ms
+2025-11-12T09:01:57.033922Z  INFO Block added to canonical chain number=6 hash=0xa9300d6fec28824d423b6c33775d01770515b4683da68d3df9e3ed3d870f6bf1 peers=0 txs=1 gas=46.01 Kgas gas_throughput=8.23 Mgas/second full=0.1% base_fee=0.45gwei blobs=0 excess_blobs=0 elapsed=5.587099ms
+2025-11-12T09:01:57.040282Z  INFO Canonical chain committed number=6 hash=0xa9300d6fec28824d423b6c33775d01770515b4683da68d3df9e3ed3d870f6bf1 elapsed=22.105µs
+2025-11-12T09:01:57.041653Z  INFO New payload job created id=0x1575fe35425df981 parent=0xa9300d6fec28824d423b6c33775d01770515b4683da68d3df9e3ed3d870f6bf1
+2025-11-12T09:02:09.003823Z  INFO New payload job created id=0x266db708a2f39f5d parent=0xa9300d6fec28824d423b6c33775d01770515b4683da68d3df9e3ed3d870f6bf1
+2025-11-12T09:02:09.025793Z  INFO State root task finished state_root=0x2201b9ae3083d308ead233ddf9401ac9b3218a0843e2005d60522562d6708684 elapsed=2.884197ms
+2025-11-12T09:02:09.025995Z  INFO Block added to canonical chain number=7 hash=0x696e98a6c8b1d740cfe7a99ffea78f2a007bf6cb968b5e461ca432efb2c17832 peers=0 txs=1 gas=25.33 Kgas gas_throughput=7.77 Mgas/second full=0.1% base_fee=0.39gwei blobs=0 excess_blobs=0 elapsed=3.259845ms
+2025-11-12T09:02:09.031766Z  INFO Canonical chain committed number=7 hash=0x696e98a6c8b1d740cfe7a99ffea78f2a007bf6cb968b5e461ca432efb2c17832 elapsed=20.906µs
+2025-11-12T09:02:09.032670Z  INFO New payload job created id=0xde585d15e1231d2e parent=0x696e98a6c8b1d740cfe7a99ffea78f2a007bf6cb968b5e461ca432efb2c17832
+2025-11-12T09:02:09.036570Z ERROR Persistence service failed err=ProviderError(Other(FileSystem(Rename { source: Os { code: 1, kind: PermissionDenied, message: "Operation not permitted" }, from: "/data_reth/static_files/static_file_headers_0_499999.tmp", to: "/data_reth/static_files/static_file_headers_0_499999.conf" })))
+2025-11-12T09:02:09.532862Z ERROR Advancing persistence failed err=channel closed
+2025-11-12T09:02:09.533157Z ERROR Fatal error
+2025-11-12T09:02:09.533208Z ERROR Fatal error in consensus engine
+2025-11-12T09:02:09.534752Z ERROR shutting down due to error
+Error: Fatal error in consensus engine
+
+Location:
+    /home/runner/work/reth/reth/crates/node/builder/src/launch/engine.rs:339:43

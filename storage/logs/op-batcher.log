@@ -1,0 +1,170 @@
+t=2025-11-12T09:00:26+0000 lvl=info msg="Initializing Batch Submitter"
+t=2025-11-12T09:00:26+0000 lvl=warn msg="failed to dial address, but may connect later" addr=http://el:8545
+t=2025-11-12T09:00:28+0000 lvl=warn msg="failed to dial address, but may connect later" addr=http://op-geth:8545
+t=2025-11-12T09:00:30+0000 lvl=warn msg="failed to dial address, but may connect later" addr=http://op-node:8549
+t=2025-11-12T09:00:33+0000 lvl=warn msg="failed to dial address, but may connect later" addr=http://op-node:8549
+t=2025-11-12T09:00:35+0000 lvl=warn msg="failed to dial address, but may connect later" addr=http://op-node:8549
+t=2025-11-12T09:00:37+0000 lvl=info msg="Rollup Config" l2_chain_id=13 l2_network="unknown L2" l1_chain_id=1337 l1_network="unknown L1" l2_start_time=1762938023 l2_block_hash=0x1a43fd1e0e8b1b23501d985fa1933fb469213a17d5ac18864848a6a63468ae7f l2_block_number=0 l1_block_hash=0xb8cb7290d1fe948472295bae69e75c14b70568d5ba1b51c016e692b309fba8ad l1_block_number=0 regolith_time="@ genesis" canyon_time="@ genesis" delta_time="@ genesis" ecotone_time="@ genesis" fjord_time="@ genesis" granite_time="@ genesis" holocene_time="@ genesis" isthmus_time="(not configured)" jovian_time="(not configured)" interop_time="(not configured)"
+t=2025-11-12T09:00:37+0000 lvl=warn msg="Ecotone upgrade is active, but batcher is not configured to use Blobs!"
+t=2025-11-12T09:00:37+0000 lvl=info msg="Initialized channel-config" da_type=calldata use_alt_da=false max_frame_size=119999 target_num_frames=1 compressor=shadow compression_algo=zlib batch_type=0 max_channel_duration=2 channel_timeout=50 sub_safety_margin=4
+t=2025-11-12T09:00:37+0000 lvl=info msg="Metrics disabled"
+t=2025-11-12T09:00:37+0000 lvl=info msg="Starting JSON-RPC server"
+t=2025-11-12T09:00:37+0000 lvl=info msg="Started RPC server" endpoint=http://[::]:8545
+t=2025-11-12T09:00:37+0000 lvl=info msg="Starting batcher" notSubmittingOnStart=false
+t=2025-11-12T09:00:37+0000 lvl=info msg="Starting Batch Submitter"
+t=2025-11-12T09:00:37+0000 lvl=info msg="Clearing state"
+t=2025-11-12T09:00:37+0000 lvl=info msg="Clearing state with safe L1 origin" origin=0xb8cb7290d1fe948472295bae69e75c14b70568d5ba1b51c016e692b309fba8ad:0
+t=2025-11-12T09:00:37+0000 lvl=info msg="State cleared"
+t=2025-11-12T09:00:37+0000 lvl=info msg="Batch Submitter started"
+t=2025-11-12T09:00:37+0000 lvl=info msg="Starting DA throttling loop"
+t=2025-11-12T09:00:37+0000 lvl=info msg="Starting receipts processing loop"
+t=2025-11-12T09:00:38+0000 lvl=info msg="Received empty sync status, backing off" backoff=1s
+t=2025-11-12T09:00:39+0000 lvl=info msg="Received empty sync status, backing off" backoff=2s
+t=2025-11-12T09:00:41+0000 lvl=info msg="Received empty sync status, backing off" backoff=4s
+t=2025-11-12T09:00:45+0000 lvl=info msg="Received empty sync status, backing off" backoff=8s
+t=2025-11-12T09:00:53+0000 lvl=info msg="Received empty sync status, backing off" backoff=16s
+t=2025-11-12T09:01:09+0000 lvl=info msg="no blocks in state" syncStatus.headL1=2cb1b3..8bbc0e:1 syncStatus.currentL1=2cb1b3..8bbc0e:1 syncStatus.localSafeL2=1a43fd..68ae7f:0 syncStatus.safeL2=1a43fd..68ae7f:0 syncStatus.unsafeL2=a7f6d8..f182cd:23 syncActions="SyncActions{blocksToPrune: 0, channelsToPrune: 0, clearState: nil, blocksToLoad: [1, 23]}"
+t=2025-11-12T09:01:09+0000 lvl=info msg="Loading range of multiple blocks into state" start=1 end=23
+t=2025-11-12T09:01:09+0000 lvl=info msg="Added L2 block to local state" block=0xa46d1f123af528b0059e19be462f3329c1e0b4f13cf5b51324880b2b1daf1047:1 tx_count=1 time=1762938025
+t=2025-11-12T09:01:09+0000 lvl=info msg="Added L2 block to local state" block=0x6796047c6f5a38541e3ded1e2db77d73a0eeb6368c5ff8be1343185a6c4cb324:2 tx_count=1 time=1762938027
+t=2025-11-12T09:01:09+0000 lvl=info msg="Added L2 block to local state" block=0xd322785338cff2754fe9287a39b709e4f546a00bbdae4340769da3de25a9a913:3 tx_count=1 time=1762938029
+t=2025-11-12T09:01:09+0000 lvl=info msg="Added L2 block to local state" block=0xa616858f1d4a1cae259ef6b28a876476c59ea23b550c321a5419ac92375ae1ef:4 tx_count=1 time=1762938031
+t=2025-11-12T09:01:09+0000 lvl=info msg="Added L2 block to local state" block=0x4f9cf60f4350ebfb8acbe1102404200e66d8d1e0af50f84ec3177e056152f26b:5 tx_count=1 time=1762938033
+t=2025-11-12T09:01:09+0000 lvl=info msg="Added L2 block to local state" block=0xf3c8930b4c42462585bf7263763c752de014c11c7e877923a28c2c7c9e12243f:6 tx_count=1 time=1762938035
+t=2025-11-12T09:01:09+0000 lvl=info msg="Added L2 block to local state" block=0x66899df673fb43888937106b2cfaed2bd8b7e0d57992c4df715a1b819b6767d4:7 tx_count=1 time=1762938037
+t=2025-11-12T09:01:09+0000 lvl=info msg="Added L2 block to local state" block=0xf38259d612fa1e2c36fed6f5738e79ed74243cee645d672a646b2a91c0781e37:8 tx_count=1 time=1762938039
+t=2025-11-12T09:01:09+0000 lvl=info msg="Added L2 block to local state" block=0x49cd49c473e338fba505c59deb48cd84fbcdc620b453ee2451e1440792d1c4d2:9 tx_count=1 time=1762938041
+t=2025-11-12T09:01:09+0000 lvl=info msg="Added L2 block to local state" block=0xba307b7830fa633631a65107b91a8c3a1d3f200e9d608ccb98b4fe91b4a3b314:10 tx_count=1 time=1762938043
+t=2025-11-12T09:01:09+0000 lvl=info msg="Added L2 block to local state" block=0xc178bfa67e0f6fa874f1ff8701c64bf10ebb6fbd9973c826f57915252e35aa60:11 tx_count=1 time=1762938045
+t=2025-11-12T09:01:09+0000 lvl=info msg="Added L2 block to local state" block=0xf8474643273be90a5ef147ba7c5baf45aada9d973b5accc24970eb230507ed5f:12 tx_count=1 time=1762938047
+t=2025-11-12T09:01:09+0000 lvl=info msg="Added L2 block to local state" block=0xbe51bc038d8e32edbcdc22a0cec4eefb84d5bac66c67af81453ec112f042c232:13 tx_count=1 time=1762938049
+t=2025-11-12T09:01:09+0000 lvl=info msg="Added L2 block to local state" block=0x290067ce147eb01e389923aaa832ab5f13a4d9ebcbc637a0453ae2b270b57398:14 tx_count=1 time=1762938051
+t=2025-11-12T09:01:09+0000 lvl=info msg="Added L2 block to local state" block=0x60c3448ecef10ef3dd77e24a562d63082daa128a3a5513606c64a1e7f3a0cdfd:15 tx_count=1 time=1762938053
+t=2025-11-12T09:01:09+0000 lvl=info msg="Added L2 block to local state" block=0xae976b84e11f28f5eacf701f424a84ab7fd1e62f15d3b746d836ef54fd996c0c:16 tx_count=1 time=1762938055
+t=2025-11-12T09:01:09+0000 lvl=info msg="Added L2 block to local state" block=0x9ddb47d54fa1b505501cf8486ab64f15cc4be72a025b1ea67d974c5593c7ed85:17 tx_count=1 time=1762938057
+t=2025-11-12T09:01:09+0000 lvl=info msg="Added L2 block to local state" block=0xb3a6941335978f16881987243225477d8f29d4b729405b9fb5999b915430c4bc:18 tx_count=1 time=1762938059
+t=2025-11-12T09:01:09+0000 lvl=info msg="Added L2 block to local state" block=0x4ed16d7db673328f157f975140ac15ca59112df044303219a124980d23e7747f:19 tx_count=1 time=1762938061
+t=2025-11-12T09:01:09+0000 lvl=info msg="Added L2 block to local state" block=0xf5b7c4a2bb1d7bc9668e8e26b9a8603d819bf0a0bc6094f5917422caa9942e98:20 tx_count=1 time=1762938063
+t=2025-11-12T09:01:09+0000 lvl=info msg="Added L2 block to local state" block=0x2cf524221df9537021bd48469f96fd04247020ade13f9f205793dbf105ed6a3e:21 tx_count=1 time=1762938065
+t=2025-11-12T09:01:09+0000 lvl=info msg="Added L2 block to local state" block=0xbd69dc3c6e16f01a740688433e7d43ed3232392cc1a1a4bed6bb321ad0a1bccd:22 tx_count=1 time=1762938067
+t=2025-11-12T09:01:09+0000 lvl=info msg="Added L2 block to local state" block=0xa7f6d865a17ff564ee5b14b397c898ab1af806f6074ff4288a31cc996ff182cd:23 tx_count=1 time=1762938069
+t=2025-11-12T09:01:09+0000 lvl=info msg="Created channel" id=61efc8c3029855f7053b4c0d2f624c34 l1Head=0x43a7a3fc43e0e8a50265658d06c378f3e0b01246417b9a388c8f97368fc64467:2 blocks_pending=23 l1OriginLastSubmittedChannel=0xb8cb7290d1fe948472295bae69e75c14b70568d5ba1b51c016e692b309fba8ad:0 batch_type=0 compression_algo=zlib target_num_frames=1 max_frame_size=119999 use_blobs=false
+t=2025-11-12T09:01:09+0000 lvl=info msg="Channel closed" id=61efc8c3029855f7053b4c0d2f624c34 blocks_pending=0 num_frames=1 input_bytes=1794 output_bytes=1018 oldest_l1_origin=0x2cb1b358f59078a53a1391e9494072bd7bec7a737bdb0abdef6adda8fe8bbc0e:1 l1_origin=0x2cb1b358f59078a53a1391e9494072bd7bec7a737bdb0abdef6adda8fe8bbc0e:1 oldest_l2=0xa46d1f123af528b0059e19be462f3329c1e0b4f13cf5b51324880b2b1daf1047:1 latest_l2=0xa7f6d865a17ff564ee5b14b397c898ab1af806f6074ff4288a31cc996ff182cd:23 full_reason="channel full: max channel duration reached" compr_ratio=0.5674470457079153
+t=2025-11-12T09:01:09+0000 lvl=info msg="Building Calldata transaction candidate" size=1019
+t=2025-11-12T09:01:09+0000 lvl=info msg="Publishing transaction" service=batcher tx=0xa3e7a82cdf3d9b2281692a5f8e3c9aac6fa5006aa02ac60cb89412f4fc84c5d7 nonce=1 gasTipCap=1000000000 gasFeeCap=3000000000 gasLimit=61430
+t=2025-11-12T09:01:09+0000 lvl=info msg="Transaction successfully published" service=batcher tx=0xa3e7a82cdf3d9b2281692a5f8e3c9aac6fa5006aa02ac60cb89412f4fc84c5d7 nonce=1 gasTipCap=1000000000 gasFeeCap=3000000000 gasLimit=61430 tx=0xa3e7a82cdf3d9b2281692a5f8e3c9aac6fa5006aa02ac60cb89412f4fc84c5d7
+t=2025-11-12T09:01:11+0000 lvl=info msg="Added L2 block to local state" block=0x7f5937361d5167cbb0eed97611c40f70e756050268f35e0d0151d10d32f89bfc:24 tx_count=1 time=1762938071
+t=2025-11-12T09:01:11+0000 lvl=info msg="Created channel" id=d102d0842eee31d647fed863b61ccb12 l1Head=0x43a7a3fc43e0e8a50265658d06c378f3e0b01246417b9a388c8f97368fc64467:2 blocks_pending=1 l1OriginLastSubmittedChannel=0x2cb1b358f59078a53a1391e9494072bd7bec7a737bdb0abdef6adda8fe8bbc0e:1 batch_type=0 compression_algo=zlib target_num_frames=1 max_frame_size=119999 use_blobs=false
+t=2025-11-12T09:01:13+0000 lvl=info msg="Added L2 block to local state" block=0x74d52e0b10090760f940157b25314c8c5f8836b8b732a3e146cbf00f2e3c4b8b:25 tx_count=1 time=1762938073
+t=2025-11-12T09:01:15+0000 lvl=info msg="Added L2 block to local state" block=0xe5c9a5e39d44d3b3395d1b39c0faf7341d4c6244548c2f674fbdab6c943b6628:26 tx_count=1 time=1762938075
+t=2025-11-12T09:01:17+0000 lvl=info msg="Added L2 block to local state" block=0x1b4bde7cf7ab1fb3eaacca59b60e49bec8aacadfd30c1343435eccc73a8df7bc:27 tx_count=1 time=1762938077
+t=2025-11-12T09:01:19+0000 lvl=info msg="Added L2 block to local state" block=0x1a2c63ae2e3090decba10aea4462233b99ab200d85f05544ae79576e15819c76:28 tx_count=1 time=1762938079
+t=2025-11-12T09:01:21+0000 lvl=info msg="Added L2 block to local state" block=0xb90cfa2abef60cae78e0ae9a0842d22603737a0c35c9aead3c01b89ecfea2079:29 tx_count=1 time=1762938081
+t=2025-11-12T09:01:21+0000 lvl=info msg="Channel closed" id=d102d0842eee31d647fed863b61ccb12 blocks_pending=0 num_frames=1 input_bytes=468 output_bytes=351 oldest_l1_origin=0x2cb1b358f59078a53a1391e9494072bd7bec7a737bdb0abdef6adda8fe8bbc0e:1 l1_origin=0x43a7a3fc43e0e8a50265658d06c378f3e0b01246417b9a388c8f97368fc64467:2 oldest_l2=0x7f5937361d5167cbb0eed97611c40f70e756050268f35e0d0151d10d32f89bfc:24 latest_l2=0xb90cfa2abef60cae78e0ae9a0842d22603737a0c35c9aead3c01b89ecfea2079:29 full_reason="channel full: max channel duration reached" compr_ratio=0.75
+t=2025-11-12T09:01:21+0000 lvl=info msg="Building Calldata transaction candidate" size=352
+t=2025-11-12T09:01:21+0000 lvl=info msg="Transaction confirmed" service=batcher tx=0xa3e7a82cdf3d9b2281692a5f8e3c9aac6fa5006aa02ac60cb89412f4fc84c5d7 block=0x433dbfe5ea48c10847851bfcd34d11e6b9af543a71c419e71f447ef3a71f122d:3 effectiveGasPrice=1669921875
+t=2025-11-12T09:01:21+0000 lvl=info msg="Handling receipt" id=61efc8c3029855f7053b4c0d2f624c34:0
+t=2025-11-12T09:01:21+0000 lvl=info msg="Transaction confirmed" tx_id=61efc8c3029855f7053b4c0d2f624c34:0 tx=0xa3e7a82cdf3d9b2281692a5f8e3c9aac6fa5006aa02ac60cb89412f4fc84c5d7 block=0x433dbfe5ea48c10847851bfcd34d11e6b9af543a71c419e71f447ef3a71f122d:3
+t=2025-11-12T09:01:21+0000 lvl=info msg="Channel is fully submitted" id=61efc8c3029855f7053b4c0d2f624c34 min_inclusion_block=3 max_inclusion_block=3
+t=2025-11-12T09:01:21+0000 lvl=info msg="Publishing transaction" service=batcher tx=0x3f7e79038ec7d14ae6e9fd98badadee79bf433a8b78cafe193e4342451302504 nonce=2 gasTipCap=1000000000 gasFeeCap=3000000000 gasLimit=34840
+t=2025-11-12T09:01:21+0000 lvl=info msg="Transaction successfully published" service=batcher tx=0x3f7e79038ec7d14ae6e9fd98badadee79bf433a8b78cafe193e4342451302504 nonce=2 gasTipCap=1000000000 gasFeeCap=3000000000 gasLimit=34840 tx=0x3f7e79038ec7d14ae6e9fd98badadee79bf433a8b78cafe193e4342451302504
+t=2025-11-12T09:01:23+0000 lvl=info msg="Added L2 block to local state" block=0xc3fc58681c3bace3eb0357c224ddf5c009be0428ffc125c185ccea85ec4e5e14:30 tx_count=1 time=1762938083
+t=2025-11-12T09:01:23+0000 lvl=info msg="Created channel" id=32f2b16e3dd4988a1815d7eb827a6975 l1Head=0x433dbfe5ea48c10847851bfcd34d11e6b9af543a71c419e71f447ef3a71f122d:3 blocks_pending=1 l1OriginLastSubmittedChannel=0x43a7a3fc43e0e8a50265658d06c378f3e0b01246417b9a388c8f97368fc64467:2 batch_type=0 compression_algo=zlib target_num_frames=1 max_frame_size=119999 use_blobs=false
+t=2025-11-12T09:01:25+0000 lvl=info msg="Added L2 block to local state" block=0xd23e1d1775c56b2f6f2015c294adad5e6dbe7f8239be37a6a2eb59be24750b97:31 tx_count=1 time=1762938085
+t=2025-11-12T09:01:27+0000 lvl=info msg="Added L2 block to local state" block=0xa615b8949bdf5fc882586a52bfed7ea40b839e18c21f3836578a0dcc5df1760a:32 tx_count=1 time=1762938087
+t=2025-11-12T09:01:29+0000 lvl=info msg="Added L2 block to local state" block=0x7da5b38e63a178b83dbedc7894baa0850a958c878845ce0adfe035294210457b:33 tx_count=1 time=1762938089
+t=2025-11-12T09:01:31+0000 lvl=info msg="Added L2 block to local state" block=0x82a0b747dec4f9425b0f63f6c272edc30d3c86fe3b2953fe733d4b8bcd6b9fb4:34 tx_count=1 time=1762938091
+t=2025-11-12T09:01:33+0000 lvl=info msg="Added L2 block to local state" block=0x6ef89d9ae168f92db4ce8591e57d278b88688a38141928c33cb49763958f8e36:35 tx_count=1 time=1762938093
+t=2025-11-12T09:01:33+0000 lvl=info msg="Channel closed" id=32f2b16e3dd4988a1815d7eb827a6975 blocks_pending=0 num_frames=1 input_bytes=468 output_bytes=351 oldest_l1_origin=0x43a7a3fc43e0e8a50265658d06c378f3e0b01246417b9a388c8f97368fc64467:2 l1_origin=0x433dbfe5ea48c10847851bfcd34d11e6b9af543a71c419e71f447ef3a71f122d:3 oldest_l2=0xc3fc58681c3bace3eb0357c224ddf5c009be0428ffc125c185ccea85ec4e5e14:30 latest_l2=0x6ef89d9ae168f92db4ce8591e57d278b88688a38141928c33cb49763958f8e36:35 full_reason="channel full: max channel duration reached" compr_ratio=0.75
+t=2025-11-12T09:01:33+0000 lvl=info msg="Building Calldata transaction candidate" size=352
+t=2025-11-12T09:01:33+0000 lvl=info msg="Transaction confirmed" service=batcher tx=0x3f7e79038ec7d14ae6e9fd98badadee79bf433a8b78cafe193e4342451302504 block=0xffbf049da2aafd84e1829f926c1a47357cd97a812cd9002dcf847b89ac8e8669:4 effectiveGasPrice=1586354574
+t=2025-11-12T09:01:33+0000 lvl=info msg="Handling receipt" id=d102d0842eee31d647fed863b61ccb12:0
+t=2025-11-12T09:01:33+0000 lvl=info msg="Transaction confirmed" tx_id=d102d0842eee31d647fed863b61ccb12:0 tx=0x3f7e79038ec7d14ae6e9fd98badadee79bf433a8b78cafe193e4342451302504 block=0xffbf049da2aafd84e1829f926c1a47357cd97a812cd9002dcf847b89ac8e8669:4
+t=2025-11-12T09:01:33+0000 lvl=info msg="Channel is fully submitted" id=d102d0842eee31d647fed863b61ccb12 min_inclusion_block=4 max_inclusion_block=4
+t=2025-11-12T09:01:33+0000 lvl=info msg="Publishing transaction" service=batcher tx=0xea3420b6d344126498f548f8f4d5361e3e5b399deaf5a2e9316219588f10c453 nonce=3 gasTipCap=1000000000 gasFeeCap=3000000000 gasLimit=34810
+t=2025-11-12T09:01:33+0000 lvl=info msg="Transaction successfully published" service=batcher tx=0xea3420b6d344126498f548f8f4d5361e3e5b399deaf5a2e9316219588f10c453 nonce=3 gasTipCap=1000000000 gasFeeCap=3000000000 gasLimit=34810 tx=0xea3420b6d344126498f548f8f4d5361e3e5b399deaf5a2e9316219588f10c453
+t=2025-11-12T09:01:35+0000 lvl=warn msg="sequencer did not make expected progress" syncStatus.headL1=ffbf04..8e8669:4 syncStatus.currentL1=ffbf04..8e8669:4 syncStatus.localSafeL2=1a43fd..68ae7f:0 syncStatus.safeL2=1a43fd..68ae7f:0 syncStatus.unsafeL2=27e5bc..849e09:36 syncActions="SyncActions{blocksToPrune: 0, channelsToPrune: 0, clearState: b8cb72..fba8ad:0, blocksToLoad: [1, 36]}" existingBlock=a7f6d8..f182cd:23
+t=2025-11-12T09:01:35+0000 lvl=info msg="Loading range of multiple blocks into state" start=1 end=36
+t=2025-11-12T09:01:35+0000 lvl=info msg="Added L2 block to local state" block=0xa46d1f123af528b0059e19be462f3329c1e0b4f13cf5b51324880b2b1daf1047:1 tx_count=1 time=1762938025
+t=2025-11-12T09:01:35+0000 lvl=info msg="Added L2 block to local state" block=0x6796047c6f5a38541e3ded1e2db77d73a0eeb6368c5ff8be1343185a6c4cb324:2 tx_count=1 time=1762938027
+t=2025-11-12T09:01:35+0000 lvl=info msg="Added L2 block to local state" block=0xd322785338cff2754fe9287a39b709e4f546a00bbdae4340769da3de25a9a913:3 tx_count=1 time=1762938029
+t=2025-11-12T09:01:35+0000 lvl=info msg="Added L2 block to local state" block=0xa616858f1d4a1cae259ef6b28a876476c59ea23b550c321a5419ac92375ae1ef:4 tx_count=1 time=1762938031
+t=2025-11-12T09:01:35+0000 lvl=info msg="Added L2 block to local state" block=0x4f9cf60f4350ebfb8acbe1102404200e66d8d1e0af50f84ec3177e056152f26b:5 tx_count=1 time=1762938033
+t=2025-11-12T09:01:35+0000 lvl=info msg="Added L2 block to local state" block=0xf3c8930b4c42462585bf7263763c752de014c11c7e877923a28c2c7c9e12243f:6 tx_count=1 time=1762938035
+t=2025-11-12T09:01:35+0000 lvl=info msg="Added L2 block to local state" block=0x66899df673fb43888937106b2cfaed2bd8b7e0d57992c4df715a1b819b6767d4:7 tx_count=1 time=1762938037
+t=2025-11-12T09:01:35+0000 lvl=info msg="Added L2 block to local state" block=0xf38259d612fa1e2c36fed6f5738e79ed74243cee645d672a646b2a91c0781e37:8 tx_count=1 time=1762938039
+t=2025-11-12T09:01:35+0000 lvl=info msg="Added L2 block to local state" block=0x49cd49c473e338fba505c59deb48cd84fbcdc620b453ee2451e1440792d1c4d2:9 tx_count=1 time=1762938041
+t=2025-11-12T09:01:35+0000 lvl=info msg="Added L2 block to local state" block=0xba307b7830fa633631a65107b91a8c3a1d3f200e9d608ccb98b4fe91b4a3b314:10 tx_count=1 time=1762938043
+t=2025-11-12T09:01:35+0000 lvl=info msg="Added L2 block to local state" block=0xc178bfa67e0f6fa874f1ff8701c64bf10ebb6fbd9973c826f57915252e35aa60:11 tx_count=1 time=1762938045
+t=2025-11-12T09:01:35+0000 lvl=info msg="Added L2 block to local state" block=0xf8474643273be90a5ef147ba7c5baf45aada9d973b5accc24970eb230507ed5f:12 tx_count=1 time=1762938047
+t=2025-11-12T09:01:35+0000 lvl=info msg="Added L2 block to local state" block=0xbe51bc038d8e32edbcdc22a0cec4eefb84d5bac66c67af81453ec112f042c232:13 tx_count=1 time=1762938049
+t=2025-11-12T09:01:35+0000 lvl=info msg="Added L2 block to local state" block=0x290067ce147eb01e389923aaa832ab5f13a4d9ebcbc637a0453ae2b270b57398:14 tx_count=1 time=1762938051
+t=2025-11-12T09:01:35+0000 lvl=info msg="Added L2 block to local state" block=0x60c3448ecef10ef3dd77e24a562d63082daa128a3a5513606c64a1e7f3a0cdfd:15 tx_count=1 time=1762938053
+t=2025-11-12T09:01:35+0000 lvl=info msg="Added L2 block to local state" block=0xae976b84e11f28f5eacf701f424a84ab7fd1e62f15d3b746d836ef54fd996c0c:16 tx_count=1 time=1762938055
+t=2025-11-12T09:01:35+0000 lvl=info msg="Added L2 block to local state" block=0x9ddb47d54fa1b505501cf8486ab64f15cc4be72a025b1ea67d974c5593c7ed85:17 tx_count=1 time=1762938057
+t=2025-11-12T09:01:35+0000 lvl=info msg="Added L2 block to local state" block=0xb3a6941335978f16881987243225477d8f29d4b729405b9fb5999b915430c4bc:18 tx_count=1 time=1762938059
+t=2025-11-12T09:01:35+0000 lvl=info msg="Added L2 block to local state" block=0x4ed16d7db673328f157f975140ac15ca59112df044303219a124980d23e7747f:19 tx_count=1 time=1762938061
+t=2025-11-12T09:01:35+0000 lvl=info msg="Added L2 block to local state" block=0xf5b7c4a2bb1d7bc9668e8e26b9a8603d819bf0a0bc6094f5917422caa9942e98:20 tx_count=1 time=1762938063
+t=2025-11-12T09:01:35+0000 lvl=info msg="Added L2 block to local state" block=0x2cf524221df9537021bd48469f96fd04247020ade13f9f205793dbf105ed6a3e:21 tx_count=1 time=1762938065
+t=2025-11-12T09:01:35+0000 lvl=info msg="Added L2 block to local state" block=0xbd69dc3c6e16f01a740688433e7d43ed3232392cc1a1a4bed6bb321ad0a1bccd:22 tx_count=1 time=1762938067
+t=2025-11-12T09:01:35+0000 lvl=info msg="Added L2 block to local state" block=0xa7f6d865a17ff564ee5b14b397c898ab1af806f6074ff4288a31cc996ff182cd:23 tx_count=1 time=1762938069
+t=2025-11-12T09:01:35+0000 lvl=info msg="Added L2 block to local state" block=0x7f5937361d5167cbb0eed97611c40f70e756050268f35e0d0151d10d32f89bfc:24 tx_count=1 time=1762938071
+t=2025-11-12T09:01:35+0000 lvl=info msg="Added L2 block to local state" block=0x74d52e0b10090760f940157b25314c8c5f8836b8b732a3e146cbf00f2e3c4b8b:25 tx_count=1 time=1762938073
+t=2025-11-12T09:01:35+0000 lvl=info msg="Added L2 block to local state" block=0xe5c9a5e39d44d3b3395d1b39c0faf7341d4c6244548c2f674fbdab6c943b6628:26 tx_count=1 time=1762938075
+t=2025-11-12T09:01:35+0000 lvl=info msg="Added L2 block to local state" block=0x1b4bde7cf7ab1fb3eaacca59b60e49bec8aacadfd30c1343435eccc73a8df7bc:27 tx_count=1 time=1762938077
+t=2025-11-12T09:01:35+0000 lvl=info msg="Added L2 block to local state" block=0x1a2c63ae2e3090decba10aea4462233b99ab200d85f05544ae79576e15819c76:28 tx_count=1 time=1762938079
+t=2025-11-12T09:01:35+0000 lvl=info msg="Added L2 block to local state" block=0xb90cfa2abef60cae78e0ae9a0842d22603737a0c35c9aead3c01b89ecfea2079:29 tx_count=1 time=1762938081
+t=2025-11-12T09:01:35+0000 lvl=info msg="Added L2 block to local state" block=0xc3fc58681c3bace3eb0357c224ddf5c009be0428ffc125c185ccea85ec4e5e14:30 tx_count=1 time=1762938083
+t=2025-11-12T09:01:35+0000 lvl=info msg="Added L2 block to local state" block=0xd23e1d1775c56b2f6f2015c294adad5e6dbe7f8239be37a6a2eb59be24750b97:31 tx_count=1 time=1762938085
+t=2025-11-12T09:01:35+0000 lvl=info msg="Added L2 block to local state" block=0xa615b8949bdf5fc882586a52bfed7ea40b839e18c21f3836578a0dcc5df1760a:32 tx_count=1 time=1762938087
+t=2025-11-12T09:01:35+0000 lvl=info msg="Added L2 block to local state" block=0x7da5b38e63a178b83dbedc7894baa0850a958c878845ce0adfe035294210457b:33 tx_count=1 time=1762938089
+t=2025-11-12T09:01:35+0000 lvl=info msg="Added L2 block to local state" block=0x82a0b747dec4f9425b0f63f6c272edc30d3c86fe3b2953fe733d4b8bcd6b9fb4:34 tx_count=1 time=1762938091
+t=2025-11-12T09:01:35+0000 lvl=info msg="Added L2 block to local state" block=0x6ef89d9ae168f92db4ce8591e57d278b88688a38141928c33cb49763958f8e36:35 tx_count=1 time=1762938093
+t=2025-11-12T09:01:35+0000 lvl=info msg="Added L2 block to local state" block=0x27e5bc4592d3e1a234e688df6f006716bf1c14b5581d3f4eb28f9bf51c849e09:36 tx_count=1 time=1762938095
+t=2025-11-12T09:01:35+0000 lvl=info msg="Created channel" id=e5784d47045ec87c6c1c06984f33d345 l1Head=0xffbf049da2aafd84e1829f926c1a47357cd97a812cd9002dcf847b89ac8e8669:4 blocks_pending=36 l1OriginLastSubmittedChannel=0xb8cb7290d1fe948472295bae69e75c14b70568d5ba1b51c016e692b309fba8ad:0 batch_type=0 compression_algo=zlib target_num_frames=1 max_frame_size=119999 use_blobs=false
+t=2025-11-12T09:01:35+0000 lvl=info msg="Channel closed" id=e5784d47045ec87c6c1c06984f33d345 blocks_pending=0 num_frames=1 input_bytes=2808 output_bytes=1568 oldest_l1_origin=0x2cb1b358f59078a53a1391e9494072bd7bec7a737bdb0abdef6adda8fe8bbc0e:1 l1_origin=0x433dbfe5ea48c10847851bfcd34d11e6b9af543a71c419e71f447ef3a71f122d:3 oldest_l2=0xa46d1f123af528b0059e19be462f3329c1e0b4f13cf5b51324880b2b1daf1047:1 latest_l2=0x27e5bc4592d3e1a234e688df6f006716bf1c14b5581d3f4eb28f9bf51c849e09:36 full_reason="channel full: max channel duration reached" compr_ratio=0.5584045584045584
+t=2025-11-12T09:01:35+0000 lvl=info msg="Building Calldata transaction candidate" size=1569
+t=2025-11-12T09:01:37+0000 lvl=info msg="Added L2 block to local state" block=0x4e3dc90801f14ef3146e9716eb3ac8f064fb18a7cc9f0b6cb549b7260e0f4b65:37 tx_count=1 time=1762938097
+t=2025-11-12T09:01:39+0000 lvl=info msg="Added L2 block to local state" block=0x68c06ea81b5eca8b8aff081c7a7b0a44f8a1eb276f16a6327e780e809629445c:38 tx_count=1 time=1762938099
+t=2025-11-12T09:01:41+0000 lvl=info msg="Added L2 block to local state" block=0xc88f6db581c6ac105878ed44dc749a9a25ae99a0cd4586f52fade976b8b230fd:39 tx_count=1 time=1762938101
+t=2025-11-12T09:01:43+0000 lvl=info msg="Added L2 block to local state" block=0xeb9b5753f692c46915b12ebd9cdfe9e1e21fb1f37bfc43d674ee0d71247f0994:40 tx_count=1 time=1762938103
+t=2025-11-12T09:01:45+0000 lvl=info msg="Added L2 block to local state" block=0x56431d33c5b3c4e3d739d28a8950a6659e55392e61b828bd6678cde8022eefc1:41 tx_count=1 time=1762938105
+t=2025-11-12T09:01:45+0000 lvl=info msg="Transaction confirmed" service=batcher tx=0xea3420b6d344126498f548f8f4d5361e3e5b399deaf5a2e9316219588f10c453 block=0xe3da0a22268a63ccfce29e991800360cefb26896bebb83af1c271f18a274c117:5 effectiveGasPrice=1513168305
+t=2025-11-12T09:01:45+0000 lvl=info msg="Handling receipt" id=32f2b16e3dd4988a1815d7eb827a6975:0
+t=2025-11-12T09:01:45+0000 lvl=info msg="Transaction confirmed" tx_id=32f2b16e3dd4988a1815d7eb827a6975:0 tx=0xea3420b6d344126498f548f8f4d5361e3e5b399deaf5a2e9316219588f10c453 block=0xe3da0a22268a63ccfce29e991800360cefb26896bebb83af1c271f18a274c117:5
+t=2025-11-12T09:01:45+0000 lvl=warn msg="transaction from unknown channel marked as confirmed" id=32f2b16e3dd4988a1815d7eb827a6975:0
+t=2025-11-12T09:01:45+0000 lvl=info msg="Publishing transaction" service=batcher tx=0x57459c961581428aeefef13a4d12f1fd801957a05eff706de43d2043070e8756 nonce=4 gasTipCap=1000000000 gasFeeCap=3000000000 gasLimit=83520
+t=2025-11-12T09:01:45+0000 lvl=info msg="Created channel" id=0517a1dd4f940a1c23ed0d6b1bd227b4 l1Head=0xe3da0a22268a63ccfce29e991800360cefb26896bebb83af1c271f18a274c117:5 blocks_pending=5 l1OriginLastSubmittedChannel=0x433dbfe5ea48c10847851bfcd34d11e6b9af543a71c419e71f447ef3a71f122d:3 batch_type=0 compression_algo=zlib target_num_frames=1 max_frame_size=119999 use_blobs=false
+t=2025-11-12T09:01:45+0000 lvl=info msg="Transaction successfully published" service=batcher tx=0x57459c961581428aeefef13a4d12f1fd801957a05eff706de43d2043070e8756 nonce=4 gasTipCap=1000000000 gasFeeCap=3000000000 gasLimit=83520 tx=0x57459c961581428aeefef13a4d12f1fd801957a05eff706de43d2043070e8756
+t=2025-11-12T09:01:45+0000 lvl=info msg="Channel closed" id=0517a1dd4f940a1c23ed0d6b1bd227b4 blocks_pending=0 num_frames=1 input_bytes=390 output_bytes=277 oldest_l1_origin=0xffbf049da2aafd84e1829f926c1a47357cd97a812cd9002dcf847b89ac8e8669:4 l1_origin=0xffbf049da2aafd84e1829f926c1a47357cd97a812cd9002dcf847b89ac8e8669:4 oldest_l2=0x4e3dc90801f14ef3146e9716eb3ac8f064fb18a7cc9f0b6cb549b7260e0f4b65:37 latest_l2=0x56431d33c5b3c4e3d739d28a8950a6659e55392e61b828bd6678cde8022eefc1:41 full_reason="channel full: max channel duration reached" compr_ratio=0.7102564102564103
+t=2025-11-12T09:01:45+0000 lvl=info msg="Building Calldata transaction candidate" size=278
+t=2025-11-12T09:01:47+0000 lvl=info msg="Added L2 block to local state" block=0x12bae5dfddd277de490c7928e67c2b1ce728c4e327f21b798595f9bc136e3407:42 tx_count=1 time=1762938107
+t=2025-11-12T09:01:49+0000 lvl=info msg="Added L2 block to local state" block=0x17a043db7b326ad0470bf6285d89744e088907c8d1efea3893278ae88b8b5d2d:43 tx_count=1 time=1762938109
+t=2025-11-12T09:01:51+0000 lvl=info msg="Added L2 block to local state" block=0x5de8e1a0e6b8deb3da2ea34418f1826b0bd0b9bcbffd32dc6ce5535f78b0b040:44 tx_count=1 time=1762938111
+t=2025-11-12T09:01:53+0000 lvl=info msg="Added L2 block to local state" block=0x769eb22a7c63097c03353b36914c55fd02814e1fee4e7bd540660aeb5528b6c7:45 tx_count=1 time=1762938113
+t=2025-11-12T09:01:55+0000 lvl=info msg="Added L2 block to local state" block=0xe643d924f83220351c918d196c5b63dea4964ca3cc72e4e714a8af53c03faf15:46 tx_count=1 time=1762938115
+t=2025-11-12T09:01:57+0000 lvl=info msg="Added L2 block to local state" block=0x958d7bc2c203ad8ac06fd0eb97c1db5ea879d8e8dcd502ad177d487569474e50:47 tx_count=1 time=1762938117
+t=2025-11-12T09:01:57+0000 lvl=info msg="Transaction confirmed" service=batcher tx=0x57459c961581428aeefef13a4d12f1fd801957a05eff706de43d2043070e8756 block=0xa9300d6fec28824d423b6c33775d01770515b4683da68d3df9e3ed3d870f6bf1:6 effectiveGasPrice=1449116790
+t=2025-11-12T09:01:57+0000 lvl=info msg="Handling receipt" id=e5784d47045ec87c6c1c06984f33d345:0
+t=2025-11-12T09:01:57+0000 lvl=info msg="Transaction confirmed" tx_id=e5784d47045ec87c6c1c06984f33d345:0 tx=0x57459c961581428aeefef13a4d12f1fd801957a05eff706de43d2043070e8756 block=0xa9300d6fec28824d423b6c33775d01770515b4683da68d3df9e3ed3d870f6bf1:6
+t=2025-11-12T09:01:57+0000 lvl=info msg="Channel is fully submitted" id=e5784d47045ec87c6c1c06984f33d345 min_inclusion_block=6 max_inclusion_block=6
+t=2025-11-12T09:01:57+0000 lvl=info msg="Publishing transaction" service=batcher tx=0x27c821040cd5dbdb4c006358d0f50c314faa30280ab4a619ae07414b04961649 nonce=5 gasTipCap=1000000000 gasFeeCap=3000000000 gasLimit=31820
+t=2025-11-12T09:01:57+0000 lvl=info msg="Transaction successfully published" service=batcher tx=0x27c821040cd5dbdb4c006358d0f50c314faa30280ab4a619ae07414b04961649 nonce=5 gasTipCap=1000000000 gasFeeCap=3000000000 gasLimit=31820 tx=0x27c821040cd5dbdb4c006358d0f50c314faa30280ab4a619ae07414b04961649
+t=2025-11-12T09:01:57+0000 lvl=info msg="Created channel" id=8b35bb58b031b46f306f77bb1e501c41 l1Head=0xa9300d6fec28824d423b6c33775d01770515b4683da68d3df9e3ed3d870f6bf1:6 blocks_pending=6 l1OriginLastSubmittedChannel=0xffbf049da2aafd84e1829f926c1a47357cd97a812cd9002dcf847b89ac8e8669:4 batch_type=0 compression_algo=zlib target_num_frames=1 max_frame_size=119999 use_blobs=false
+t=2025-11-12T09:01:57+0000 lvl=info msg="Channel closed" id=8b35bb58b031b46f306f77bb1e501c41 blocks_pending=0 num_frames=1 input_bytes=468 output_bytes=352 oldest_l1_origin=0xffbf049da2aafd84e1829f926c1a47357cd97a812cd9002dcf847b89ac8e8669:4 l1_origin=0xe3da0a22268a63ccfce29e991800360cefb26896bebb83af1c271f18a274c117:5 oldest_l2=0x12bae5dfddd277de490c7928e67c2b1ce728c4e327f21b798595f9bc136e3407:42 latest_l2=0x958d7bc2c203ad8ac06fd0eb97c1db5ea879d8e8dcd502ad177d487569474e50:47 full_reason="channel full: max channel duration reached" compr_ratio=0.7521367521367521
+t=2025-11-12T09:01:57+0000 lvl=info msg="Building Calldata transaction candidate" size=353
+t=2025-11-12T09:01:59+0000 lvl=info msg="Added L2 block to local state" block=0x12962497e66d2d8ceb506ecbd5f81805b369b7516cf46cde0e9c951444fb7ef9:48 tx_count=1 time=1762938119
+t=2025-11-12T09:02:01+0000 lvl=info msg="Added L2 block to local state" block=0x97bd904ad84a333f7cc628f8726f2be6fbd4680132d77d5e1a98222fc5e94c3f:49 tx_count=1 time=1762938121
+t=2025-11-12T09:02:03+0000 lvl=info msg="Added L2 block to local state" block=0x28c0bef9251408987165f12665f47f3c3a78127771822391f47126872b985de3:50 tx_count=1 time=1762938123
+t=2025-11-12T09:02:05+0000 lvl=info msg="Added L2 block to local state" block=0x0691ad614a85b1eb2e62d4a9084d01ffc243e780f25c99e8f73664b5ea386d8d:51 tx_count=1 time=1762938125
+t=2025-11-12T09:02:07+0000 lvl=info msg="Added L2 block to local state" block=0x529c481ac8811bff0b4ad8bab25394e673e82bbb9e26c359be08ec1fe8da6de1:52 tx_count=1 time=1762938127
+t=2025-11-12T09:02:09+0000 lvl=info msg="Added L2 block to local state" block=0x998911308d141fe94778630902cc6e50c8bba433a3a59cda6ec64b36c6d09da9:53 tx_count=1 time=1762938129
+t=2025-11-12T09:02:09+0000 lvl=info msg="Transaction confirmed" service=batcher tx=0x27c821040cd5dbdb4c006358d0f50c314faa30280ab4a619ae07414b04961649 block=0x696e98a6c8b1d740cfe7a99ffea78f2a007bf6cb968b5e461ca432efb2c17832:7 effectiveGasPrice=1393120685
+t=2025-11-12T09:02:09+0000 lvl=info msg="Handling receipt" id=0517a1dd4f940a1c23ed0d6b1bd227b4:0
+t=2025-11-12T09:02:09+0000 lvl=info msg="Transaction confirmed" tx_id=0517a1dd4f940a1c23ed0d6b1bd227b4:0 tx=0x27c821040cd5dbdb4c006358d0f50c314faa30280ab4a619ae07414b04961649 block=0x696e98a6c8b1d740cfe7a99ffea78f2a007bf6cb968b5e461ca432efb2c17832:7
+t=2025-11-12T09:02:09+0000 lvl=info msg="Channel is fully submitted" id=0517a1dd4f940a1c23ed0d6b1bd227b4 min_inclusion_block=7 max_inclusion_block=7
+t=2025-11-12T09:02:09+0000 lvl=info msg="Publishing transaction" service=batcher tx=0x0365aea1a165a766d1bc99ae753f0e11662706b3b7ff434ce52131e06236e041 nonce=6 gasTipCap=1000000000 gasFeeCap=3000000000 gasLimit=34850
+t=2025-11-12T09:02:09+0000 lvl=info msg="Created channel" id=b7721bf89032d24dc97e16f002bee682 l1Head=0x696e98a6c8b1d740cfe7a99ffea78f2a007bf6cb968b5e461ca432efb2c17832:7 blocks_pending=6 l1OriginLastSubmittedChannel=0xe3da0a22268a63ccfce29e991800360cefb26896bebb83af1c271f18a274c117:5 batch_type=0 compression_algo=zlib target_num_frames=1 max_frame_size=119999 use_blobs=false
+t=2025-11-12T09:02:09+0000 lvl=info msg="Channel closed" id=b7721bf89032d24dc97e16f002bee682 blocks_pending=0 num_frames=1 input_bytes=468 output_bytes=350 oldest_l1_origin=0xe3da0a22268a63ccfce29e991800360cefb26896bebb83af1c271f18a274c117:5 l1_origin=0xa9300d6fec28824d423b6c33775d01770515b4683da68d3df9e3ed3d870f6bf1:6 oldest_l2=0x12962497e66d2d8ceb506ecbd5f81805b369b7516cf46cde0e9c951444fb7ef9:48 latest_l2=0x998911308d141fe94778630902cc6e50c8bba433a3a59cda6ec64b36c6d09da9:53 full_reason="channel full: max channel duration reached" compr_ratio=0.7478632478632479
+t=2025-11-12T09:02:09+0000 lvl=info msg="Building Calldata transaction candidate" size=351
+t=2025-11-12T09:02:09+0000 lvl=info msg="Transaction successfully published" service=batcher tx=0x0365aea1a165a766d1bc99ae753f0e11662706b3b7ff434ce52131e06236e041 nonce=6 gasTipCap=1000000000 gasFeeCap=3000000000 gasLimit=34850 tx=0x0365aea1a165a766d1bc99ae753f0e11662706b3b7ff434ce52131e06236e041
