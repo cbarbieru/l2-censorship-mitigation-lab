@@ -10,11 +10,11 @@ RPC_URL=http://tx-order-guarantor.test-3.svc.cluster.local:1545
 
 echo "Running stress..."
 contender setup -r $RPC_URL -p $KEY_1 --op /data/scenarios/stress.toml
-yes | contender spam -r $RPC_URL -p $KEY_1 --tps 8 -d 100 --min-balance 10eth --op /data/scenarios/stress.toml
+yes | contender spam -r $RPC_URL -p $KEY_1 --tps 8 -d 100 -a 2 --min-balance 10eth --op /data/scenarios/stress.toml
 
 echo "Running univ2..."
 contender setup -r $RPC_URL -p $KEY_2 --op /data/scenarios/uniV2.toml
-yes | contender spam -r $RPC_URL -p $KEY_2 --tps 8 -d 100 --min-balance 10eth --op /data/scenarios/uniV2.toml
+yes | contender spam -r $RPC_URL -p $KEY_2 --tps 8 -d 100 -a 2 --min-balance 10eth --op /data/scenarios/uniV2.toml
 
 echo "Running erc20"
 yes | contender spam -r $RPC_URL -p $KEY_3 --tps 8 -d 100 --min-balance 10eth --op erc20
