@@ -6,6 +6,7 @@ MODE="$1"
 # Delete existing resources
 sudo /usr/local/bin/k3s kubectl delete --ignore-not-found=true -f ../resources/01_opstack.yaml -n test-1 
 sudo /usr/local/bin/k3s kubectl delete --ignore-not-found=true -f ../resources/01_opstack.yaml -f ../resources/rollup-boost.yaml -f ../resources/02_op-rbuilder_tdx.yaml -n test-2
+sudo /usr/local/bin/k3s kubectl delete --ignore-not-found=true -f ../resources/01_opstack.yaml -f ../resources/rollup-boost.yaml -f ../resources/02_op-geth_tdx.yaml -n test-2
 sudo /usr/local/bin/k3s kubectl delete --ignore-not-found=true -f ../resources/01_opstack.yaml -f ../resources/rollup-boost.yaml -f ../resources/03_tx-order-guarantor_tdx.yaml -n test-3
 
 sleep 3
@@ -21,6 +22,7 @@ case "$MODE" in
         ;;
     "2")
         sudo /usr/local/bin/k3s kubectl apply -f ../resources/01_opstack.yaml -f ../resources/rollup-boost.yaml -f ../resources/02_op-rbuilder_tdx.yaml -n test-2
+        # sudo /usr/local/bin/k3s kubectl apply -f ../resources/01_opstack.yaml -f ../resources/rollup-boost.yaml -f ../resources/02_op-geth_tdx.yaml -n test-2
         ;;
     "3")
         sudo /usr/local/bin/k3s kubectl apply -f ../resources/01_opstack.yaml -f ../resources/rollup-boost.yaml -f ../resources/03_tx-order-guarantor_tdx.yaml -n test-3

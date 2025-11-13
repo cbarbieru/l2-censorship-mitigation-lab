@@ -85,3 +85,33 @@ spec:
             path: /mnt/sceal/storage/l2-genesis.json
             type: File
           name: op-rbuilder-l2-genesis
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  annotations:
+    port.authrpc: "8551"
+    port.http: "8545"
+    port.metrics: "9090"
+    port.rpc: "30303"
+    service: op-rbuilder
+  labels:
+    l2.service: op-rbuilder
+  name: op-rbuilder
+spec:
+  ports:
+    - name: "8551"
+      port: 8551
+      targetPort: 8551
+    - name: "8545"
+      port: 8545
+      targetPort: 8545
+    - name: "9090"
+      port: 9090
+      targetPort: 9090
+    - name: "30303"
+      port: 30303
+      targetPort: 30303
+  selector:
+    l2.service: op-rbuilder

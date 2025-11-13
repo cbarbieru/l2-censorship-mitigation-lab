@@ -275,6 +275,81 @@
 			"entrypoint": "/bin/sh"
 		},
 		{
+			"name": "op-rbuilder",
+			"args": [
+				"node",
+				"--authrpc.port",
+				"{{Port \"authrpc\" 8551}}",
+				"--authrpc.addr",
+				"0.0.0.0",
+				"--authrpc.jwtsecret",
+				"/data/jwtsecret",
+				"--http",
+				"--http.addr",
+				"0.0.0.0",
+				"--http.port",
+				"{{Port \"http\" 8545}}",
+				"--chain",
+				"/data/l2-genesis.json",
+				"--datadir",
+				"/data_op_reth",
+				"--disable-discovery",
+				"--color",
+				"never",
+				"--metrics",
+				"0.0.0.0:{{Port \"metrics\" 9090}}",
+				"--port",
+				"{{Port \"rpc\" 30303}}",
+				"--builder.enable-revert-protection",
+				"--trusted-peers",
+				"{{Service \"op-geth\" \"rpc\" \"enode\" \"79be667ef9dcbbac55a06295ce870b07029bfcdb2dce28d959f2815b16f81798483ada7726a3c4655da4fbfc0e1108a8fd17b448a68554199c47d08ffb10d4b8\"}}"
+			],
+			"ports": [
+				{
+					"name": "authrpc",
+					"port": 8551,
+					"Protocol": "tcp",
+					"HostPort": 0
+				},
+				{
+					"name": "http",
+					"port": 8545,
+					"Protocol": "tcp",
+					"HostPort": 0
+				},
+				{
+					"name": "metrics",
+					"port": 9090,
+					"Protocol": "tcp",
+					"HostPort": 0
+				},
+				{
+					"name": "rpc",
+					"port": 30303,
+					"Protocol": "tcp",
+					"HostPort": 0
+				}
+			],
+			"node_refs": [
+				{
+					"service": "op-geth",
+					"port_label": "rpc",
+					"protocol": "enode",
+					"user": "79be667ef9dcbbac55a06295ce870b07029bfcdb2dce28d959f2815b16f81798483ada7726a3c4655da4fbfc0e1108a8fd17b448a68554199c47d08ffb10d4b8"
+				}
+			],
+			"files_mapped": {
+				"/data/jwtsecret": "jwtsecret",
+				"/data/l2-genesis.json": "l2-genesis.json"
+			},
+			"volumes_mapped": {
+				"/data_op_reth": "data"
+			},
+			"component_name": "op-rbuilder",
+			"tag": "sha-4f1931b",
+			"image": "ghcr.io/flashbots/op-rbuilder"
+		},
+		{
 			"name": "rollup-boost",
 			"args": [
 				"--rpc-host",
@@ -288,7 +363,7 @@
 				"--builder-jwt-path",
 				"/data/jwtsecret",
 				"--builder-url",
-				"http://op-rbuilder:8551"
+				"{{Service \"op-rbuilder\" \"authrpc\" \"http\" \"\"}}"
 			],
 			"ports": [
 				{
@@ -301,6 +376,12 @@
 			"node_refs": [
 				{
 					"service": "op-geth",
+					"port_label": "authrpc",
+					"protocol": "http",
+					"user": ""
+				},
+				{
+					"service": "op-rbuilder",
 					"port_label": "authrpc",
 					"protocol": "http",
 					"user": ""
