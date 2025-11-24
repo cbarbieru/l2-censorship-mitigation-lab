@@ -54,3 +54,12 @@ sudo dmsetup remove devpool
 sudo losetup -a
 sudo losetup -d /dev/loop34
 sudo losetup -d /dev/loop35
+
+gcloud compute ssh gke-cluster-1-default-pool-b16c0173-lhjd --zone us-central1-a
+gcloud compute scp --recurse /Users/claudiu/Projects/SCEAL/builder-playground-opstack-k8s/ gke-cluster-1-default-pool-b16c0173-lhjd:/tmp/ --zone us-central1-a
+
+gcloud compute scp gke-cluster-1-default-pool-b16c0173-lhjd:/tmp/builder-playground-opstack-k8s/contender/reports/report-1-3.html /Users/claudiu/Projects/SCEAL/contender-tests/Nov23 --zone us-central1-a
+
+helm install kata-deploy \
+  "oci://ghcr.io/kata-containers/kata-deploy-charts/kata-deploy" --version  "3.23.0" \
+  --namespace kube-system -f try-kata-tee.values.yaml

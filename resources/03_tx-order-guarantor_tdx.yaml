@@ -83,10 +83,10 @@ spec:
       restartPolicy: Always
       volumes:
         - hostPath:
-            path: /mnt/sceal/storage/jwtsecret
+            path: /tmp/builder-playground-opstack-k8s/storage/jwtsecret
           name: op-rbuilder-jwtsecret
         - hostPath:
-            path: /mnt/sceal/storage/l2-genesis.json
+            path: /tmp/builder-playground-opstack-k8s/storage/l2-genesis.json
             type: File
           name: op-rbuilder-l2-genesis
 
@@ -140,7 +140,6 @@ spec:
       labels:
         l2.service: tx-order-guarantor
     spec:
-      runtimeClassName: kata-qemu-tdx
       containers:
         - name: tx-order-guarantor
           image: docker.io/cbarbieru/tx-order-guarantor:0.8

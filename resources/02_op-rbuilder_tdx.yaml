@@ -29,7 +29,16 @@ spec:
       labels:
         l2.service: op-rbuilder
     spec:
-      runtimeClassName: kata-qemu-tdx
+      # runtimeClassName: kata-qemu-tdx
+      affinity:
+        nodeAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            nodeSelectorTerms:
+            - matchExpressions:
+              - key: cloud.google.com/gke-nodepool
+                operator: In
+                values:
+                  - pool-2
       containers:
         - args:
             - node
@@ -81,14 +90,14 @@ spec:
       restartPolicy: Always
       volumes:
         - hostPath:
-            path: /mnt/sceal/storage/jwtsecret
+            path: /tmp/builder-playground-opstack-k8s/storage/jwtsecret
           name: op-rbuilder-jwtsecret
         - hostPath:
-            path: /mnt/sceal/storage/l2-genesis.json
+            path: /tmp/builder-playground-opstack-k8s/storage/l2-genesis.json
             type: File
           name: op-rbuilder-l2-genesis
         - hostPath:
-            path: /mnt/sceal/storage/volume-op-rbuilder-data
+            path: /tmp/builder-playground-opstack-k8s/storage/volume-op-rbuilder-data
           name: op-rbuilder-volume
 
 ---

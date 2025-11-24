@@ -20,6 +20,15 @@ spec:
       labels:
         l1.service: beacon
     spec:
+      affinity:
+        nodeAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            nodeSelectorTerms:
+            - matchExpressions:
+              - key: cloud.google.com/gke-nodepool
+                operator: In
+                values:
+                  - pool-1
       containers:
         - name: beacon
           image:
@@ -100,17 +109,17 @@ spec:
       restartPolicy: Always
       volumes:
         - hostPath:
-            path: /mnt/sceal/storage/jwtsecret
+            path: /tmp/builder-playground-opstack-k8s/storage/jwtsecret
             type: File
           name: beacon-jwtsecret
         - hostPath:
-            path: /mnt/sceal/storage/testnet
+            path: /tmp/builder-playground-opstack-k8s/storage/testnet
           name: beacon-testnet
         - hostPath:
-            path: /mnt/sceal/storage
+            path: /tmp/builder-playground-opstack-k8s/storage
           name: beacon-artifacts
         - hostPath:
-            path: /mnt/sceal/storage/volume-beacon-data
+            path: /tmp/builder-playground-opstack-k8s/storage/volume-beacon-data
           name: beacon-volume
         
 
@@ -165,6 +174,15 @@ spec:
       labels:
         l1.service: el
     spec:
+      affinity:
+        nodeAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            nodeSelectorTerms:
+            - matchExpressions:
+              - key: cloud.google.com/gke-nodepool
+                operator: In
+                values:
+                  - pool-1
       containers:
         - name: el
           image: ghcr.io/paradigmxyz/reth:v1.4.8
@@ -229,15 +247,15 @@ spec:
       restartPolicy: Always
       volumes:
         - hostPath:
-            path: /mnt/sceal/storage/genesis.json
+            path: /tmp/builder-playground-opstack-k8s/storage/genesis.json
             type: File
           name: el-genesis
         - hostPath:
-            path: /mnt/sceal/storage/jwtsecret
+            path: /tmp/builder-playground-opstack-k8s/storage/jwtsecret
             type: File
           name: el-jwtsecret
         - hostPath:
-            path: /mnt/sceal/storage/volume-el-data
+            path: /tmp/builder-playground-opstack-k8s/storage/volume-el-data
           name: el-volume
 
 ---
@@ -290,6 +308,15 @@ spec:
       labels:
         l2.service: op-batcher
     spec:
+      affinity:
+        nodeAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            nodeSelectorTerms:
+            - matchExpressions:
+              - key: cloud.google.com/gke-nodepool
+                operator: In
+                values:
+                  - pool-1
       containers:
         - args:
             - --l1-eth-rpc
@@ -342,7 +369,15 @@ spec:
       labels:
         l2.service: op-geth
     spec:
-      # runtimeClassName: kata-qemu-tdx
+      affinity:
+        nodeAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            nodeSelectorTerms:
+            - matchExpressions:
+              - key: cloud.google.com/gke-nodepool
+                operator: In
+                values:
+                  - pool-1
       containers:
         - args:
             - -c
@@ -374,19 +409,19 @@ spec:
       restartPolicy: Always
       volumes:
         - hostPath:
-            path: /mnt/sceal/storage/l2-genesis.json
+            path: /tmp/builder-playground-opstack-k8s/storage/l2-genesis.json
             type: File
           name: op-geth-l2-genesis
         - hostPath:
-            path: /mnt/sceal/storage/jwtsecret
+            path: /tmp/builder-playground-opstack-k8s/storage/jwtsecret
             type: File
           name: op-geth-jwtsecret
         - hostPath:
-            path: /mnt/sceal/storage/enode-key-1.txt
+            path: /tmp/builder-playground-opstack-k8s/storage/enode-key-1.txt
             type: File
           name: op-geth-enode-key
         - hostPath:
-            path: /mnt/sceal/storage/volume-op-geth-data
+            path: /tmp/builder-playground-opstack-k8s/storage/volume-op-geth-data
           name: op-geth-volume
 
 ---
@@ -452,6 +487,15 @@ spec:
       labels:
         l2.service: op-node
     spec:
+      affinity:
+        nodeAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            nodeSelectorTerms:
+            - matchExpressions:
+              - key: cloud.google.com/gke-nodepool
+                operator: In
+                values:
+                  - pool-1
       containers:
         - args:
             - --l1
@@ -525,15 +569,15 @@ spec:
       restartPolicy: Always
       volumes:
         - hostPath:
-            path: /mnt/sceal/storage/jwtsecret
+            path: /tmp/builder-playground-opstack-k8s/storage/jwtsecret
             type: File
           name: op-node-jwtsecret
         - hostPath:
-            path: /mnt/sceal/storage/rollup.json
+            path: /tmp/builder-playground-opstack-k8s/storage/rollup.json
             type: File
           name: op-node-rollup
         - hostPath:
-            path: /mnt/sceal/storage/volume-op-node-data
+            path: /tmp/builder-playground-opstack-k8s/storage/volume-op-node-data
           name: op-node-db
 
 ---
@@ -590,6 +634,15 @@ spec:
       labels:
         l1.service: validator
     spec:
+      affinity:
+        nodeAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            nodeSelectorTerms:
+            - matchExpressions:
+              - key: cloud.google.com/gke-nodepool
+                operator: In
+                values:
+                  - pool-1
       containers:
         - name: validator
           image: 
@@ -617,8 +670,8 @@ spec:
       restartPolicy: Always
       volumes:
         - hostPath:
-            path: /mnt/sceal/storage/testnet
+            path: /tmp/builder-playground-opstack-k8s/storage/testnet
           name: validator-testnet
         - hostPath:
-            path: /mnt/sceal/storage/data_validator
+            path: /tmp/builder-playground-opstack-k8s/storage/data_validator
           name: validator-secrets

@@ -23,6 +23,15 @@ spec:
       labels:
         l2.service: rollup-boost
     spec:
+      affinity:
+        nodeAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            nodeSelectorTerms:
+            - matchExpressions:
+              - key: cloud.google.com/gke-nodepool
+                operator: In
+                values:
+                  - default-pool
       containers:
         - args:
             - --rpc-host
@@ -36,8 +45,8 @@ spec:
             - --builder-jwt-path
             - /data/jwtsecret
             - --builder-url
-            - http://op-rbuilder:8551
-            # - http://op-geth-ext:8551
+            # - http://op-rbuilder:8551
+            - http://op-geth-ext:8551
           image: docker.io/flashbots/rollup-boost:0.7.0
           name: rollup-boost
           ports:
@@ -49,7 +58,7 @@ spec:
       restartPolicy: Always
       volumes:
         - hostPath:
-            path: /mnt/sceal/storage/jwtsecret
+            path: /tmp/builder-playground-opstack-k8s/storage/jwtsecret
             type: File
           name: rollup-boost-jwtsecret
 

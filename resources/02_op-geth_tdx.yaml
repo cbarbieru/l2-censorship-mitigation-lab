@@ -31,7 +31,16 @@ spec:
       labels:
         l2.service: op-geth-ext
     spec:
-      # runtimeClassName: kata-qemu-tdx
+      #runtimeClassName: kata-qemu-tdx
+      affinity:
+        nodeAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            nodeSelectorTerms:
+            - matchExpressions:
+              - key: cloud.google.com/gke-nodepool
+                operator: In
+                values:
+                  - pool-2
       containers:
         - args:
             - -c
@@ -63,19 +72,19 @@ spec:
       restartPolicy: Always
       volumes:
         - hostPath:
-            path: /mnt/sceal/storage/l2-genesis.json
+            path: /tmp/builder-playground-opstack-k8s/storage/l2-genesis.json
             type: File
           name: op-geth-ext-l2-genesis
         - hostPath:
-            path: /mnt/sceal/storage/jwtsecret
+            path: /tmp/builder-playground-opstack-k8s/storage/jwtsecret
             type: File
           name: op-geth-ext-jwtsecret
         - hostPath:
-            path: /mnt/sceal/storage/enode-key-1.txt
+            path: /tmp/builder-playground-opstack-k8s/storage/enode-key-1.txt
             type: File
           name: op-geth-ext-enode-key
         - hostPath:
-            path: /mnt/sceal/storage/volume-op-geth-ext-data
+            path: /tmp/builder-playground-opstack-k8s/storage/volume-op-geth-ext-data
           name: op-geth-ext-volume
 
 ---

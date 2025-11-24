@@ -15,6 +15,15 @@ spec:
       labels:
         app: contender
     spec:
+      affinity:
+        nodeAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            nodeSelectorTerms:
+            - matchExpressions:
+              - key: cloud.google.com/gke-nodepool
+                operator: In
+                values:
+                  - default-pool
       containers:
         - name: contender
           image: docker.io/cbarbieru/contender:0.5.5-cb
@@ -32,16 +41,16 @@ spec:
       volumes:
         - name: contender-reports
           hostPath:
-            path: /home/cbarbieru/contender/reports
+            path: /tmp/builder-playground-opstack-k8s/contender/reports
         - name: scenarios-config
           hostPath:
-            path: /mnt/sceal/contender/scenarios
+            path: /tmp/builder-playground-opstack-k8s/contender/scenarios
         - name: script-config
           hostPath:
-            path: /mnt/sceal/contender/script
+            path: /tmp/builder-playground-opstack-k8s/contender/script
         - name: jwt-secret
           hostPath:
-            path: /mnt/sceal/storage/jwtsecret
+            path: /tmp/builder-playground-opstack-k8s/storage/jwtsecret
 
 ---
 apiVersion: apps/v1
@@ -62,6 +71,15 @@ spec:
       labels:
         app: foundry-test
     spec:
+      affinity:
+        nodeAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            nodeSelectorTerms:
+            - matchExpressions:
+              - key: cloud.google.com/gke-nodepool
+                operator: In
+                values:
+                  - default-pool
       containers:
         - name: foundry-test
           image: ghcr.io/foundry-rs/foundry:latest
