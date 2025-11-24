@@ -40,7 +40,7 @@ spec:
               - key: cloud.google.com/gke-nodepool
                 operator: In
                 values:
-                  - pool-2
+                  - pool-1
       containers:
         - args:
             - -c
