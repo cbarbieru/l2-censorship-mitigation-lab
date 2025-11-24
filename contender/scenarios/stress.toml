@@ -16,7 +16,7 @@ fuzz = [
     { param = "iterations", min = "3000", max = "8000" },
     { param = "max_priority_fee_per_gas", min = "5000000", max = "10000000" }
 ]
-max_fee_per_gas = "200000000"
+max_fee_per_gas = "300000000"
 max_priority_fee_per_gas = "10000000"
 
 [[spam]]
@@ -30,7 +30,7 @@ fuzz = [
     { param = "iterations", min = "3000", max = "8000" },
     { param = "max_priority_fee_per_gas", min = "5000000", max = "10000000" }
 ]
-max_fee_per_gas = "200000000"
+max_fee_per_gas = "300000000"
 max_priority_fee_per_gas = "10000000"
 
 [[spam]]
@@ -44,7 +44,7 @@ fuzz = [
     { param = "iterations", min = "3000", max = "8000" },
     { param = "max_priority_fee_per_gas", min = "10000000", max = "15000000" }
 ]
-max_fee_per_gas = "200000000"
+max_fee_per_gas = "300000000"
 max_priority_fee_per_gas = "15000000"
 
 [[spam]]
@@ -58,5 +58,5 @@ fuzz = [
     { param = "iterations", min = "3000", max = "8000" },
     { param = "max_priority_fee_per_gas", min = "10000000", max = "15000000" }
 ]
-max_fee_per_gas = "200000000"
+max_fee_per_gas = "300000000"
 max_priority_fee_per_gas = "15000000"
