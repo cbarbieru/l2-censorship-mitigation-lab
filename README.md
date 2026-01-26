@@ -1,73 +1,180 @@
-# Install K3s
-```bash
-sudo /usr/local/bin/k3s-uninstall.sh
-curl -sfL https://get.k3s.io | sh -
-echo "alias k='sudo /usr/local/bin/k3s kubectl'" >> ~/.bashrc
-source ~/.bashrc
-```
+# 2-Node Kubernetes Cluster Setup (Ubuntu Master + TDX Worker)
 
-# Install Kata
-Use instruction from [here](https://github.com/kata-containers/kata-containers/blob/main/tools/packaging/kata-deploy/helm-chart/README.md) making sure to preliminary set [k8sDistribution: "k3s"](https://github.com/kata-containers/kata-containers/blob/main/tools/packaging/kata-deploy/helm-chart/kata-deploy/values.yaml#L7).
-```bash
-cd kata-containers/tools/packaging/kata-deploy/helm-chart/kata-deploy
-sudo helm install kata-deploy . --kubeconfig /etc/rancher/k3s/k3s.yaml --namespace kube-system
-```
+This guide details the steps to deploy a 2-node K3S cluster consisting of:
+1.  **Master Node:** Ubuntu 24.04 (Noble) VM running on Libvirt/KVM.
+2.  **Worker Node:** Canonical TDX VM.
 
-# Install CC Operator
-Operator introduces `enclave-cc` class runtime to allow running a container using more lightweight libOS over kata VM.
-```bash
-cd ~/
-git clone https://github.com/cbarbieru/operator.git
-k label node rosablanche-1 node.kubernetes.io/worker=
-k apply -k operator/config/release
-k apply -k operator/config/samples/ccruntime/default/
-k apply -k operator/config/samples/enclave-cc/hw/
-``` 
+---
 
-# Add devmapper plugin
-Use instructions from [here](https://github.com/kata-containers/kata-containers/blob/main/docs/how-to/how-to-use-kata-containers-with-firecracker.md#configure-devmapper), then edit `/opt/kata/containerd/config.d/kata-deploy.toml` to contain the below
-<pre>
-[plugins]
-  [plugins.devmapper]
-    pool_name = "devpool"
-    root_path = "/var/lib/containerd/devmapper"
-    base_image_size = "10GB"
-    discard_blocks = true
-# ...
-[plugins."io.containerd.cri.v1.runtime".containerd.runtimes.kata-qemu-tdx]
-runtime_type = "io.containerd.kata-qemu-tdx.v2"
-runtime_path = "/opt/kata/bin/containerd-shim-kata-v2"
-privileged_without_host_devices = true
-pod_annotations = ["io.katacontainers.*"]
-snapshotter = "devmapper"
-</pre>
-Restart k3s (containerd) with `sudo systemctl restart k3s`.
+## 1. Master Node Setup (Ubuntu 24.04 VM)
 
-# K8 Deployment
-```bash
-cd ~/
-git clone https://github.com/cbarbieru/builder-playground-opstack-k8s.git
-cd builder-playground-opstack-k8s/script
-./setup-contender.sh
-./setup-test-1.sh
-```
+### Host Preparation & VM Creation
+Perform these steps on your host machine to provision the Master VM.
 
-# Contender
-```bash
-# on contender pod
-k exec -it contender-78775dcc8f-5bnqx -- /bin/sh
-./script/run-cus.sh
-./script/run-def.sh
+1.  **Prepare Workspace and Image**
+    ```bash
+    mkdir ~/guest-master
+    cd ~/guest-master
+    
+    # Download Ubuntu 24.04 Cloud Image
+    wget [https://cloud-images.ubuntu.com/noble/20260108/noble-server-cloudimg-amd64.img](https://cloud-images.ubuntu.com/noble/20260108/noble-server-cloudimg-amd64.img)
+    
+    # Resize image to 50GB
+    qemu-img resize noble-server-cloudimg-amd64.img 50G
+    ```
 
-contender report -p 1
+2.  **Generate Cloud-Init Configuration**
+    Install utilities and create the user-data file.
+    ```bash
+    sudo apt update && sudo apt install cloud-image-utils -y
+    
+    cat <<EOF > user-data
+    #cloud-config
+    users:
+      - name: ubuntu
+        sudo: ALL=(ALL) NOPASSWD:ALL
+        lock_passwd: false
+        # Sets password to "secretpassword"
+        passwd: password 
+    
+    # This ensures password authentication is allowed if SSH key fails
+    ssh_pwauth: true
+    chpasswd:
+      list: |
+        ubuntu:secretpassword
+      expire: False
+    EOF
+    
+    # Build seed ISO
+    cloud-localds my-seed.iso user-data
+    ```
 
-# extract to local
-scp -r user@rosablanche-1.maas:~/contender/reports ~/Projects/SCEAL
-```
+3.  **Install the VM**
+    Set permissions for Libvirt and run the install command.
+    ```bash
+    # Set permissions
+    sudo chown libvirt-qemu:kvm noble-server-cloudimg-amd64.img my-seed.iso
+    sudo chmod 644 noble-server-cloudimg-amd64.img my-seed.iso
+    
+    # Provision VM (4 vCPUs, 4GB RAM)
+    sudo virt-install \
+      --name master-guest \
+      --ram 4096 \
+      --vcpus 4 \
+      --disk path=$(pwd)/noble-server-cloudimg-amd64.img,device=disk,bus=virtio \
+      --disk path=$(pwd)/my-seed.iso,device=cdrom \
+      --os-variant ubuntu24.04 \
+      --network network=default,model=virtio \
+      --graphics none \
+      --import \
+      --noautoconsole
+    ```
 
-# Misc
-```bash
-ssh -L 8545:localhost:8545 user@rosablanche-1.maas
-k -n test-3 port-forward svc/op-geth 8545:8545
-docker run -p 80:80 -e APP_NODE_URL="http://localhost:8545" alethio/ethereum-lite-explorer
-```
+### Master Node Configuration
+Perform these steps inside the Master VM.
+
+1.  **Access the VM**
+    Find the IP address and SSH in (password: `secretpassword`).
+    ```bash
+    # On Host
+    sudo virsh domifaddr guest-master
+    ssh ubuntu@<MASTER_IP>
+    ```
+
+2.  **Install K3S & Configure Environment**
+    ```bash
+    # Switch shell to bash and setup alias
+    chsh -s /bin/bash
+    echo "alias k='sudo k3s kubectl'" >> ~/.bashrc
+    source ~/.bashrc
+
+
+    # Install K3S
+    hostname -I
+    ip a
+    curl -sfL https://get.k3s.io | sh -s - server \
+      --node-ip 192.168.122.58 \
+      --advertise-address 192.168.122.58 \
+      --flannel-iface=enp1s0  
+
+    # Prevent VirtIO Checksum Offloading bug
+    sudo apt-get update && sudo apt-get install -y ethtool
+    sudo ethtool -K flannel.1 tx-checksum-ip-generic off
+    ```
+
+3.  **Get Join Token**
+    Run the following to generate the connection string for the worker. **Save the output.**
+    ```bash
+    sudo cat /var/lib/rancher/k3s/server/node-token
+    ```
+
+---
+
+## 2. Worker Node Setup (TDX VM)
+
+### Host Preparation (TDX)
+Perform these steps on your host machine.
+
+1.  **Clone and Configure TDX Image**
+    ```bash
+    git clone [https://github.com/canonical/tdx](https://github.com/canonical/tdx)
+    cd tdx/guest-tools/image
+    
+    # Open script to change disk size
+    vim create-td-image.sh
+    # ACTION: Locate the variable `SIZE` and change it to `50` (e.g., SIZE=50)
+    
+    # Build the image
+    ./create-td-image.sh -v 24.04
+    ```
+
+2.  **Run the TDX Guest**
+    ```bash
+    cd ..
+    vim trust_domain.xml.template 
+    # ACTION: memory and cpu and set 4G and 4 vcpus respectively 
+    ./tdvirsh new
+    ```
+
+### Worker Node Configuration
+Perform these steps inside the TDX Guest VM.
+1.  **Login to TDX node**
+    ```bash
+    sudo virsh domifaddr tdx-guest
+    ssh tdx@<TDX_IP>
+    ```
+
+2.  **Install K3S**
+    ```bash
+    curl -sfL https://get.k3s.io | K3S_URL=https://192.168.122.58:6443 \
+      K3S_TOKEN=YOUR_TOKEN_FROM_STEP_2 \
+      sh -s - agent \
+      --node-ip 192.168.122.89 \
+      --flannel-iface=enp0s2
+    ```
+
+---
+
+## 3. Workload Deployment
+
+Perform these steps on the **Master Node**.
+
+1.  **Download Workload Scripts**
+    ```bash
+    git clone [https://github.com/cbarbieru/builder-playground-opstack-k8s](https://github.com/cbarbieru/builder-playground-opstack-k8s)
+    cd builder-playground-opstack-k8s/scripts
+    ```
+
+2.  **Run Setup and Tests**
+    ```bash
+    # Setup Contender
+    ./setup-contender.sh
+    
+    # Run Test
+    ./setup-test.sh
+    ```
+
+3.  **Verify**
+    ```bash
+    k get pods -A
+    ```

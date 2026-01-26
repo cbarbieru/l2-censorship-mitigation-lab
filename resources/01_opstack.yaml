@@ -25,10 +25,10 @@ spec:
           requiredDuringSchedulingIgnoredDuringExecution:
             nodeSelectorTerms:
             - matchExpressions:
-              - key: cloud.google.com/gke-nodepool
+              - key: kubernetes.io/hostname
                 operator: In
                 values:
-                  - default-pool
+                  - ubuntu
       containers:
         - name: beacon
           image:
@@ -179,10 +179,10 @@ spec:
           requiredDuringSchedulingIgnoredDuringExecution:
             nodeSelectorTerms:
             - matchExpressions:
-              - key: cloud.google.com/gke-nodepool
+              - key: kubernetes.io/hostname
                 operator: In
                 values:
-                  - default-pool
+                  - ubuntu
       containers:
         - name: el
           image: ghcr.io/paradigmxyz/reth:v1.4.8
@@ -313,10 +313,10 @@ spec:
           requiredDuringSchedulingIgnoredDuringExecution:
             nodeSelectorTerms:
             - matchExpressions:
-              - key: cloud.google.com/gke-nodepool
+              - key: kubernetes.io/hostname
                 operator: In
                 values:
-                  - default-pool
+                  - ubuntu
       containers:
         - args:
             - --l1-eth-rpc
@@ -374,10 +374,10 @@ spec:
           requiredDuringSchedulingIgnoredDuringExecution:
             nodeSelectorTerms:
             - matchExpressions:
-              - key: cloud.google.com/gke-nodepool
+              - key: kubernetes.io/hostname
                 operator: In
                 values:
-                  - default-pool
+                  - ubuntu
       containers:
         - args:
             - -c
@@ -492,10 +492,10 @@ spec:
           requiredDuringSchedulingIgnoredDuringExecution:
             nodeSelectorTerms:
             - matchExpressions:
-              - key: cloud.google.com/gke-nodepool
+              - key: kubernetes.io/hostname
                 operator: In
                 values:
-                  - default-pool
+                  - ubuntu
       containers:
         - args:
             - --l1
@@ -507,8 +507,8 @@ spec:
             - --l1.http-poll-interval
             - 6s
             - --l2
-            # - http://rollup-boost:8551
-            - http://op-geth:8551
+            - http://rollup-boost:8551
+            # - http://op-geth:8551
             - --l2.jwt-secret
             - /data/jwtsecret
             - --sequencer.enabled
@@ -639,10 +639,10 @@ spec:
           requiredDuringSchedulingIgnoredDuringExecution:
             nodeSelectorTerms:
             - matchExpressions:
-              - key: cloud.google.com/gke-nodepool
+              - key: kubernetes.io/hostname
                 operator: In
                 values:
-                  - default-pool
+                  - ubuntu
       containers:
         - name: validator
           image: 

@@ -1,4 +1,5 @@
 {
+	"session_id": "improved-molly",
 	"services": [
 		{
 			"name": "el",
@@ -10,12 +11,12 @@
 				"/data_reth",
 				"--color",
 				"never",
-				"--ipcpath",
-				"/data_reth/reth.ipc",
 				"--addr",
-				"127.0.0.1",
+				"0.0.0.0",
 				"--port",
 				"{{Port \"rpc\" 30303}}",
+				"--ipcpath",
+				"/data_reth/reth.ipc",
 				"--http",
 				"--http.addr",
 				"0.0.0.0",
@@ -46,6 +47,9 @@
 				"0",
 				"-vvv"
 			],
+			"labels": {
+				"health-check-sidecar": "el_healthmon"
+			},
 			"ports": [
 				{
 					"name": "rpc",
@@ -85,10 +89,43 @@
 			"volumes_mapped": {
 				"/data_reth": "data"
 			},
-			"component_name": "reth",
-			"tag": "v1.4.8",
+			"tag": "v1.9.3",
 			"image": "ghcr.io/paradigmxyz/reth",
 			"entrypoint": "/usr/local/bin/reth"
+		},
+		{
+			"name": "el_healthmon",
+			"args": [
+				"--chain",
+				"execution",
+				"--url",
+				"{{Service \"el\" \"http\" \"http\" \"\"}}"
+			],
+			"ready_check": {
+				"query_url": "",
+				"test": [
+					"CMD",
+					"wget",
+					"--spider",
+					"--quiet",
+					"http://127.0.0.1:21171/ready"
+				],
+				"interval": 1000000000,
+				"start_period": 1000000000,
+				"timeout": 600000000000,
+				"retries": 20
+			},
+			"node_refs": [
+				{
+					"service": "el",
+					"port_label": "http",
+					"protocol": "http",
+					"user": ""
+				}
+			],
+			"tag": "cc6f172493d7ef6b88a5b7895f4b8619806c99f9",
+			"image": "docker.io/flashbots/playground-utils",
+			"entrypoint": "healthmon"
 		},
 		{
 			"name": "beacon",
@@ -133,13 +170,8 @@
 				"--suggested-fee-recipient",
 				"0x690B9A9E9aa1C9dB991C7721a92d351Db4FaC990"
 			],
-			"ready_check": {
-				"query_url": "http://localhost:3500/eth/v1/node/syncing",
-				"test": null,
-				"interval": 1000000000,
-				"start_period": 1000000000,
-				"timeout": 30000000000,
-				"retries": 3
+			"labels": {
+				"health-check-sidecar": "beacon_healthmon"
 			},
 			"ports": [
 				{
@@ -182,10 +214,43 @@
 			"volumes_mapped": {
 				"/data_beacon": "data"
 			},
-			"component_name": "lighthouse-beacon-node",
-			"tag": "v7.0.0-beta.0",
+			"tag": "v8.0.0-rc.2",
 			"image": "sigp/lighthouse",
 			"entrypoint": "lighthouse"
+		},
+		{
+			"name": "beacon_healthmon",
+			"args": [
+				"--chain",
+				"beacon",
+				"--url",
+				"{{Service \"beacon\" \"http\" \"http\" \"\"}}"
+			],
+			"ready_check": {
+				"query_url": "",
+				"test": [
+					"CMD",
+					"wget",
+					"--spider",
+					"--quiet",
+					"http://127.0.0.1:21171/ready"
+				],
+				"interval": 1000000000,
+				"start_period": 1000000000,
+				"timeout": 600000000000,
+				"retries": 20
+			},
+			"node_refs": [
+				{
+					"service": "beacon",
+					"port_label": "http",
+					"protocol": "http",
+					"user": ""
+				}
+			],
+			"tag": "cc6f172493d7ef6b88a5b7895f4b8619806c99f9",
+			"image": "docker.io/flashbots/playground-utils",
+			"entrypoint": "healthmon"
 		},
 		{
 			"name": "validator",
@@ -215,8 +280,10 @@
 				"/data/testnet-dir": "testnet",
 				"/data/validator": "data_validator"
 			},
-			"component_name": "lighthouse-validator",
-			"tag": "v7.0.0-beta.0",
+			"volumes_mapped": {
+				"/data/validator/validators/logs": "validator-logs"
+			},
+			"tag": "v8.0.0-rc.2",
 			"image": "sigp/lighthouse",
 			"entrypoint": "lighthouse"
 		},
@@ -227,6 +294,7 @@
 				"geth init --datadir /data_opgeth --state.scheme hash /data/l2-genesis.json \u0026\u0026 exec geth --datadir /data_opgeth --verbosity 3 --http --http.corsdomain \"*\" --http.vhosts \"*\" --http.addr 0.0.0.0 --http.port {{Port \"http\" 8545}} --http.api web3,debug,eth,txpool,net,engine,miner --ws --ws.addr 0.0.0.0 --ws.port {{Port \"ws\" 8546}} --ws.origins \"*\" --ws.api debug,eth,txpool,net,engine,miner --syncmode full --nodiscover --maxpeers 5 --rpc.allow-unprotected-txs --authrpc.addr 0.0.0.0 --authrpc.port {{Port \"authrpc\" 8551}} --authrpc.vhosts \"*\" --authrpc.jwtsecret /data/jwtsecret --gcmode archive --state.scheme hash --port {{Port \"rpc\" 30303}} --nodekey /data/p2p_key.txt --metrics --metrics.addr 0.0.0.0 --metrics.port {{Port \"metrics\" 6061}}"
 			],
 			"labels": {
+				"health-check-sidecar": "op-geth_healthmon",
 				"metrics_path": "/debug/metrics/prometheus"
 			},
 			"ports": [
@@ -269,130 +337,43 @@
 			"volumes_mapped": {
 				"/data_opgeth": "data"
 			},
-			"component_name": "op-geth",
-			"tag": "v1.101503.2-rc.5",
+			"tag": "v1.101604.0",
 			"image": "us-docker.pkg.dev/oplabs-tools-artifacts/images/op-geth",
 			"entrypoint": "/bin/sh"
 		},
 		{
-			"name": "op-rbuilder",
+			"name": "op-geth_healthmon",
 			"args": [
-				"node",
-				"--authrpc.port",
-				"{{Port \"authrpc\" 8551}}",
-				"--authrpc.addr",
-				"0.0.0.0",
-				"--authrpc.jwtsecret",
-				"/data/jwtsecret",
-				"--http",
-				"--http.addr",
-				"0.0.0.0",
-				"--http.port",
-				"{{Port \"http\" 8545}}",
 				"--chain",
-				"/data/l2-genesis.json",
-				"--datadir",
-				"/data_op_reth",
-				"--disable-discovery",
-				"--color",
-				"never",
-				"--metrics",
-				"0.0.0.0:{{Port \"metrics\" 9090}}",
-				"--port",
-				"{{Port \"rpc\" 30303}}",
-				"--builder.enable-revert-protection",
-				"--trusted-peers",
-				"{{Service \"op-geth\" \"rpc\" \"enode\" \"79be667ef9dcbbac55a06295ce870b07029bfcdb2dce28d959f2815b16f81798483ada7726a3c4655da4fbfc0e1108a8fd17b448a68554199c47d08ffb10d4b8\"}}"
+				"execution",
+				"--url",
+				"{{Service \"op-geth\" \"http\" \"http\" \"\"}}"
 			],
-			"ports": [
-				{
-					"name": "authrpc",
-					"port": 8551,
-					"Protocol": "tcp",
-					"HostPort": 0
-				},
-				{
-					"name": "http",
-					"port": 8545,
-					"Protocol": "tcp",
-					"HostPort": 0
-				},
-				{
-					"name": "metrics",
-					"port": 9090,
-					"Protocol": "tcp",
-					"HostPort": 0
-				},
-				{
-					"name": "rpc",
-					"port": 30303,
-					"Protocol": "tcp",
-					"HostPort": 0
-				}
-			],
+			"ready_check": {
+				"query_url": "",
+				"test": [
+					"CMD",
+					"wget",
+					"--spider",
+					"--quiet",
+					"http://127.0.0.1:21171/ready"
+				],
+				"interval": 1000000000,
+				"start_period": 1000000000,
+				"timeout": 600000000000,
+				"retries": 20
+			},
 			"node_refs": [
 				{
 					"service": "op-geth",
-					"port_label": "rpc",
-					"protocol": "enode",
-					"user": "79be667ef9dcbbac55a06295ce870b07029bfcdb2dce28d959f2815b16f81798483ada7726a3c4655da4fbfc0e1108a8fd17b448a68554199c47d08ffb10d4b8"
-				}
-			],
-			"files_mapped": {
-				"/data/jwtsecret": "jwtsecret",
-				"/data/l2-genesis.json": "l2-genesis.json"
-			},
-			"volumes_mapped": {
-				"/data_op_reth": "data"
-			},
-			"component_name": "op-rbuilder",
-			"tag": "sha-4f1931b",
-			"image": "ghcr.io/flashbots/op-rbuilder"
-		},
-		{
-			"name": "rollup-boost",
-			"args": [
-				"--rpc-host",
-				"0.0.0.0",
-				"--rpc-port",
-				"{{Port \"authrpc\" 8551}}",
-				"--l2-jwt-path",
-				"/data/jwtsecret",
-				"--l2-url",
-				"{{Service \"op-geth\" \"authrpc\" \"http\" \"\"}}",
-				"--builder-jwt-path",
-				"/data/jwtsecret",
-				"--builder-url",
-				"{{Service \"op-rbuilder\" \"authrpc\" \"http\" \"\"}}"
-			],
-			"ports": [
-				{
-					"name": "authrpc",
-					"port": 8551,
-					"Protocol": "tcp",
-					"HostPort": 0
-				}
-			],
-			"node_refs": [
-				{
-					"service": "op-geth",
-					"port_label": "authrpc",
-					"protocol": "http",
-					"user": ""
-				},
-				{
-					"service": "op-rbuilder",
-					"port_label": "authrpc",
+					"port_label": "http",
 					"protocol": "http",
 					"user": ""
 				}
 			],
-			"files_mapped": {
-				"/data/jwtsecret": "jwtsecret"
-			},
-			"component_name": "rollup-boost",
-			"tag": "0.7.0",
-			"image": "docker.io/flashbots/rollup-boost"
+			"tag": "cc6f172493d7ef6b88a5b7895f4b8619806c99f9",
+			"image": "docker.io/flashbots/playground-utils",
+			"entrypoint": "healthmon"
 		},
 		{
 			"name": "op-node",
@@ -406,9 +387,14 @@
 				"--l1.http-poll-interval",
 				"6s",
 				"--l2",
-				"{{Service \"rollup-boost\" \"authrpc\" \"http\" \"\"}}",
+				"{{Service \"op-geth\" \"authrpc\" \"http\" \"\"}}",
 				"--l2.jwt-secret",
 				"/data/jwtsecret",
+				"--metrics.enabled",
+				"--metrics.addr",
+				"0.0.0.0",
+				"--metrics.port",
+				"{{Port \"metrics\" 7300}}",
 				"--sequencer.enabled",
 				"--sequencer.l1-confs",
 				"0",
@@ -418,6 +404,8 @@
 				"8b3a350cf5c34c9194ca85829a2df0ec3153be0318b5e2d3348e872092edffba",
 				"--rollup.config",
 				"/data/rollup.json",
+				"--rollup.l1-chain-config",
+				"/data/genesis.json",
 				"--rpc.addr",
 				"0.0.0.0",
 				"--rpc.port",
@@ -432,11 +420,6 @@
 				"light",
 				"--p2p.ban.peers",
 				"true",
-				"--metrics.enabled",
-				"--metrics.addr",
-				"0.0.0.0",
-				"--metrics.port",
-				"{{Port \"metrics\" 7300}}",
 				"--pprof.enabled",
 				"--rpc.enable-admin",
 				"--safedb.path",
@@ -446,6 +429,12 @@
 				"A": "B"
 			},
 			"ports": [
+				{
+					"name": "metrics",
+					"port": 7300,
+					"Protocol": "tcp",
+					"HostPort": 0
+				},
 				{
 					"name": "http",
 					"port": 8549,
@@ -463,12 +452,6 @@
 					"port": 9003,
 					"Protocol": "udp",
 					"HostPort": 0
-				},
-				{
-					"name": "metrics",
-					"port": 7300,
-					"Protocol": "tcp",
-					"HostPort": 0
 				}
 			],
 			"node_refs": [
@@ -485,21 +468,21 @@
 					"user": ""
 				},
 				{
-					"service": "rollup-boost",
+					"service": "op-geth",
 					"port_label": "authrpc",
 					"protocol": "http",
 					"user": ""
 				}
 			],
 			"files_mapped": {
+				"/data/genesis.json": "genesis.json",
 				"/data/jwtsecret": "jwtsecret",
 				"/data/rollup.json": "rollup.json"
 			},
 			"volumes_mapped": {
 				"/data_db": "data"
 			},
-			"component_name": "op-node",
-			"tag": "v1.13.0-rc.1",
+			"tag": "v1.16.3",
 			"image": "us-docker.pkg.dev/oplabs-tools-artifacts/images/op-node",
 			"entrypoint": "op-node"
 		},
@@ -538,8 +521,7 @@
 					"user": ""
 				}
 			],
-			"component_name": "op-batcher",
-			"tag": "v1.12.0-rc.1",
+			"tag": "v1.16.3",
 			"image": "us-docker.pkg.dev/oplabs-tools-artifacts/images/op-batcher",
 			"entrypoint": "op-batcher"
 		}

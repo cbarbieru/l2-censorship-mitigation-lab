@@ -37,10 +37,10 @@ spec:
           requiredDuringSchedulingIgnoredDuringExecution:
             nodeSelectorTerms:
             - matchExpressions:
-              - key: cloud.google.com/gke-nodepool
+              - key: kubernetes.io/hostname
                 operator: In
                 values:
-                  - pool-1
+                  - tdx-guest
       containers:
         - args:
             - -c

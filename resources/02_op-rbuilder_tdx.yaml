@@ -29,16 +29,15 @@ spec:
       labels:
         l2.service: op-rbuilder
     spec:
-      # runtimeClassName: kata-qemu-tdx
       affinity:
         nodeAffinity:
           requiredDuringSchedulingIgnoredDuringExecution:
             nodeSelectorTerms:
             - matchExpressions:
-              - key: cloud.google.com/gke-nodepool
+              - key: kubernetes.io/hostname
                 operator: In
                 values:
-                  - pool-1
+                  - tdx-guest
       containers:
         - args:
             - node

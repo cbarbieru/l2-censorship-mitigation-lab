@@ -140,6 +140,15 @@ spec:
       labels:
         l2.service: tx-order-guarantor
     spec:
+      affinity:
+        nodeAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            nodeSelectorTerms:
+            - matchExpressions:
+              - key: kubernetes.io/hostname
+                operator: In
+                values:
+                  - tdx-guest
       containers:
         - name: tx-order-guarantor
           image: docker.io/cbarbieru/tx-order-guarantor:0.8
