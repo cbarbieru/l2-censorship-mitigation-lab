@@ -26,7 +26,7 @@ spec:
                   - ubuntu
       containers:
         - name: contender
-          image: docker.io/cbarbieru/contender:0.5.5-cb
+          image: docker.io/cbarbieru/contender:0.5.5-cb-2
           command: ["/bin/sh", "-c"]
           args: ["sleep infinity"]
           volumeMounts:
