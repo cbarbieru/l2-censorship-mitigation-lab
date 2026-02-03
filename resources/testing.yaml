@@ -23,7 +23,7 @@ spec:
               - key: kubernetes.io/hostname
                 operator: In
                 values:
-                  - ubuntu
+                  - std-guest
       containers:
         - name: contender
           image: docker.io/cbarbieru/contender:0.5.5-cb-3
@@ -79,7 +79,7 @@ spec:
               - key: kubernetes.io/hostname
                 operator: In
                 values:
-                  - ubuntu
+                  - std-guest
       containers:
         - name: foundry-test
           image: ghcr.io/foundry-rs/foundry:latest

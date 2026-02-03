@@ -30,6 +30,7 @@ Perform these steps on your host machine to provision the Master VM.
     
     cat <<EOF > user-data
     #cloud-config
+    hostname: master
     users:
       - name: ubuntu
         sudo: ALL=(ALL) NOPASSWD:ALL
@@ -149,6 +150,7 @@ Perform these steps inside the TDX Guest VM.
     curl -sfL https://get.k3s.io | K3S_URL=https://192.168.122.58:6443 \
       K3S_TOKEN=YOUR_TOKEN_FROM_STEP_2 \
       sh -s - agent \
+      --with-node-id \
       --node-ip 192.168.122.89 \
       --flannel-iface=enp0s2
     ```
