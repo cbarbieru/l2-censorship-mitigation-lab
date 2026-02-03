@@ -28,7 +28,7 @@ spec:
               - key: kubernetes.io/hostname
                 operator: In
                 values:
-                  - tdx-guest
+                  - std-guest
       containers:
         - name: beacon
           image:
@@ -182,7 +182,7 @@ spec:
               - key: kubernetes.io/hostname
                 operator: In
                 values:
-                  - tdx-guest
+                  - std-guest
       containers:
         - name: el
           image: ghcr.io/paradigmxyz/reth:v1.4.8
@@ -316,7 +316,7 @@ spec:
               - key: kubernetes.io/hostname
                 operator: In
                 values:
-                  - tdx-guest
+                  - std-guest
       containers:
         - args:
             - --l1-eth-rpc
@@ -377,7 +377,7 @@ spec:
               - key: kubernetes.io/hostname
                 operator: In
                 values:
-                  - tdx-guest
+                  - std-guest
       containers:
         - args:
             - -c
@@ -495,7 +495,7 @@ spec:
               - key: kubernetes.io/hostname
                 operator: In
                 values:
-                  - tdx-guest
+                  - std-guest
       containers:
         - args:
             - --l1
@@ -642,7 +642,7 @@ spec:
               - key: kubernetes.io/hostname
                 operator: In
                 values:
-                  - tdx-guest
+                  - std-guest
       containers:
         - name: validator
           image: 

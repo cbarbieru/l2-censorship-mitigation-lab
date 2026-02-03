@@ -31,7 +31,6 @@ spec:
       labels:
         l2.service: op-geth-ext
     spec:
-      #runtimeClassName: kata-qemu-tdx
       affinity:
         nodeAffinity:
           requiredDuringSchedulingIgnoredDuringExecution:
