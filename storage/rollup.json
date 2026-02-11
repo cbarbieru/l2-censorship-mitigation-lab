@@ -14,14 +14,14 @@
  "fjord_time": 0,
  "genesis": {
   "l1": {
-   "hash": "0x961ea8dc01d876956884034d5da7cbd769e98094bcbb5908546ff0378fdef966",
+   "hash": "0x1976b386ae9598bfec6ee3054bfdc6726b1df7f64934762a33234ca768e64494",
    "number": 0
   },
   "l2": {
-   "hash": "0xf417d60a22ed902615bb014df2f465fb48f9a01d3d515436ddc28be4c55c5a13",
+   "hash": "0xbd180716f4f894c1a01bebdd90026ec5991fba6e994bdd764e8792572acab09f",
    "number": 0
   },
-  "l2_time": 1770372742,
+  "l2_time": 1770793991,
   "system_config": {
    "batcherAddr": "0xa0ee7a142d267c1f36714e4a8f75612f20a79720",
    "eip1559Params": "0x0000000000000000",
