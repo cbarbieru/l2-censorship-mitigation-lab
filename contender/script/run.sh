@@ -13,13 +13,13 @@ export RPC_URL=http://op-rbuilder.default:8545
 # sudo rm -rf /tmp/builder-playground-opstack-k8s/contender/reports
 
 echo "Running univ2..."
-contender setup -r $RPC_URL -p $KEY_1 --min-balance 0.1eth -a 800 --op /data/scenarios/uniV2.toml
+contender setup -r $RPC_URL -p $KEY_1 /data/scenarios/uniV2.toml
 yes | contender spam -r $RPC_URL -p $KEY_1 --tps 30 -d $1 --min-balance 0.1eth -a 800 --op /data/scenarios/uniV2.toml
 
-contender setup -r $RPC_URL -p $KEY_2 --min-balance 0.1eth -a 800 --op /data/scenarios/uniV2.toml
+contender setup -r $RPC_URL -p $KEY_2 /data/scenarios/uniV2.toml
 yes | contender spam -r $RPC_URL -p $KEY_2 --tps 90 -d $1 --min-balance 0.1eth -a 800 --op /data/scenarios/uniV2.toml
 
-contender setup -r $RPC_URL -p $KEY_3 --min-balance 0.1eth -a 800 --op /data/scenarios/uniV2.toml
+contender setup -r $RPC_URL -p $KEY_3 /data/scenarios/uniV2.toml
 yes | contender spam -r $RPC_URL -p $KEY_3 --tps 270 -d $1 --min-balance 0.1eth -a 800 --op /data/scenarios/uniV2.toml
 
 
