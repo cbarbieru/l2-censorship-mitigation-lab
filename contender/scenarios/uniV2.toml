@@ -138,7 +138,7 @@ signature = "addLiquidity(address tokenA, address tokenB, uint amountADesired, u
 args = [
      "{weth}",
      "{testToken}",
-     "2500000000000000000",
+     "10000000000000000000",
      "100000000000000000000000000",
      "100000000000000",
      "5000000000000000",
@@ -153,7 +153,7 @@ signature = "addLiquidity(address tokenA, address tokenB, uint amountADesired, u
 args = [
      "{weth}",
      "{testToken2}",
-     "2500000000000000000",
+     "10000000000000000000",
      "100000000000000000000000000",
      "100000000000000",
      "5000000000000000",
@@ -185,12 +185,7 @@ args = [
 kind = "uniswap_v2_swap_weth-testToken"
 to = "{unicheat}"
 signature = "function swap(address tokenIn, address tokenOut, uint256 amountIn) public"
-args = ["{weth}", "{testToken}", "10000000000000000"]
-# max_fee_per_gas = "200000000"
-# max_priority_fee_per_gas = "20000000"
-# fuzz = [
-#     { param = "max_priority_fee_per_gas", min = "15000000", max = "20000000" }
-# ]
+args = ["{weth}", "{testToken}", "10000000000000"]
 
 [[spam]]
 
@@ -198,7 +193,7 @@ args = ["{weth}", "{testToken}", "10000000000000000"]
 kind = "uniswap_v2_swap_testToken-weth"
 to = "{unicheat}"
 signature = "function swap(address tokenIn, address tokenOut, uint256 amountIn) public"
-args = ["{testToken}", "{weth}", "1000000000000000000"]
+args = ["{testToken}", "{weth}", "1000000000000000"]
 
 [[spam]]
 
@@ -206,7 +201,7 @@ args = ["{testToken}", "{weth}", "1000000000000000000"]
 kind = "uniswap_v2_swap_weth-testToken2"
 to = "{unicheat}"
 signature = "function swap(address tokenIn, address tokenOut, uint256 amountIn) public"
-args = ["{weth}", "{testToken2}", "10000000000000000"]
+args = ["{weth}", "{testToken2}", "10000000000000"]
 
 [[spam]]
 
@@ -214,7 +209,7 @@ args = ["{weth}", "{testToken2}", "10000000000000000"]
 kind = "uniswap_v2_swap_testToken2-weth"
 to = "{unicheat}"
 signature = "function swap(address tokenIn, address tokenOut, uint256 amountIn) public"
-args = ["{testToken2}", "{weth}", "1000000000000000000"]
+args = ["{testToken2}", "{weth}", "1000000000000000"]
 
 [[spam]]
 
@@ -222,7 +217,7 @@ args = ["{testToken2}", "{weth}", "1000000000000000000"]
 kind = "uniswap_v2_swap_testToken-testToken2"
 to = "{unicheat}"
 signature = "function swap(address tokenIn, address tokenOut, uint256 amountIn) public"
-args = ["{testToken}", "{testToken2}", "1000000000000000000"]
+args = ["{testToken}", "{testToken2}", "1000000000000000"]
 
 [[spam]]
 
@@ -230,4 +225,4 @@ args = ["{testToken}", "{testToken2}", "1000000000000000000"]
 kind = "uniswap_v2_swap_testToken2-testToken"
 to = "{unicheat}"
 signature = "function swap(address tokenIn, address tokenOut, uint256 amountIn) public"
-args = ["{testToken2}", "{testToken}", "1000000000000000000"]
+args = ["{testToken2}", "{testToken}", "1000000000000000"]
