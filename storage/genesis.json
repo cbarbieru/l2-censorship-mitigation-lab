@@ -16,9 +16,9 @@
 		"arrowGlacierBlock": 0,
 		"grayGlacierBlock": 0,
 		"mergeNetsplitBlock": 0,
-		"shanghaiTime": 1770868907,
-		"cancunTime": 1770868907,
-		"pragueTime": 1770868907,
+		"shanghaiTime": 1770883946,
+		"cancunTime": 1770883946,
+		"pragueTime": 1770883946,
 		"terminalTotalDifficulty": 0,
 		"depositContractAddress": "0x4242424242424242424242424242424242424242",
 		"blobSchedule": {
@@ -35,7 +35,7 @@
 		}
 	},
 	"nonce": "0x0",
-	"timestamp": "0x698d50ab",
+	"timestamp": "0x698d8b6a",
 	"extraData": "0x",
 	"gasLimit": "0x3938700",
 	"difficulty": "0x1",
