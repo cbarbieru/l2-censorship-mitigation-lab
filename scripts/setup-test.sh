@@ -18,8 +18,8 @@ case "$MODE" in
         sudo k3s kubectl apply -f ../resources/01_opstack.yaml
         ;;
     "2")
-        sudo k3s kubectl apply -f ../resources/01_opstack.yaml -f ../resources/rollup-boost.yaml -f ../resources/02_op-rbuilder_tdx.yaml
-        # sudo k3s kubectl apply -f ../resources/01_opstack.yaml -f ../resources/rollup-boost.yaml -f ../resources/02_op-geth_tdx.yaml
+        # sudo k3s kubectl apply -f ../resources/01_opstack.yaml -f ../resources/rollup-boost.yaml -f ../resources/02_op-rbuilder_tdx.yaml
+        sudo k3s kubectl apply -f ../resources/01_opstack.yaml -f ../resources/rollup-boost.yaml -f ../resources/02_op-geth_tdx.yaml
         ;;
     "3")
         sudo k3s kubectl apply -f ../resources/01_opstack.yaml -f ../resources/rollup-boost.yaml -f ../resources/03_tx-order-guarantor_tdx.yaml
