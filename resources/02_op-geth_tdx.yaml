@@ -66,8 +66,6 @@ spec:
               name: op-geth-ext-jwtsecret
             - mountPath: /data/enode-key-1.txt
               name: op-geth-ext-enode-key
-            - mountPath: /data_opgeth
-              name: op-geth-ext-volume
       restartPolicy: Always
       volumes:
         - hostPath:
@@ -82,9 +80,6 @@ spec:
             path: /tmp/builder-playground-opstack-k8s/storage/enode-key-1.txt
             type: File
           name: op-geth-ext-enode-key
-        - hostPath:
-            path: /tmp/builder-playground-opstack-k8s/storage/volume-op-geth-ext-data
-          name: op-geth-ext-volume
 
 ---
 apiVersion: v1

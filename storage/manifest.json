@@ -1,5 +1,5 @@
 {
-	"session_id": "enabling-woodcock",
+	"session_id": "obliging-hippo",
 	"services": [
 		{
 			"name": "el",
@@ -376,6 +376,44 @@
 			"entrypoint": "healthmon"
 		},
 		{
+			"name": "rollup-boost",
+			"args": [
+				"--rpc-host",
+				"0.0.0.0",
+				"--rpc-port",
+				"{{Port \"authrpc\" 8551}}",
+				"--l2-jwt-path",
+				"/data/jwtsecret",
+				"--l2-url",
+				"{{Service \"op-geth\" \"authrpc\" \"http\" \"\"}}",
+				"--builder-jwt-path",
+				"/data/jwtsecret",
+				"--builder-url",
+				"http://localhost:4444"
+			],
+			"ports": [
+				{
+					"name": "authrpc",
+					"port": 8551,
+					"Protocol": "tcp",
+					"HostPort": 0
+				}
+			],
+			"node_refs": [
+				{
+					"service": "op-geth",
+					"port_label": "authrpc",
+					"protocol": "http",
+					"user": ""
+				}
+			],
+			"files_mapped": {
+				"/data/jwtsecret": "jwtsecret"
+			},
+			"tag": "v0.7.12-rc1",
+			"image": "docker.io/flashbots/rollup-boost"
+		},
+		{
 			"name": "op-node",
 			"args": [
 				"--l1",
@@ -387,7 +425,7 @@
 				"--l1.http-poll-interval",
 				"6s",
 				"--l2",
-				"{{Service \"op-geth\" \"authrpc\" \"http\" \"\"}}",
+				"{{Service \"rollup-boost\" \"authrpc\" \"http\" \"\"}}",
 				"--l2.jwt-secret",
 				"/data/jwtsecret",
 				"--metrics.enabled",
@@ -468,7 +506,7 @@
 					"user": ""
 				},
 				{
-					"service": "op-geth",
+					"service": "rollup-boost",
 					"port_label": "authrpc",
 					"protocol": "http",
 					"user": ""

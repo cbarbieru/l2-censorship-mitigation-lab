@@ -84,8 +84,6 @@ spec:
               name: op-rbuilder-jwtsecret
             - mountPath: /data/l2-genesis.json
               name: op-rbuilder-l2-genesis
-            - mountPath: /data_op_reth
-              name: op-rbuilder-volume
       restartPolicy: Always
       volumes:
         - hostPath:
@@ -95,9 +93,6 @@ spec:
             path: /tmp/builder-playground-opstack-k8s/storage/l2-genesis.json
             type: File
           name: op-rbuilder-l2-genesis
-        - hostPath:
-            path: /tmp/builder-playground-opstack-k8s/storage/volume-op-rbuilder-data
-          name: op-rbuilder-volume
 
 ---
 apiVersion: v1

@@ -104,8 +104,6 @@ spec:
               name: beacon-testnet
             - mountPath: /artifacts
               name: beacon-artifacts
-            - mountPath: /data_beacon
-              name: beacon-volume
       restartPolicy: Always
       volumes:
         - hostPath:
@@ -118,9 +116,6 @@ spec:
         - hostPath:
             path: /tmp/builder-playground-opstack-k8s/storage
           name: beacon-artifacts
-        - hostPath:
-            path: /tmp/builder-playground-opstack-k8s/storage/volume-beacon-data
-          name: beacon-volume
         
 
 ---
@@ -242,8 +237,6 @@ spec:
                 name: el-genesis
               - mountPath: /data/jwtsecret
                 name: el-jwtsecret
-              - mountPath: /data_reth
-                name: el-volume
       restartPolicy: Always
       volumes:
         - hostPath:
@@ -254,9 +247,6 @@ spec:
             path: /tmp/builder-playground-opstack-k8s/storage/jwtsecret
             type: File
           name: el-jwtsecret
-        - hostPath:
-            path: /tmp/builder-playground-opstack-k8s/storage/volume-el-data
-          name: el-volume
 
 ---
 apiVersion: v1
@@ -404,8 +394,6 @@ spec:
               name: op-geth-jwtsecret
             - mountPath: /data/enode-key-1.txt
               name: op-geth-enode-key
-            - mountPath: /data_opgeth
-              name: op-geth-volume
       restartPolicy: Always
       volumes:
         - hostPath:
@@ -420,9 +408,6 @@ spec:
             path: /tmp/builder-playground-opstack-k8s/storage/enode-key-1.txt
             type: File
           name: op-geth-enode-key
-        - hostPath:
-            path: /tmp/builder-playground-opstack-k8s/storage/volume-op-geth-data
-          name: op-geth-volume
 
 ---
 apiVersion: v1
@@ -564,8 +549,6 @@ spec:
               name: op-node-jwtsecret
             - mountPath: /data/rollup.json
               name: op-node-rollup
-            - mountPath: /data_db
-              name: op-node-db
       restartPolicy: Always
       volumes:
         - hostPath:
@@ -576,9 +559,6 @@ spec:
             path: /tmp/builder-playground-opstack-k8s/storage/rollup.json
             type: File
           name: op-node-rollup
-        - hostPath:
-            path: /tmp/builder-playground-opstack-k8s/storage/volume-op-node-data
-          name: op-node-db
 
 ---
 apiVersion: v1
