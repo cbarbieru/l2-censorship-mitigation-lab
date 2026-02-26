@@ -26,7 +26,7 @@ spec:
                   - ubuntu
       containers:
         - name: contender
-          image: docker.io/cbarbieru/contender:0.5.5-cb-4
+          image: docker.io/cbarbieru/contender:0.5.5-tps-ms
           command: ["/bin/sh", "-c"]
           args: ["sleep infinity"]
           volumeMounts:
@@ -93,3 +93,71 @@ spec:
             - name: PRIV_KEY
               value: 0x6e618720a28574533d1abe73babd6b2a87095a1361ab18572d995ba9fd1629b5
       restartPolicy: Always
+
+
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: prometheus
+  labels:
+    app: prometheus
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: prometheus
+  template:
+    metadata:
+      labels:
+        app: prometheus
+    spec:
+      affinity:
+        nodeAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            nodeSelectorTerms:
+            - matchExpressions:
+              - key: kubernetes.io/hostname
+                operator: In
+                values:
+                  - ubuntu
+      containers:
+        - name: prometheus
+          image: prom/prometheus:latest
+          args:
+            - "--config.file=/etc/prometheus/prometheus.yaml"
+            - "--storage.tsdb.path=/prometheus"
+            - "--web.console.libraries=/usr/share/prometheus/console_libraries"
+            - "--web.console.templates=/usr/share/prometheus/consoles"
+          ports:
+            - containerPort: 9090
+              name: http
+          volumeMounts:
+            - name: prometheus-config-volume
+              mountPath: /etc/prometheus/prometheus.yaml
+            - name: prometheus-data-volume
+              mountPath: /prometheus
+      volumes:
+        - name: prometheus-config-volume
+          hostPath:
+            path: /tmp/builder-playground-opstack-k8s/storage/prometheus.yaml
+            type: File
+        - name: prometheus-data-volume
+          hostPath:
+            path: /tmp/builder-playground-opstack-k8s/storage/prometheus-data # Using hostPath for simplicity
+            type: DirectoryOrCreate
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: prometheus
+  labels:
+    app: prometheus
+spec:
+  ports:
+    - name: http
+      port: 9090
+      targetPort: 9090
+  selector:
+    app: prometheus
+  type: ClusterIP
