@@ -1,28 +1,35 @@
 global:
-  evaluation_interval: 1s
-  scrape_interval: 1s
+  scrape_interval: 10s      # Mărit de la 1s la 15s pentru a evita încărcarea excesivă
+  scrape_timeout: 5s       # Timp generos pentru ca op-geth să genereze metricile
+  evaluation_interval: 10s
+
 scrape_configs:
-- job_name: 'el'
-  metrics_path: /metrics
-  static_configs:
-  - targets: ['el:9090']
-- job_name: 'op-geth'
-  metrics_path: /debug/metrics/prometheus
-  static_configs:
-  - targets: ['op-geth:9090']
-- job_name: 'op-geth-ext'
-  metrics_path: /debug/metrics/prometheus
-  static_configs:
-  - targets: ['op-geth-ext:9090']
-- job_name: 'op-node'
-  metrics_path: /metrics
-  static_configs:
-  - targets: ['op-node:7300']
-- job_name: 'rollup-boost'
-  metrics_path: /metrics
-  static_configs:
-  - targets: ['rollup-boost:9090']
-- job_name: 'op-batcher'
-  metrics_path: /metrics
-  static_configs:
-  - targets: ['op-batcher:9090']
+  - job_name: 'el'
+    metrics_path: /metrics
+    static_configs:
+      - targets: ['el.default.svc.cluster.local:9090']
+
+  - job_name: 'op-geth'
+    metrics_path: /debug/metrics/prometheus
+    static_configs:
+      - targets: ['op-geth.default.svc.cluster.local:9090']
+
+  - job_name: 'op-geth-ext'
+    metrics_path: /debug/metrics/prometheus
+    static_configs:
+      - targets: ['op-geth-ext.default.svc.cluster.local:9090']
+
+  - job_name: 'op-node'
+    metrics_path: /metrics
+    static_configs:
+      - targets: ['op-node.default.svc.cluster.local:7300']
+
+  - job_name: 'rollup-boost'
+    metrics_path: /metrics
+    static_configs:
+      - targets: ['rollup-boost.default.svc.cluster.local:9090']
+
+  - job_name: 'op-batcher'
+    metrics_path: /metrics
+    static_configs:
+      - targets: ['op-batcher.default.svc.cluster.local:9090']
