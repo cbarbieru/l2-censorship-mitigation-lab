@@ -1,5 +1,6 @@
 ---
 apiVersion: apps/v1
+kind: Deployment
 metadata:
   name: prometheus
   labels:
@@ -76,6 +77,7 @@ data:
         editable: true
 ---
 apiVersion: apps/v1
+kind: Deployment
 metadata:
   name: grafana
   labels:
