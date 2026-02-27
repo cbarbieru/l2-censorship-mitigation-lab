@@ -4,7 +4,7 @@
 MODE="$1"
 
 # Delete existing resources
-sudo k3s kubectl delete --ignore-not-found=true -f ../resources/
+sudo k3s kubectl delete --ignore-not-found=true -f ../resources/01_opstack.yaml -f ../resources/rollup-boost.yaml -f ../resources/02_op-rbuilder_tdx.yaml -f ../resources/02_op-geth_tdx.yaml
 
 sleep 3
 
