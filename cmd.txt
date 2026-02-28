@@ -7,3 +7,6 @@ ls -al /tmp/builder-playground-opstack-k8s/storage/
 sudo ./setup-metrics.sh /tmp/builder-playground-opstack-k8s/contender/reports/pod_metrics.csv
 
 sudo rm -rf /tmp/builder-playground-opstack-k8s/contender/reports
+
+ssh -J cbarbieru@rosablanche-1.maas -L 3000:localhost:3000 ubuntu@192.168.122.58
+nohup sudo k3s kubectl port-forward -n metrics svc/grafana 3000:3000 --address 0.0.0.0 > pf.log 2>&1 &
