@@ -13,3 +13,8 @@ scrape_configs:
     metrics_path: /debug/metrics/prometheus
     static_configs:
       - targets: ['op-geth-ext.default.svc.cluster.local:9090']
+
+  - job_name: 'op-rbuilder'
+    metrics_path: /metrics
+    static_configs:
+      - targets: ['op-rbuilder.default.svc.cluster.local:9090']

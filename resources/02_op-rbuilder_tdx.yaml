@@ -37,7 +37,7 @@ spec:
               - key: kubernetes.io/hostname
                 operator: In
                 values:
-                  - tdx-guest
+                  - std2-guest
       containers:
         - args:
             - node

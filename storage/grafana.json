@@ -105,7 +105,7 @@
       "targets": [
         {
           "editorMode": "code",
-          "expr": "rate(system_cpu_procload_total{job=~\"op-geth.*\"}[5m])",
+          "expr": "rate(system_cpu_procload_total{job=~\"op-geth.*\"}[5m]) or \nrate(reth_process_cpu_seconds_total{job=~\"op-rbuilder.*\"}[5m])",
           "legendFormat": "{{job}}",
           "range": true,
           "refId": "A"
@@ -199,7 +199,7 @@
       "targets": [
         {
           "editorMode": "code",
-          "expr": "system_memory_used{job=~\"op-geth.*\"} / 1024 / 1024",
+          "expr": "(system_memory_used{job=~\"op-geth.*\"} / 1024 / 1024) or\n(reth_process_resident_memory_bytes{job=~\"op-rbuilder.*\"} / 1024 / 1024)",
           "legendFormat": "{{job}}",
           "range": true,
           "refId": "A"
@@ -283,7 +283,7 @@
             "uid": "PBFA97CFB590B2093"
           },
           "editorMode": "code",
-          "expr": "rate(system_cpu_procload_total{job=~\"op-geth.*\"}[5m])",
+          "expr": "rate(system_cpu_procload_total{job=~\"op-geth.*\"}[5m]) or \nrate(reth_process_cpu_seconds_total{job=~\"op-rbuilder.*\"}[5m])",
           "format": "table",
           "legendFormat": "__auto",
           "range": true,
@@ -295,7 +295,7 @@
             "uid": "PBFA97CFB590B2093"
           },
           "editorMode": "code",
-          "expr": "system_memory_used{job=~\"op-geth.*\"} / 1024 / 1024",
+          "expr": "(system_memory_used{job=~\"op-geth.*\"} / 1024 / 1024) or\n(reth_process_resident_memory_bytes{job=~\"op-rbuilder.*\"} / 1024 / 1024)",
           "format": "table",
           "instant": false,
           "legendFormat": "__auto",
@@ -355,6 +355,6 @@
   "timezone": "browser",
   "title": "Default",
   "uid": "adn96cw",
-  "version": 6,
+  "version": 3,
   "weekStart": ""
 }
