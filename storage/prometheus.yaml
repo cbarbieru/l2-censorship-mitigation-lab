@@ -18,3 +18,8 @@ scrape_configs:
     metrics_path: /metrics
     static_configs:
       - targets: ['op-rbuilder.default.svc.cluster.local:9090']
+
+  - job_name: 'rollup-boost'
+    metrics_path: /metrics
+    static_configs:
+      - targets: ['rollup-boost.default.svc.cluster.local:9090']

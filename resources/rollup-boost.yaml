@@ -44,9 +44,10 @@ spec:
             - http://op-geth:8551
             - --builder-jwt-path
             - /data/jwtsecret
+            - --metrics
             - --builder-url
-            - http://op-rbuilder:8551
-            # - http://op-geth-ext:8551
+            # - http://op-rbuilder:8551
+            - http://op-geth-ext:8551
           image: docker.io/flashbots/rollup-boost:0.7.0
           name: rollup-boost
           ports:
