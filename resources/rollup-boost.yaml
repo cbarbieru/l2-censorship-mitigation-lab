@@ -4,6 +4,7 @@ kind: Deployment
 metadata:
   annotations:
     port.authrpc: "8551"
+    port.metrics: "9090"
     service: rollup-boost
   labels:
     l2.service: rollup-boost
@@ -19,6 +20,7 @@ spec:
     metadata:
       annotations:
         port.authrpc: "8551"
+        port.metrics: "9090"
         service: rollup-boost
       labels:
         l2.service: rollup-boost
@@ -52,6 +54,8 @@ spec:
           name: rollup-boost
           ports:
             - containerPort: 8551
+              protocol: TCP
+            - containerPort: 9090
               protocol: TCP
           volumeMounts:
             - mountPath: /data/jwtsecret
