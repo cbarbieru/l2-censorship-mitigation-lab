@@ -93,3 +93,152 @@ spec:
             - name: PRIV_KEY
               value: 0x6e618720a28574533d1abe73babd6b2a87095a1361ab18572d995ba9fd1629b5
       restartPolicy: Always
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: online-voting-be
+  labels:
+    app: online-voting-be
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: online-voting-be
+  template:
+    metadata:
+      labels:
+        app: online-voting-be
+    spec:
+      containers:
+        - name: be
+          image: docker.io/cbarbieru/online-voting-be:latest
+          ports:
+            - containerPort: 8080
+          env:
+            - name: PORT
+              value: "8080"
+            - name: MONGO_URI
+              value: "mongodb://mongodb:27017/voting_db"
+          volumeMounts:
+            - name: jmeter-data
+              mountPath: /data
+      volumes:
+        - name: jmeter-data
+          hostPath:
+            path: /tmp/builder-playground-opstack-k8s/jmeter/data
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: online-voting-be
+spec:
+  selector:
+    app: online-voting-be
+  ports:
+    - protocol: TCP
+      port: 8080
+      targetPort: 8080
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: online-voting-fe
+  labels:
+    app: online-voting-fe
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: online-voting-fe
+  template:
+    metadata:
+      labels:
+        app: online-voting-fe
+    spec:
+      containers:
+        - name: fe
+          image: docker.io/cbarbieru/online-voting-fe:latest
+          ports:
+            - containerPort: 3030
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: online-voting-fe
+spec:
+  selector:
+    app: online-voting-fe
+  ports:
+    - protocol: TCP
+      port: 3030
+      targetPort: 3030
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mongodb
+  labels:
+    app: mongodb
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: mongodb
+  template:
+    metadata:
+      labels:
+        app: mongodb
+    spec:
+      containers:
+        - name: mongodb
+          image: mongo:latest
+          ports:
+            - containerPort: 27017
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: mongodb
+spec:
+  selector:
+    app: mongodb
+  ports:
+    - protocol: TCP
+      port: 27017
+      targetPort: 27017
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: jmeter
+  labels:
+    app: jmeter
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: jmeter
+  template:
+    metadata:
+      labels:
+        app: jmeter
+    spec:
+      containers:
+        - name: jmeter
+          image: justb4/jmeter:latest
+          command: ["/bin/sh", "-c"]
+          args: ["sleep infinity"]
+          volumeMounts:
+            - name: jmeter-data
+              mountPath: /data
+            - name: jmeter-test
+              mountPath: /test
+      volumes:
+        - name: jmeter-data
+          hostPath:
+            path: /tmp/builder-playground-opstack-k8s/jmeter/data
+        - name: jmeter-test
+          hostPath:
+            path: /tmp/builder-playground-opstack-k8s/jmeter/test
+

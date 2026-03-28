@@ -12,3 +12,4 @@ ssh -J cbarbieru@rosablanche-1.maas -L 3000:localhost:3000 -L 9090:localhost:909
 nohup sudo k3s kubectl port-forward -n metrics svc/prometheus 9090:9090 --address 0.0.0.0 > pfp.log 2>&1 &
 nohup sudo k3s kubectl port-forward -n metrics svc/grafana 3000:3000 --address 0.0.0.0 > pfg.log 2>&1 &
 
+docker run -p 80:80 -e APP_NODE_URL="http://localhost:8545" alethio/ethereum-lite-explorer

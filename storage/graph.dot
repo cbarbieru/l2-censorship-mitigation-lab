@@ -9,7 +9,6 @@ digraph G {
   validator [label="validator"];
   op_geth [label="op-geth|{http:8545|ws:8546|authrpc:8551|rpc:30303|metrics:6061}"];
   op_geth_healthmon [label="op-geth_healthmon"];
-  rollup_boost [label="rollup-boost|{authrpc:8551}"];
   op_node [label="op-node|{metrics:7300|http:8549|p2p:9003|p2p:9003}"];
   op_batcher [label="op-batcher"];
 
@@ -18,10 +17,9 @@ digraph G {
   beacon_healthmon -> beacon [label="http"];
   validator -> beacon [label="http"];
   op_geth_healthmon -> op_geth [label="http"];
-  rollup_boost -> op_geth [label="authrpc"];
   op_node -> el [label="http"];
   op_node -> beacon [label="http"];
-  op_node -> rollup_boost [label="authrpc"];
+  op_node -> op_geth [label="authrpc"];
   op_batcher -> el [label="http"];
   op_batcher -> op_geth [label="http"];
   op_batcher -> op_node [label="http"];
