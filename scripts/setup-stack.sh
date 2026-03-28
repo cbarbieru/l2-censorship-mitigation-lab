@@ -31,4 +31,4 @@ case "$MODE" in
 esac
 
 sleep 3
-echo "test-$MODE setup finished"
+echo "stack-$MODE setup finished"
