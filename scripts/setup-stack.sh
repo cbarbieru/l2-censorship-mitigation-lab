@@ -8,10 +8,6 @@ sudo k3s kubectl delete --ignore-not-found=true -f ../resources/01_opstack.yaml 
 
 sleep 3
 
-# Reset storage
-sudo rm -rf /tmp/builder-playground-opstack-k8s/storage/
-sudo cp -a ../storage/. /tmp/builder-playground-opstack-k8s/storage/
-
 # Apply resources depending on the parameter
 case "$MODE" in
     "1")

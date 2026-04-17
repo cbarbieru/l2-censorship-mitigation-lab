@@ -1,18 +1,16 @@
 #!/bin/bash
 
 # Parameters
-SERVICE_NAME="$1"  # e.g., op-geth
+SERVICE_NAME="$1"
+NAMESPACE="$2"
+PORT="$3"
 
-if [[ -z "$SERVICE_NAME" ]]; then
-    echo "Usage: $0 <service-name>"
+if [[ -z "$SERVICE_NAME" || -z "$NAMESPACE" || -z "$PORT" ]]; then
+    echo "Usage: $0 <service-name> <namespace> <port>"
     exit 1
 fi
 
-# Kill existing port-forward processes
-sudo pkill -f "kubectl.*port-forward"
+# Start port-forward in background
+nohup sudo k3s kubectl port-forward -n "$NAMESPACE" svc/"$SERVICE_NAME" "$PORT":"$PORT" --address 0.0.0.0 > "${SERVICE_NAME}.log" 2>&1 &
 
-# Start port-forwards
-sudo k3s kubectl port-forward svc/"$SERVICE_NAME" 8545:8545 &
-sudo k3s kubectl port-forward svc/"$SERVICE_NAME" 9091:9090 &
-
-echo "Port-forwarding started for $SERVICE_NAME (8545 and 9090)"
+echo "Port-forwarding for $SERVICE_NAME started in background. Logs: ${SERVICE_NAME}.log"
