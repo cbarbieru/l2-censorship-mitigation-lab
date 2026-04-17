@@ -216,9 +216,9 @@ cd scripts
 
 ### 3.3 Port Forwarding
 To access the services locally, use the `setup-forward.sh` script:
-- **Grafana**: `./scripts/setup-forward.sh grafana monitoring 3000`
+- **Grafana**: `./scripts/setup-forward.sh grafana metrics 3000`
 - **L2 RPC (op-rbuilder)**: `./scripts/setup-forward.sh op-geth default 8545`
-- **Online Voting FE**: `./scripts/setup-forward.sh online-voting default 3030`
+- **Online Voting FE**: `./scripts/setup-forward.sh online-voting-fe default 3030`
 
 The script requires: `<service-name> <namespace> <port>`.
 
