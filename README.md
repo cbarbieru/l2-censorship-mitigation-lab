@@ -127,15 +127,14 @@ curl -sfL https://get.k3s.io | K3S_URL=https://<MASTER_IP>:6443 \
 ```
 
 #### 3.1.3 TDX Worker Node Setup (TEE VM)
-...
-    ```bash
-    curl -sfL https://get.k3s.io | K3S_URL=https://<MASTER_IP>:6443 \
-      K3S_TOKEN=<TOKEN> \
-      sh -s - agent \
-      --with-node-id \
-      --node-ip <TDX_IP> \
-      --flannel-iface=enp0s2
-    ```
+```bash
+curl -sfL https://get.k3s.io | K3S_URL=https://<MASTER_IP>:6443 \
+  K3S_TOKEN=<TOKEN> \
+  sh -s - agent \
+  --with-node-id \
+  --node-ip <TDX_IP> \
+  --flannel-iface=enp0s2
+```
 
 #### 3.1.4 Target Deployment Scenarios
 The cluster supports various research configurations by distributing workloads across Normal and TDX nodes. In all scenarios, the **Master Node** handles the K8S Control Plane, metrics and testing pods.
@@ -152,15 +151,15 @@ To ensure that specific components (like the TEE-based builder or sequencer) run
 
 Example from `resources/02_op-geth_tdx.yaml`:
 ```yaml
-      affinity:
-        nodeAffinity:
-          requiredDuringSchedulingIgnoredDuringExecution:
-            nodeSelectorTerms:
-            - matchExpressions:
-              - key: kubernetes.io/hostname
-                operator: In
-                values:
-                  - tdx-guest
+affinity:
+  nodeAffinity:
+    requiredDuringSchedulingIgnoredDuringExecution:
+      nodeSelectorTerms:
+      - matchExpressions:
+        - key: kubernetes.io/hostname
+          operator: In
+          values:
+            - tdx-guest
 ```
 
 ---
@@ -215,3 +214,9 @@ Exec into the `contender` pod and run the spam script:
 3.  **Run JMeter**:
     - Feed the generated CSV to the JMeter pod.
     - Execute: `jmeter -n -t /test/online-voting-tests.jmx -l results.jtl`
+
+---
+
+## 4. Credits
+
+The **online-voting** DApp was originally developed by [Gabriela Neagu](https://github.com/gabrielaneagu).
