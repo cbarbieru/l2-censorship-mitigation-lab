@@ -1,4 +1,4 @@
-# L2 Optimism Test Bed & Censorship Resistance Research
+# L2 Censorship Mitigation Lab (L2CML)
 
 This repository provides a comprehensive environment for deploying, orchestrating, and testing Ethereum L2 (Optimism-based) stacks with a focus on exploring different architectural solutions for censorship resistance and decentralization.
 
@@ -193,7 +193,14 @@ ssh -J <user>@<jump-host> \
   ubuntu@<MASTER_IP>
 ```
 
-### 3.4 Running Tests & Load Injection
+### 3.4 Block Explorer
+A lightweight block explorer can be used to visualize transactions and blocks on the L2 network. Run it using Docker:
+```bash
+docker run -p 80:80 -e APP_NODE_URL="http://localhost:8545" alethio/ethereum-lite-explorer
+```
+Once running, access the explorer at `http://localhost:80`.
+
+### 3.5 Running Tests & Load Injection
 
 #### Load Injection with Contender
 Exec into the `contender` pod and run the spam script:
