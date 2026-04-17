@@ -2,6 +2,19 @@
 
 This repository provides a comprehensive environment for deploying, orchestrating, and testing Ethereum L2 (Optimism-based) stacks with a focus on exploring different architectural solutions for censorship resistance and decentralization.
 
+## Table of Contents
+1. [Repository Overview](#1-repository-overview)
+   - 1.1 [L2 Optimism Test Bed](#11-l2-optimism-test-bed)
+   - 1.2 [Key Components](#12-key-components)
+2. [Research Aim & Objectives](#2-research-aim--objectives)
+3. [Deployment & Usage Instructions](#3-deployment--usage-instructions)
+   - 3.1 [VM and Cluster Setup](#31-vm-and-cluster-setup-2-node-k3s)
+   - 3.2 [Kubernetes Resource Deployment](#32-kubernetes-resource-deployment)
+   - 3.3 [Port Forwarding](#33-port-forwarding)
+   - 3.4 [Block Explorer](#34-block-explorer)
+   - 3.5 [Running Tests & Load Injection](#35-running-tests--load-injection)
+4. [Credits](#4-credits)
+
 ---
 
 ## 1. Repository Overview
@@ -118,15 +131,34 @@ Perform these steps on your host machine to provision the Master VM.
     ```
 3.  **Get Join Token**: `sudo cat /var/lib/rancher/k3s/server/node-token`
 
-#### 3.1.2 Standard Worker Nodes
-Standard (non-TEE) worker nodes can be provisioned using the same steps as the **Master Node** (Ubuntu 24.04 VM). Once the VM is running, join it to the cluster using the agent install command:
-```bash
-curl -sfL https://get.k3s.io | K3S_URL=https://<MASTER_IP>:6443 \
-  K3S_TOKEN=<TOKEN> \
-  sh -s - agent --node-ip <WORKER_IP>
-```
+#### 3.1.2 TDX Worker Node Setup (TEE VM)
 
-#### 3.1.3 TDX Worker Node Setup (TEE VM)
+**Host Preparation (TDX)**
+Perform these steps on your host machine.
+
+1.  **Clone and Configure TDX Image**
+    ```bash
+    git clone https://github.com/canonical/tdx
+    cd tdx/guest-tools/image
+    
+    # Open script to change disk size
+    vim create-td-image.sh
+    # ACTION: Locate the variable `SIZE` and change it to `50` (e.g., SIZE=50)
+    
+    # Build the image
+    ./create-td-image.sh -v 24.04
+    ```
+
+2.  **Run the TDX Guest**
+    ```bash
+    cd ..
+    vim trust_domain.xml.template 
+    # ACTION: memory and cpu and set 4G and 4 vcpus respectively 
+    ./tdvirsh new
+    ```
+
+**Worker Node Configuration (Inside VM)**
+Once the VM is running, join it to the cluster using the agent install command:
 ```bash
 curl -sfL https://get.k3s.io | K3S_URL=https://<MASTER_IP>:6443 \
   K3S_TOKEN=<TOKEN> \
@@ -134,6 +166,14 @@ curl -sfL https://get.k3s.io | K3S_URL=https://<MASTER_IP>:6443 \
   --with-node-id \
   --node-ip <TDX_IP> \
   --flannel-iface=enp0s2
+```
+
+#### 3.1.3 Standard Worker Nodes
+Standard (non-TEE) worker nodes can be provisioned using the same steps as the **Master Node** (Ubuntu 24.04 VM). Once the VM is running, join it to the cluster using the agent install command:
+```bash
+curl -sfL https://get.k3s.io | K3S_URL=https://<MASTER_IP>:6443 \
+  K3S_TOKEN=<TOKEN> \
+  sh -s - agent --node-ip <WORKER_IP>
 ```
 
 #### 3.1.4 Target Deployment Scenarios
