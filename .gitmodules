@@ -1,0 +1,9 @@
+[submodule "tx-order-guarantor"]
+	path = tx-order-guarantor
+	url = https://github.com/cbarbieru/tx-order-guarantor.git
+[submodule "op-rbuilder"]
+	path = op-rbuilder
+	url = https://github.com/cbarbieru/op-rbuilder.git
+[submodule "contender"]
+	path = contender
+	url = https://github.com/cbarbieru/contender.git
